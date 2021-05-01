@@ -1,0 +1,15 @@
+{
+  "extends": ["react-app", "react-app/jest", "airbnb", "airbnb/hooks", "prettier"],
+  "plugins": ["prettier"],
+  "ignorePatterns": ["node_modules"],
+  "rules": {
+    "func-names": "off",
+    "no-console": "warn",
+    "no-underscore-dangle": "off",
+    "prettier/prettier": ["error"],
+    "react/react-in-jsx-scope": "off",
+    "import/prefer-default-export": "off",
+    "no-plusplus": ["error", { "allowForLoopAfterthoughts": true }],
+    "no-unused-vars": ["error", { "ignoreRestSiblings": true, "argsIgnorePattern": "next" }]
+  }
+}
