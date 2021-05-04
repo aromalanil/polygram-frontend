@@ -1,0 +1,28 @@
+.nav-bar {
+  width: 38vw;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  background-color: var(--secondary-bg-color);
+  .nav-content {
+    margin-top: 3rem;
+    margin: 3rem 1rem 3rem 2rem;
+    min-width: 14rem;
+    display: flex;
+    flex-direction: column;
+    .nav-logo {
+      width: 60px;
+      margin-bottom: 5rem;
+    }
+    .nav-top {
+      width: min-content;
+    }
+    .nav-separator {
+      height: 3px;
+      border-radius: 5px;
+      width: 90%;
+      margin: 2rem auto;
+      background-color: var(--primary-bg-color);
+    }
+  }
+}

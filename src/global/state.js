@@ -1,7 +1,8 @@
 import createRhinoState from 'react-rhino';
 
 const { RhinoProvider, useRhinoState, useRhinoValue, useSetRhinoState } = createRhinoState({
-  user: null,
+  isUserLoggedIn: false,
+  isSignInPopupVisible: false,
 });
 
 export { RhinoProvider, useRhinoState, useRhinoValue, useSetRhinoState };
