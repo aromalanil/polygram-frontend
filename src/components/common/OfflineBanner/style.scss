@@ -1,0 +1,23 @@
+.device-status-banner {
+  position: fixed;
+  width: 100vw;
+  height: 2rem;
+  display: flex;
+  padding: 0.5rem;
+  align-items: center;
+  opacity: 0.9;
+  justify-content: center;
+  span {
+    color: white;
+    font-weight: 500;
+    font-size: 1.2rem;
+  }
+}
+
+.offline-banner {
+  background-color: var(--error-color);
+}
+
+.online-banner {
+  background-color: var(--success-color);
+}
