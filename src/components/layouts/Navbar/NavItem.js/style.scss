@@ -4,15 +4,14 @@
   cursor: pointer;
   .icon {
     display: flex;
-    font-size: 1.95rem;
+    font-size: 3.1rem;
     align-items: center;
     justify-content: center;
     color: var(--tertiary-text-color);
   }
   span {
     margin-left: 0.7em;
-    font-size: 1.1rem;
-    line-height: 1.8rem;
+    font-size: 1.75rem;
     font-weight: 700;
     color: var(--tertiary-text-color);
   }
@@ -28,5 +27,5 @@
 }
 
 .nav-item + .nav-item {
-  margin-top: 2rem;
+  margin-top: 3.2rem;
 }

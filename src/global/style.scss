@@ -5,6 +5,10 @@
   font-family: 'Inter', Arial, Helvetica, sans-serif;
 }
 
+:root {
+  font-size: 10px;
+}
+
 // Color Pallets
 body {
   --primary-color: #7d71fe;
@@ -15,7 +19,7 @@ body {
   --secondary-bg-color: #fffefe;
   --tertiary-bg-color: #fffefe;
   --transition: 0.3s ease-in;
-  --shadow: 0px 0px 12px 6px rgba(235, 235, 255, 1);
+  --shadow: 0px 0px 1.6rem 0.8rem rgba(235, 235, 255, 1);
 }
 
 body {
@@ -23,6 +27,11 @@ body {
   height: 100%;
   margin: 0;
   background-color: var(--primary-bg-color);
+}
+
+p,
+li {
+  font-size: 1.4rem;
 }
 
 #root {

@@ -4,8 +4,8 @@ import Avatar from '../../../common/Avatar';
 import './style.scss';
 
 const NavUserDetails = () => {
-  const name = 'John Doe';
-  const username = 'i_am_john_doe';
+  const name = 'Ebin Johny Senchonese';
+  const username = 'i_am_john_doeeeeeeeee';
 
   return (
     <div className="nav-user-details">
@@ -17,7 +17,7 @@ const NavUserDetails = () => {
       <div className="nav-details-right">
         <div className="details">
           <h3>{getShortString(name, 12)}</h3>
-          <p>{`@${getShortString(username, 16)}`}</p>
+          <p>{`@${getShortString(username, 12)}`}</p>
         </div>
         <div className="options">
           <BiDotsVerticalRounded />
