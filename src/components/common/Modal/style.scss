@@ -1,0 +1,45 @@
+.modal-bg {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(15, 15, 15, 0.452);
+}
+
+.modal {
+  top: 50%;
+  left: 50%;
+  width: 80vw;
+  padding: 2rem;
+  position: fixed;
+  max-width: 70rem;
+  border-radius: 1.3rem;
+  transform: translate(-50%, -50%);
+  background-color: var(--tertiary-bg-color);
+
+  .modal-top {
+    position: relative;
+    .modal-close {
+      position: absolute;
+      right: 0;
+      display: flex;
+      font-size: 3rem;
+      padding: 0.5rem;
+      cursor: pointer;
+      border-radius: 1.1rem;
+      align-items: center;
+      justify-content: center;
+      color: var(--tertiary-text-color);
+      background-color: var(--primary-bg-color);
+      transition: var(--transition);
+      &:hover {
+        filter: brightness(0.95);
+      }
+    }
+  }
+
+  .modal-body {
+    min-height: 30rem;
+  }
+}
