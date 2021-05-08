@@ -1,0 +1,24 @@
+.btn {
+  border: none;
+  font-weight: 700;
+  margin: 0.8rem;
+  font-size: 1.4rem;
+  cursor: pointer;
+  padding: 0.95rem 2.2rem;
+  border-radius: 0.7rem;
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+  &:active {
+    transform: translateY(0.3rem);
+  }
+}
+
+.primary-btn {
+  background-color: var(--primary-color);
+  color: var(--tertiary-bg-color);
+}
+
+.secondary-btn {
+  color: var(--primary-color);
+  background-color: var(--secondary-bg-color);
+}

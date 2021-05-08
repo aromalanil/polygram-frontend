@@ -1,0 +1,81 @@
+.snackbar {
+  left: 50%;
+  margin: auto;
+  bottom: 2rem;
+  width: 90vw;
+  display: flex;
+  color: white;
+  position: fixed;
+  max-width: 38rem;
+  align-items: center;
+  padding: 1.3rem 1rem;
+  border-radius: 0.4rem;
+  transform-origin: center;
+  animation-name: popup;
+  animation-duration: 300ms;
+  animation-fill-mode: forwards;
+  justify-content: space-between;
+  animation-timing-function: ease;
+  box-shadow: 0px 3px 5px -1px #00000020, 0px 6px 10px 0px #00000014, 0px 1px 18px 0px #00000012;
+  .snackbar-left {
+    display: flex;
+    align-items: center;
+    .snackbar-icon {
+      display: flex;
+      font-size: 2.5rem;
+      padding: 0 0.5rem;
+      padding-left: 0.7rem;
+      align-items: center;
+      justify-content: center;
+    }
+    .snackbar-content {
+      margin: 0 1rem 0 0.7rem;
+      font-weight: 500;
+      font-size: 1.35rem;
+      line-height: 1.8rem;
+    }
+  }
+  .snackbar-right {
+    display: flex;
+    font-size: 2.5rem;
+    font-weight: 300;
+    align-items: center;
+    justify-content: center;
+    .snackbar-close {
+      display: flex;
+      padding: 0.3rem;
+      cursor: pointer;
+      border-radius: 50%;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition);
+      &:hover {
+        background-color: rgba(0, 0, 0, 0.116);
+      }
+    }
+  }
+}
+
+.snackbar-error {
+  background-color: var(--error-color);
+}
+
+.snackbar-warning {
+  background-color: var(--warning-color);
+}
+
+.snackbar-success {
+  background-color: var(--success-color);
+}
+
+@keyframes popup {
+  0% {
+    transform: translate(-50%, 0.5rem);
+  }
+  90% {
+    transform: translate(-50%, -0.25rem);
+  }
+  100% {
+    transform: translate(-50%, 0);
+  }
+}

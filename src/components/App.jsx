@@ -1,18 +1,17 @@
+import { BrowserRouter as Router } from 'react-router-dom';
+
 import Routes from './Routes';
-import Navbar from './layouts/Navbar';
+import Layout from './layouts/Layout';
 import { RhinoProvider } from '../global/state';
-import RightSideBar from './layouts/RightSideBar';
 
 const App = () => (
   <>
     <RhinoProvider>
-      <div className="app">
-        <Navbar />
-        <div className="page">
+      <Router>
+        <Layout>
           <Routes />
-        </div>
-        <RightSideBar />
-      </div>
+        </Layout>
+      </Router>
     </RhinoProvider>
   </>
 );

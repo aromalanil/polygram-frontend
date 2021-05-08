@@ -1,0 +1,36 @@
+.nav-item {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  .icon,
+  span {
+    transition: var(--transition);
+    transition-property: color;
+  }
+  .icon {
+    display: flex;
+    font-size: 3.1rem;
+    align-items: center;
+    justify-content: center;
+    color: var(--tertiary-text-color);
+  }
+  span {
+    margin-left: 0.7em;
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--tertiary-text-color);
+  }
+}
+
+.active-nav-item {
+  .icon {
+    color: var(--primary-color);
+  }
+  span {
+    color: var(--secondary-text-color);
+  }
+}
+
+.nav-item + .nav-item {
+  margin-top: 3.2rem;
+}

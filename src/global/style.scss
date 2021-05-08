@@ -2,8 +2,14 @@
 
 * {
   box-sizing: border-box;
+  font-family: 'Inter', Arial, Helvetica, sans-serif;
 }
 
+:root {
+  font-size: 10px;
+}
+
+// Color Pallets
 body {
   --primary-color: #7d71fe;
   --primary-text-color: #3c4a5b;
@@ -12,4 +18,32 @@ body {
   --primary-bg-color: #eff1fd;
   --secondary-bg-color: #fffefe;
   --tertiary-bg-color: #fffefe;
+  --error-color: #f54337;
+  --warning-color: #fe9900;
+  --success-color: #4caf50;
+  --transition: 100ms ease-in;
+  --shadow: 0px 0px 1.6rem 0.8rem rgba(235, 235, 255, 1);
+}
+
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  background-color: var(--primary-bg-color);
+}
+
+p,
+li {
+  font-size: 1.4rem;
+}
+
+#root {
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
+
+.page {
+  width: 100%;
+  height: 100%;
 }
