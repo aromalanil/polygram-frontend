@@ -13,7 +13,7 @@
   width: 80vw;
   padding: 2rem;
   position: fixed;
-  max-width: 70rem;
+  max-width: 50rem;
   border-radius: 1.3rem;
   transform: translate(-50%, -50%);
   background-color: var(--tertiary-bg-color);
@@ -41,5 +41,16 @@
 
   .modal-body {
     min-height: 30rem;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .bottom-sheet {
+    bottom: 0;
+    width: 100vw;
+    max-width: 100vw;
+    transform: translate(-50%, 0%);
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
   }
 }

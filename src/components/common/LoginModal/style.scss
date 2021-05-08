@@ -1,0 +1,12 @@
+.login-modal {
+  padding: 3rem 1.5rem 0;
+  .login-form {
+    display: flex;
+    flex-direction: column;
+    button {
+      width: 60%;
+      margin: 3rem auto 0;
+      font-size: 1.8rem;
+    }
+  }
+}

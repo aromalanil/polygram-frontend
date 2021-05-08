@@ -8,12 +8,12 @@ const NavItem = ({ icon, text, route, isActive, isLoginRequired }) => {
   const history = useHistory();
   const [isLinkActive, setLinkActive] = useState(isActive);
   const isUserLoggedIn = useRhinoValue('isUserLoggedIn');
-  const makeSignInPopupVisible = useSetRhinoState('isSignInPopupVisible');
+  const makeSignInModalVisible = useSetRhinoState('isSignInModalVisible');
 
   const handleClick = () => {
-    // Showing sign in popup if user not logged-in
+    // Showing sign in modal if user not logged-in
     if (isLoginRequired && !isUserLoggedIn) {
-      makeSignInPopupVisible(true);
+      makeSignInModalVisible(true);
       return;
     }
     setLinkActive((value) => !value);

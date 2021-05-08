@@ -18,7 +18,10 @@ body {
   --primary-bg-color: #eff1fd;
   --secondary-bg-color: #fffefe;
   --tertiary-bg-color: #fffefe;
-  --transition: 0.3s ease-in;
+  --error-color: #f54337;
+  --warning-color: #fe9900;
+  --success-color: #4caf50;
+  --transition: 100ms ease-in;
   --shadow: 0px 0px 1.6rem 0.8rem rgba(235, 235, 255, 1);
 }
 

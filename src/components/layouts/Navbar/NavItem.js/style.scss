@@ -2,6 +2,11 @@
   display: flex;
   align-items: center;
   cursor: pointer;
+  .icon,
+  span {
+    transition: var(--transition);
+    transition-property: color;
+  }
   .icon {
     display: flex;
     font-size: 3.1rem;
