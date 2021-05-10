@@ -1,11 +1,15 @@
-import { BiDotsVerticalRounded } from 'react-icons/bi';
-import { getShortString } from '../../../../utils/string';
-import Avatar from '../../../common/Avatar';
 import './style.scss';
+import { useState } from 'react';
+import { BiDotsVerticalRounded } from 'react-icons/bi';
+
+import Logout from './Logout';
+import Avatar from '../../../common/Avatar';
+import { getShortString } from '../../../../utils/string';
 
 const NavUserDetails = () => {
   const name = 'Ebin Johny Senchonese';
-  const username = 'i_am_john_doeeeeeeeee';
+  const username = 'ebinjs10';
+  const [logoutVisible, setLogoutVisible] = useState(false);
 
   return (
     <div className="nav-user-details">
@@ -19,9 +23,10 @@ const NavUserDetails = () => {
           <h3>{getShortString(name, 12)}</h3>
           <p>{`@${getShortString(username, 12)}`}</p>
         </div>
-        <div className="options">
+        <button className="options" onClick={() => setLogoutVisible(true)}>
           <BiDotsVerticalRounded />
-        </div>
+          <Logout isLogoutVisible={logoutVisible} onClose={() => setLogoutVisible(false)} />
+        </button>
       </div>
     </div>
   );

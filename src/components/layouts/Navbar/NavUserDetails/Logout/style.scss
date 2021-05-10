@@ -1,0 +1,39 @@
+.logout-container {
+  top: 5rem;
+  height: 6rem;
+  right: -2rem;
+  width: 14rem;
+  cursor: default;
+  position: absolute;
+  border-radius: 1rem;
+  box-shadow: var(--shadow);
+  background-color: var(--secondary-bg-color);
+}
+.logout-container::after {
+  left: 71%;
+  content: '';
+  bottom: 100%;
+  margin-left: -0.5rem;
+  border-width: 0.5rem;
+  position: absolute;
+  border-style: solid;
+  border-color: transparent transparent var(--secondary-bg-color) transparent;
+}
+.logout {
+  border: none;
+  margin: 1.1rem;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 1.4rem;
+  border-width: thin;
+  position: relative;
+  border-style: solid;
+  border-radius: 0.3rem;
+  padding: 0.95rem 2.2rem;
+  color: var(--primary-text-color);
+  background-color: var(--secondary-bg-color);
+  border-color: var(--tertiary-text-color) var(--secondary-bg-color);
+  &:hover {
+    background-color: var(--primary-bg-color);
+  }
+}
