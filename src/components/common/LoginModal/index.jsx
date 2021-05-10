@@ -7,7 +7,7 @@ import Snackbar from '../Snackbar';
 import TextInput from '../TextInput';
 import { loginUser } from '../../../api/user';
 import useApiError from '../../../hooks/useApiError';
-import { useRhinoState } from '../../../global/state';
+import { useRhinoState, useSetRhinoState } from '../../../global/state';
 import { validatePassword, validateUsername } from '../../../utils/validation';
 
 const LoginModal = () => {
@@ -16,6 +16,7 @@ const LoginModal = () => {
   const [password, setPassword] = useState('');
   const [usernameError, setUsernameError] = useState(null);
   const [passwordError, setPasswordError] = useState(null);
+  const setIsUserLoggedIn = useSetRhinoState('isUserLoggedIn');
   const [isLoginModalVisible, setLoginModalVisibility] = useRhinoState('isLoginModalVisible');
 
   const validateForm = () => {
@@ -50,7 +51,7 @@ const LoginModal = () => {
       setApiError(err);
       return;
     }
-
+    setIsUserLoggedIn(true);
     setLoginModalVisibility(false);
   };
 

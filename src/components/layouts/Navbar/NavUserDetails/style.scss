@@ -27,6 +27,9 @@
   }
 
   .options {
+    border: none;
+    position: relative;
+    background-color: var(--secondary-bg-color);
     font-size: 2.4rem;
     line-height: 1.6rem;
     cursor: pointer;
@@ -37,7 +40,8 @@
     padding: 0.8rem;
     transition: var(--transition);
     transition-property: background-color;
-    &:hover {
+    &:hover,
+    &:focus {
       background-color: var(--primary-bg-color);
     }
   }
