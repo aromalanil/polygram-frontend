@@ -1,0 +1,37 @@
+.google-oauth-btn {
+  cursor: pointer;
+  width: fit-content;
+  width: 100%;
+  display: flex;
+  padding: 0.8rem 1em;
+  padding-right: 2em;
+  border-radius: 0.5rem;
+  align-items: center;
+  justify-content: center;
+  background-color: #3383fd;
+  transition: var(--transition);
+  &:hover {
+    filter: brightness(0.9);
+  }
+  &:active {
+    transform: translateY(0.16rem);
+  }
+  .logo-wrapper {
+    border-radius: 50%;
+    background-color: #fff;
+    padding: 0.2em;
+    display: flex;
+    align-items: flex;
+    .google-logo {
+      align-self: flex-start;
+      width: 2em;
+    }
+  }
+  span {
+    align-self: center;
+    color: #fff;
+    font-weight: 600;
+    margin-left: 1rem;
+    font-size: 1.4rem;
+  }
+}

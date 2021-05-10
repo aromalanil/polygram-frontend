@@ -1,12 +1,51 @@
 .login-modal {
-  padding: 3rem 1.5rem 0;
+  padding: 1.2rem;
+  .login-head {
+    margin-bottom: 3.5rem;
+    .login-title {
+      font-size: 2.4rem;
+      color: var(--primary-text-color);
+    }
+  }
   .login-form {
     display: flex;
     flex-direction: column;
+    .forgot-password {
+      margin: 0;
+      font-size: 1.3rem;
+    }
     button {
-      width: 60%;
-      margin: 3rem auto 0;
-      font-size: 1.8rem;
+      width: 50%;
+      margin: 2rem auto 0;
+      font-size: 1.5rem;
+    }
+  }
+  .line-separator {
+    width: 80%;
+    height: 0.1rem;
+    position: relative;
+    margin: 4rem auto;
+    background-color: #bccad8;
+    span {
+      top: 50%;
+      left: 50%;
+      padding: 1em;
+      font-weight: 600;
+      font-size: 1.2rem;
+      position: absolute;
+      color: var(--secondary-text-color);
+      transform: translate(-50%, -50%);
+      background-color: var(--secondary-bg-color);
+    }
+  }
+  .google-login {
+    display: flex;
+    width: 60%;
+    margin: auto;
+    margin-bottom: 3rem;
+    justify-content: center;
+    @media screen and (max-width: 600px) {
+      width: 90%;
     }
   }
 }
