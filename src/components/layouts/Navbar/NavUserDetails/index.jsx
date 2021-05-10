@@ -1,27 +1,41 @@
 import './style.scss';
-import { useState } from 'react';
 import { BiDotsVerticalRounded } from 'react-icons/bi';
+import { useCallback, useEffect, useState } from 'react';
 
 import Logout from './Logout';
 import Avatar from '../../../common/Avatar';
 import { getShortString } from '../../../../utils/string';
+import { getLoggedInUserDetails } from '../../../../api/user';
 
 const NavUserDetails = () => {
-  const name = 'Ebin Johny Senchonese';
-  const username = 'ebinjs10';
   const [logoutVisible, setLogoutVisible] = useState(false);
+  const [userDetails, setUserDetails] = useState({});
+  const [isLoading, setLoading] = useState(true);
+
+  const updateUserDetails = useCallback(async () => {
+    setLoading(true);
+
+    try {
+      const newUserDetails = await getLoggedInUserDetails();
+      setUserDetails(newUserDetails);
+    } catch (err) {
+      console.log('Unable to get user details'); // eslint-disable-line
+    }
+
+    setLoading(false);
+  }, []);
+
+  useEffect(() => {
+    updateUserDetails();
+  }, [updateUserDetails]);
 
   return (
     <div className="nav-user-details">
-      <Avatar
-        className="nav-avatar"
-        name="Spider-man"
-        src="https://i.insider.com/5f778d302400440019129c6a?width=700"
-      />
+      <Avatar className="nav-avatar" name="Spider-man" src={userDetails.profile_picture} />
       <div className="nav-details-right">
         <div className="details">
-          <h3>{getShortString(name, 12)}</h3>
-          <p>{`@${getShortString(username, 12)}`}</p>
+          <h3>{isLoading ? 'Loading...' : getShortString(userDetails.full_name, 12)}</h3>
+          <p>{isLoading ? 'loading...' : `@${getShortString(userDetails.username, 12)}`}</p>
         </div>
         <button className="options" onClick={() => setLogoutVisible(true)}>
           <BiDotsVerticalRounded />

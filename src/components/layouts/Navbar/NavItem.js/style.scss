@@ -12,13 +12,13 @@
     font-size: 3.1rem;
     align-items: center;
     justify-content: center;
-    color: var(--tertiary-text-color);
+    color: var(--secondary-text-color);
   }
   span {
     margin-left: 0.7em;
     font-size: 1.75rem;
     font-weight: 700;
-    color: var(--tertiary-text-color);
+    color: var(--secondary-text-color);
   }
 }
 
@@ -27,7 +27,7 @@
     color: var(--primary-color);
   }
   span {
-    color: var(--secondary-text-color);
+    color: var(--primary-text-color);
   }
 }
 

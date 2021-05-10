@@ -27,6 +27,11 @@ const useApiError = () => {
       return;
     }
 
+    if (typeof err === 'string') {
+      setApiErrorMessage(err);
+      return;
+    }
+
     // If error is returned from server set that error
     let errorFromServer = err?.response?.data?.error?.message;
     if (errorFromServer) {

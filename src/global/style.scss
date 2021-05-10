@@ -12,9 +12,8 @@
 // Color Pallets
 body {
   --primary-color: #7d71fe;
-  --primary-text-color: #3c4a5b;
-  --secondary-text-color: #274169;
-  --tertiary-text-color: #69778c;
+  --primary-text-color: #3d4a5a;
+  --secondary-text-color: #68778d;
   --primary-bg-color: #eff1fd;
   --secondary-bg-color: #fffefe;
   --tertiary-bg-color: #fffefe;
@@ -35,6 +34,13 @@ body {
 p,
 li {
   font-size: 1.4rem;
+  color: var(--secondary-text-color);
+}
+
+a {
+  font-weight: 600;
+  text-decoration: none;
+  color: var(--primary-color);
 }
 
 #root {
