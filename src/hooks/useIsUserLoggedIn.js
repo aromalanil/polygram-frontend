@@ -2,7 +2,7 @@ import { useCallback, useEffect } from 'react';
 import { useSetRhinoState } from '../global/state';
 import { findIfUserIsLoggedIn } from '../api/user';
 
-const useUserDetails = () => {
+const useIsUserLoggedIn = () => {
   const setIsUserLoggedIn = useSetRhinoState('isUserLoggedIn');
 
   const updateUserDetails = useCallback(async () => {
@@ -23,4 +23,4 @@ const useUserDetails = () => {
   }, [updateUserDetails]);
 };
 
-export default useUserDetails;
+export default useIsUserLoggedIn;

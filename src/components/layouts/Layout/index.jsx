@@ -1,21 +1,25 @@
 import Navbar from '../Navbar';
 import RightSideBar from '../RightSideBar';
 import LoginModal from '../../common/LoginModal';
+import useUserData from '../../../hooks/useUserData';
 import OfflineBanner from '../../common/OfflineBanner';
-import useUserDetails from '../../../hooks/useUserDetails';
+import useIsUserLoggedIn from '../../../hooks/useIsUserLoggedIn';
 
-const Layout = ({ children }) => {
-  useUserDetails();
+const Layout = ({ children }) => (
+  <>
+    <OfflineBanner />
+    <Navbar />
+    <div className="page">{children}</div>
+    <RightSideBar />
+    <LoginModal />
+    <GlobalDataFetch />
+  </>
+);
 
-  return (
-    <>
-      <OfflineBanner />
-      <Navbar />
-      <div className="page">{children}</div>
-      <RightSideBar />
-      <LoginModal />
-    </>
-  );
+const GlobalDataFetch = () => {
+  useUserData();
+  useIsUserLoggedIn();
+  return <></>;
 };
 
 export default Layout;
