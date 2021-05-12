@@ -1,6 +1,7 @@
 import './style.scss';
-import { useEffect, useRef } from 'react';
+import { useCallback, useEffect } from 'react';
 import { BiCheckCircle, BiError, BiErrorCircle, BiX } from 'react-icons/bi';
+import { useRhinoState } from '../../../global/state';
 
 const getIconByType = (type) => {
   switch (type) {
@@ -15,26 +16,33 @@ const getIconByType = (type) => {
   }
 };
 
-const Snackbar = ({ isOpen, autoHideDuration, onClose, message, type }) => {
-  const icon = getIconByType(type);
-  const closeSnackBarTimer = useRef(null);
+const SnackbarController = () => {
+  const [snackBarData, setSnackbarData] = useRhinoState('snackBarData');
 
-  useEffect(() => {
-    if (closeSnackBarTimer.current) {
-      clearTimeout(closeSnackBarTimer.current);
-    }
-    closeSnackBarTimer.current = setTimeout(onClose, autoHideDuration);
-    return () => {
-      clearTimeout(closeSnackBarTimer.current);
-    };
-  }, [onClose, autoHideDuration]);
+  const onClose = useCallback(() => {
+    setSnackbarData((prevData) => ({ ...prevData, message: null }));
+  }, [setSnackbarData]);
+
+  const { type, message } = snackBarData;
+  return message ? <Snackbar type={type} message={message} onClose={onClose} /> : <></>;
+};
+
+const Snackbar = ({ onClose, type, message }) => {
+  const icon = getIconByType(type);
 
   const handleCloseButtonClick = (e) => {
     e.stopPropagation();
     onClose();
   };
 
-  return isOpen ? (
+  useEffect(() => {
+    const timer = setTimeout(onClose, 3000);
+    return () => {
+      clearTimeout(timer);
+    };
+  }, [onClose]);
+
+  return (
     <div className={`snackbar snackbar-${type}`}>
       <div className="snackbar-left">
         <div className="snackbar-icon">{icon}</div>
@@ -46,9 +54,7 @@ const Snackbar = ({ isOpen, autoHideDuration, onClose, message, type }) => {
         </div>
       </div>
     </div>
-  ) : (
-    <></>
   );
 };
 
-export default Snackbar;
+export default SnackbarController;

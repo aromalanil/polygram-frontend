@@ -3,7 +3,6 @@ import { useState } from 'react';
 import './style.scss';
 import Modal from '../Modal';
 import Button from '../Button';
-import Snackbar from '../Snackbar';
 import TextInput from '../TextInput';
 import { loginUser } from '../../../api/user';
 import useApiError from '../../../hooks/useApiError';
@@ -12,7 +11,7 @@ import { validatePassword, validateUsername } from '../../../utils/validation';
 import GoogleOAuth from '../GoogleOAuth';
 
 const LoginModal = () => {
-  const [apiErrorMessage, setApiError] = useApiError();
+  const setApiError = useApiError();
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [usernameError, setUsernameError] = useState(null);
@@ -113,13 +112,6 @@ const LoginModal = () => {
           </div>
         </div>
       </Modal>
-      <Snackbar
-        type="error"
-        autoHideDuration={5000}
-        message={apiErrorMessage}
-        onClose={() => setApiError(null)}
-        isOpen={apiErrorMessage !== ''}
-      />
     </>
   );
 };

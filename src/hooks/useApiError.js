@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useSetRhinoState } from '../global/state';
 
 const getErrorMessageFromStatusCode = (statusCode) => {
   switch (statusCode) {
@@ -19,43 +19,42 @@ const getErrorMessageFromStatusCode = (statusCode) => {
 };
 
 const useApiError = () => {
-  const [apiErrorMessage, setApiErrorMessage] = useState('');
+  const setSnackBarData = useSetRhinoState('snackBarData');
+
+  const setApiErrorMessage = (message) => {
+    setSnackBarData(() => ({ type: 'error', message }));
+  };
 
   const setApiError = (err) => {
     if (err === null) {
-      setApiErrorMessage('');
-      return;
+      return setApiErrorMessage(null);
     }
 
     if (typeof err === 'string') {
-      setApiErrorMessage(err);
-      return;
+      return setApiErrorMessage(err);
     }
 
     // If error is returned from server set that error
     let errorFromServer = err?.response?.data?.error?.message;
     if (errorFromServer) {
-      setApiErrorMessage(errorFromServer);
-      return;
+      return setApiErrorMessage(errorFromServer);
     }
 
     // Setting error from status code
     if (err?.response?.status) {
       errorFromServer = getErrorMessageFromStatusCode(err.response.status);
-      setApiErrorMessage(errorFromServer);
-      return;
+      return setApiErrorMessage(errorFromServer);
     }
 
     // Setting error if device is offline
     if (!navigator.onLine) {
-      setApiErrorMessage('You are currently offline');
-      return;
+      return setApiErrorMessage('You are currently offline');
     }
 
-    setApiErrorMessage('Please check your network connection.');
+    return setApiErrorMessage('Please check your network connection.');
   };
 
-  return [apiErrorMessage, setApiError];
+  return setApiError;
 };
 
 export default useApiError;

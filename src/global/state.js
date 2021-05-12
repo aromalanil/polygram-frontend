@@ -6,6 +6,7 @@ const { RhinoProvider, useRhinoState, useRhinoValue, useSetRhinoState } = create
   isDeviceOffline: false,
   isLoginModalVisible: false,
   isSignInModalVisible: false,
+  snackBarData: { type: 'error', message: null },
 });
 
 export { RhinoProvider, useRhinoState, useRhinoValue, useSetRhinoState };

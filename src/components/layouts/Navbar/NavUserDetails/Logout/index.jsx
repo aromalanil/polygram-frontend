@@ -1,13 +1,12 @@
 import './style.scss';
 
 import MenuPopup from './MenuPopup';
-import Snackbar from '../../../../common/Snackbar';
 import { logoutUser } from '../../../../../api/user';
 import useApiError from '../../../../../hooks/useApiError';
 import { useSetRhinoState } from '../../../../../global/state';
 
 const Logout = ({ isLogoutVisible, onClose }) => {
-  const [apiErrorMessage, setApiError] = useApiError();
+  const setApiError = useApiError();
   const setIsUserLoggedIn = useSetRhinoState('isUserLoggedIn');
 
   const handleLogoutClick = async () => {
@@ -31,14 +30,6 @@ const Logout = ({ isLogoutVisible, onClose }) => {
           </div>
         </div>
       </MenuPopup>
-
-      <Snackbar
-        type="error"
-        autoHideDuration={5000}
-        message={apiErrorMessage}
-        onClose={() => setApiError(null)}
-        isOpen={apiErrorMessage !== ''}
-      />
     </>
   );
 };
