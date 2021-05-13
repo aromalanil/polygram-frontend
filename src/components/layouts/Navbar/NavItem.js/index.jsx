@@ -1,30 +1,21 @@
-import { useState } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useHistory, useRouteMatch } from 'react-router-dom';
 
 import './style.scss';
-import { useRhinoValue, useSetRhinoState } from '../../../../global/state';
+import useProtectedFunction from '../../../../hooks/useProtectedFunction';
 
-const NavItem = ({ icon, text, route, isActive, isLoginRequired }) => {
+const NavItem = ({ icon, text, route, isLoginRequired }) => {
   const history = useHistory();
-  const [isLinkActive, setLinkActive] = useState(isActive);
-  const isUserLoggedIn = useRhinoValue('isUserLoggedIn');
-  const makeSignInModalVisible = useSetRhinoState('isSignInModalVisible');
+  const protectFunction = useProtectedFunction();
+  const isLinkActive = useRouteMatch({ path: route, exact: true });
 
-  const handleClick = () => {
-    // Showing sign in modal if user not logged-in
-    if (isLoginRequired && !isUserLoggedIn) {
-      makeSignInModalVisible(true);
-      return;
-    }
-    setLinkActive((value) => !value);
-    history.push(route);
-  };
+  const handleClick = () => history.push(route);
+  const protectedHandleClick = protectFunction(handleClick);
 
   return (
     <div
       role="link"
       tabIndex={0}
-      onClick={handleClick}
+      onClick={isLoginRequired ? protectedHandleClick : handleClick}
       className={`nav-item ${isLinkActive ? 'active-nav-item' : ''}`}
     >
       <div className="icon">{icon}</div>

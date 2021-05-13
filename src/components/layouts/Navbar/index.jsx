@@ -12,7 +12,6 @@ const navLinkArray = [
     icon: <BiDetail />,
     text: 'User Feed',
     route: '/',
-    isActive: true,
     isLoginRequired: false,
   },
   {
@@ -25,7 +24,7 @@ const navLinkArray = [
     icon: <BiBell />,
     text: 'Notification',
     route: '/notification',
-    isLoginRequired: false,
+    isLoginRequired: true,
   },
   {
     icon: <BiCog />,
