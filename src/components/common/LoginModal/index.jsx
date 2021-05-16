@@ -4,16 +4,17 @@ import './style.scss';
 import Modal from '../Modal';
 import Button from '../Button';
 import TextInput from '../TextInput';
+import GoogleOAuth from '../GoogleOAuth';
 import { loginUser } from '../../../api/user';
 import useApiError from '../../../hooks/useApiError';
 import { useRhinoState, useSetRhinoState } from '../../../global/state';
 import { validatePassword, validateUsername } from '../../../utils/validation';
-import GoogleOAuth from '../GoogleOAuth';
 
 const LoginModal = () => {
   const setApiError = useApiError();
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
   const [usernameError, setUsernameError] = useState(null);
   const [passwordError, setPasswordError] = useState(null);
   const setIsUserLoggedIn = useSetRhinoState('isUserLoggedIn');
@@ -46,11 +47,14 @@ const LoginModal = () => {
 
     // Calling api for login the user
     try {
+      setIsLoading(true);
       await loginUser({ username, password });
     } catch (err) {
+      setIsLoading(false);
       setApiError(err);
       return;
     }
+    setIsLoading(false);
     setIsUserLoggedIn(true);
     setLoginModalVisibility(false);
   };
@@ -100,7 +104,7 @@ const LoginModal = () => {
             <p className="forgot-password">
               <a href="https://localhost:3000">Forgot Password?</a>
             </p>
-            <Button type="submit" variant="primary">
+            <Button type="submit" variant="primary" isLoading={isLoading}>
               Login
             </Button>
           </form>

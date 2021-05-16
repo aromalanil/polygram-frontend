@@ -15,12 +15,13 @@ const getClassNameFromVariant = (variant) => {
   return className;
 };
 
-const Button = (props) => {
-  const { variant, children, className, ...otherProps } = props;
-  const modifiedClassName = `btn ${className} ${getClassNameFromVariant(variant)}`;
+const Button = ({ variant = 'primary', children, isLoading, className, ...props }) => {
+  const modifiedClassName = `btn ${
+    isLoading ? 'loading' : ' '
+  } ${className} ${getClassNameFromVariant(variant)}`;
 
   return (
-    <button className={modifiedClassName} {...otherProps}>
+    <button className={modifiedClassName} {...props}>
       {children}
     </button>
   );

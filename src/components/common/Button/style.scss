@@ -2,17 +2,17 @@
   border: none;
   margin: 0.8rem;
   cursor: pointer;
-  font-weight: 700;
-  font-size: 1.3rem;
   letter-spacing: 0.05rem;
-  border-radius: 5rem;
-  padding: 0.8em 2.5rem;
   transition: var(--transition);
   transition-property: transform;
-  &:active {
+  font-size: 1.4rem;
+  padding: 0.7em 1.2em;
+  border-radius: 0.3em;
+  font-weight: 600;
+  &:active:not(.loading) {
     transform: translateY(0.16rem);
   }
-  &:hover {
+  &:hover:not(.loading) {
     filter: brightness(0.9);
   }
 }
@@ -24,5 +24,25 @@
 
 .secondary-btn {
   color: hsl(245, 70%, 50%);
-  background-color: hsl(245, 99%, 93%);
+  background-color: hsl(243, 79%, 95%);
+}
+
+.secondary-btn.loading {
+  background: hsl(243, 79%, 95%)
+    repeating-linear-gradient(60deg, transparent, transparent 10px, #d4d2ff 10px, #d4d2ff 20px);
+  background-size: 200% 200%;
+  animation: button-loading 3s linear infinite;
+}
+
+.primary-btn.loading {
+  background: var(--primary-color)
+    repeating-linear-gradient(60deg, transparent, transparent 10px, #8f85fd 10px, #8f85fd 20px);
+  background-size: 200% 200%;
+  animation: button-loading 3s linear infinite;
+}
+
+@keyframes button-loading {
+  100% {
+    background-position: 100% 100%;
+  }
 }

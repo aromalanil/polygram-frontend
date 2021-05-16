@@ -1,15 +1,17 @@
+import { useState } from 'react';
 import { useGoogleLogin } from 'react-google-login';
 
 import './style.scss';
-import googleLogo from '../../../assets/images/google_logo_g.svg';
 import { googleOAuth } from '../../../api/user';
 import useApiError from '../../../hooks/useApiError';
 import { useSetRhinoState } from '../../../global/state';
+import googleLogo from '../../../assets/images/google_logo.svg';
 
 const googleClientId = process.env.REACT_APP_GOOGLE_CLIENT_ID;
 
 const GoogleOAuth = ({ text, onSuccess }) => {
   const setApiError = useApiError();
+  const [isLoading, setIsLoading] = useState(false);
   const setIsUserLoggedIn = useSetRhinoState('isUserLoggedIn');
 
   const onLoginSuccess = async (res) => {
@@ -25,6 +27,7 @@ const GoogleOAuth = ({ text, onSuccess }) => {
   };
 
   const onLoginFailure = () => {
+    setIsLoading(false);
     setApiError('Google authentication failed');
   };
 
@@ -34,9 +37,19 @@ const GoogleOAuth = ({ text, onSuccess }) => {
     clientId: googleClientId,
   });
 
+  const handleClick = (e) => {
+    setIsLoading(true);
+    signIn(e);
+  };
+
   return (
     <>
-      <div role="button" tabIndex={0} className="google-oauth-btn" onClick={signIn}>
+      <div
+        role="button"
+        tabIndex={0}
+        onClick={handleClick}
+        className={`google-oauth-btn ${isLoading ? 'loading' : ''}`}
+      >
         <div className="logo-wrapper">
           <img src={googleLogo} alt="Google Logo" className="google-logo" />
         </div>
