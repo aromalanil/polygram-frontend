@@ -12,6 +12,7 @@ const googleClientId = process.env.REACT_APP_GOOGLE_CLIENT_ID;
 const GoogleOAuth = ({ text, onSuccess }) => {
   const setApiError = useApiError();
   const [isLoading, setIsLoading] = useState(false);
+  const setSnackBarData = useSetRhinoState('snackBarData');
   const setIsUserLoggedIn = useSetRhinoState('isUserLoggedIn');
 
   const onLoginSuccess = async (res) => {
@@ -23,6 +24,7 @@ const GoogleOAuth = ({ text, onSuccess }) => {
       return;
     }
     setIsUserLoggedIn(true);
+    setSnackBarData({ type: 'success', message: 'Successfully Logged in' });
     if (onSuccess) onSuccess();
   };
 

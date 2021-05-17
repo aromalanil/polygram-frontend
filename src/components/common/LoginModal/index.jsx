@@ -17,6 +17,7 @@ const LoginModal = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [usernameError, setUsernameError] = useState(null);
   const [passwordError, setPasswordError] = useState(null);
+  const setSnackBarData = useSetRhinoState('snackBarData');
   const setIsUserLoggedIn = useSetRhinoState('isUserLoggedIn');
   const [isLoginModalVisible, setLoginModalVisibility] = useRhinoState('isLoginModalVisible');
 
@@ -57,6 +58,7 @@ const LoginModal = () => {
     setIsLoading(false);
     setIsUserLoggedIn(true);
     setLoginModalVisibility(false);
+    setSnackBarData({ type: 'success', message: 'Successfully Logged in' });
   };
 
   const handleModalClose = () => {

@@ -7,6 +7,7 @@ import { useSetRhinoState } from '../../../../../global/state';
 
 const Logout = ({ isLogoutVisible, onClose }) => {
   const setApiError = useApiError();
+  const setSnackBarData = useSetRhinoState('snackBarData');
   const setIsUserLoggedIn = useSetRhinoState('isUserLoggedIn');
 
   const handleLogoutClick = async () => {
@@ -17,8 +18,8 @@ const Logout = ({ isLogoutVisible, onClose }) => {
       setApiError(err);
       return;
     }
-
     setIsUserLoggedIn(false);
+    setSnackBarData({ type: 'success', message: 'Successfully Logged out' });
   };
 
   return (
