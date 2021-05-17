@@ -31,10 +31,12 @@ const NavUserDetails = () => {
           <h3>{isLoading ? placeholder.full_name : getShortString(userData.full_name, 12)}</h3>
           <p>{isLoading ? placeholder.username : `@${getShortString(userData.username, 12)}`}</p>
         </div>
-        <button className="options" onClick={() => setLogoutVisible(true)}>
-          <BiDotsVerticalRounded />
+        <div className="options-wrapper">
+          <button className="options" onClick={() => setLogoutVisible((v) => !v)}>
+            <BiDotsVerticalRounded />
+          </button>
           <Logout isLogoutVisible={logoutVisible} onClose={() => setLogoutVisible(false)} />
-        </button>
+        </div>
       </div>
     </div>
   );

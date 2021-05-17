@@ -1,5 +1,6 @@
-import './style.scss';
+import { CgLogOut } from 'react-icons/cg';
 
+import './style.scss';
 import MenuPopup from './MenuPopup';
 import { logoutUser } from '../../../../../api/user';
 import useApiError from '../../../../../hooks/useApiError';
@@ -27,7 +28,8 @@ const Logout = ({ isLogoutVisible, onClose }) => {
       <MenuPopup isOpen={isLogoutVisible} onClose={onClose}>
         <div className="logout-container">
           <div role="button" className="logout" tabIndex={0} onClick={handleLogoutClick}>
-            Logout
+            <CgLogOut />
+            <span>Logout</span>
           </div>
         </div>
       </MenuPopup>
