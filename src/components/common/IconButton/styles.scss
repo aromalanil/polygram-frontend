@@ -1,0 +1,15 @@
+.icon-button {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--secondary-text-color);
+  border: none;
+  border-radius: 5rem;
+  transition: var(--transition);
+  transition-property: transform;
+  font-size: 2rem;
+  padding: 0.4em;
+  border-radius: 6px;
+  background-color: var(--primary-bg-color);
+}

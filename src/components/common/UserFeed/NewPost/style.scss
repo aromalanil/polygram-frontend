@@ -1,0 +1,43 @@
+.new-posts {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  top: 5vh;
+  left: 50%;
+  position: sticky;
+  z-index: 5;
+  width: fit-content;
+  border-radius: 50px;
+  padding: 0.8em 1.5em;
+  font-weight: 600;
+  background-color: #ea592b;
+  animation: pop-in 100ms ease-in;
+  animation-fill-mode: forwards;
+  color: var(--secondary-bg-color);
+  font-size: 1.2rem;
+  span {
+    margin-left: 0.3em;
+    font-size: 1.2rem;
+  }
+}
+
+@keyframes new-post-drop {
+  from {
+    transform: translate(-50%, -3vh);
+  }
+  to {
+    transform: translate(-50%, 0);
+  }
+}
+
+@keyframes pop-in {
+  0% {
+    transform: translate(-50%, -1vh);
+  }
+  60% {
+    transform: translate(-50%, 1.2vh);
+  }
+  100% {
+    transform: translate(-50%, 0);
+  }
+}
