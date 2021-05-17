@@ -40,7 +40,7 @@ const Snackbar = ({ onClose, type, message }) => {
     return () => {
       clearTimeout(timer);
     };
-  }, [onClose]);
+  }, [onClose, message, type]);
 
   return (
     <div className={`snackbar snackbar-${type}`}>
