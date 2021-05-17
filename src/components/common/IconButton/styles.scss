@@ -12,4 +12,10 @@
   padding: 0.4em;
   border-radius: 6px;
   background-color: var(--primary-bg-color);
+  &:active {
+    transform: translateY(0.16rem);
+  }
+  &:hover {
+    filter: brightness(0.95);
+  }
 }

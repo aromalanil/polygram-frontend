@@ -1,4 +1,5 @@
 import dayjs from 'dayjs';
+import { useRef } from 'react';
 import relativeTime from 'dayjs/plugin/relativeTime';
 
 import './style.scss';
@@ -10,9 +11,10 @@ import { getShortString } from '../../../utils/string';
 dayjs.extend(relativeTime);
 
 const QuestionCard = ({ _id, author, content, created_at, title, opinion_count }) => {
+  const cardRef = useRef(null);
   const { username, first_name, last_name, profile_picture } = author;
   return (
-    <div className="question-card">
+    <div className="question-card" ref={cardRef}>
       <div className="question-card-top">
         <div className="author-details">
           <Avatar src={profile_picture} />
@@ -37,7 +39,11 @@ const QuestionCard = ({ _id, author, content, created_at, title, opinion_count }
           <span>
             {opinion_count > 1 ? `${opinion_count} Opinions` : `${opinion_count} Opinion`}
           </span>
-          <ShareButton title={title} url={`${window.location.origin}/questions/${_id}`} />
+          <ShareButton
+            title={title}
+            card={cardRef.current}
+            url={`${window.location.origin}/questions/${_id}`}
+          />
         </div>
       </div>
     </div>
