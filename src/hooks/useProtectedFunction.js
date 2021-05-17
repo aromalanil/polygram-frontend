@@ -3,9 +3,8 @@ import { useRhinoValue, useSetRhinoState } from '../global/state';
 
 /**
  *
- * Custom hook which returns a protectFunction() function which
- * modifies any event handler in such a way that it only triggers
- * if user is logged in
+ * Custom hook which returns a function which modifies any function
+ * in such a way that only the logged in user can use it.
  * @returns A function which modifies event handler functions
  */
 const useProtectedFunction = () => {
@@ -14,15 +13,15 @@ const useProtectedFunction = () => {
 
   /**
    *
-   * A Higher order function which modifies the event in such a way that
+   * A Higher order function which modifies any function in such a way that
    * only the logged in user can use it.
-   * @param eventHandler Any event handler function
-   * @returns Modified event handler which will only trigger if user is logged in
+   * @param functionToProtect The function to be protected from logged out user
+   * @returns Modified function which will only triggers when called by logged in user
    */
   const protectFunction = useCallback(
-    (eventHandler) => (...args) => {
+    (functionToProtect) => (...args) => {
       if (isUserLoggedIn) {
-        eventHandler(...args);
+        functionToProtect(...args);
       } else {
         setLoginModalVisible(true);
       }
