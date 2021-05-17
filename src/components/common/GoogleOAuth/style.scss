@@ -9,10 +9,10 @@
   justify-content: space-between;
   background-color: #3383fd;
   transition: var(--transition);
-  &:hover {
+  &:hover:not(.loading) {
     filter: brightness(0.9);
   }
-  &:active {
+  &:active:not(.loading) {
     transform: translateY(0.16rem);
   }
   .logo-wrapper {
