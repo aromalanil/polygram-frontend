@@ -1,3 +1,4 @@
+import { useCallback } from 'react';
 import { useSetRhinoState } from '../global/state';
 
 const getErrorMessageFromStatusCode = (statusCode) => {
@@ -21,38 +22,44 @@ const getErrorMessageFromStatusCode = (statusCode) => {
 const useApiError = () => {
   const setSnackBarData = useSetRhinoState('snackBarData');
 
-  const setApiErrorMessage = (message) => {
-    setSnackBarData(() => ({ type: 'error', message }));
-  };
+  const setApiErrorMessage = useCallback(
+    (message) => {
+      setSnackBarData(() => ({ type: 'error', message }));
+    },
+    [setSnackBarData]
+  );
 
-  const setApiError = (err) => {
-    if (err === null) {
-      return setApiErrorMessage(null);
-    }
+  const setApiError = useCallback(
+    (err) => {
+      if (err === null) {
+        return setApiErrorMessage(null);
+      }
 
-    if (typeof err === 'string') {
-      return setApiErrorMessage(err);
-    }
+      if (typeof err === 'string') {
+        return setApiErrorMessage(err);
+      }
 
-    // If error is returned from server set that error
-    let errorFromServer = err?.response?.data?.error?.message;
-    if (errorFromServer) {
-      return setApiErrorMessage(errorFromServer);
-    }
+      // If error is returned from server set that error
+      let errorFromServer = err?.response?.data?.error?.message;
+      if (errorFromServer) {
+        return setApiErrorMessage(errorFromServer);
+      }
 
-    // Setting error from status code
-    if (err?.response?.status) {
-      errorFromServer = getErrorMessageFromStatusCode(err.response.status);
-      return setApiErrorMessage(errorFromServer);
-    }
+      // Setting error from status code
+      if (err?.response?.status) {
+        errorFromServer = getErrorMessageFromStatusCode(err.response.status);
+        return setApiErrorMessage(errorFromServer);
+      }
 
-    // Setting error if device is offline
-    if (!navigator.onLine) {
-      return setApiErrorMessage('You are currently offline');
-    }
+      // Setting error if device is offline
+      if (!navigator.onLine) {
+        return setApiErrorMessage('You are currently offline');
+      }
 
-    return setApiErrorMessage('Please check your network connection.');
-  };
+      return setApiErrorMessage('Please check your network connection.');
+    },
+    [setApiErrorMessage]
+  );
 
   return setApiError;
 };
