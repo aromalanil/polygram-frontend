@@ -4,6 +4,7 @@
   padding: 2.5rem 3rem;
   border-radius: 1.3rem;
   flex-direction: column;
+  box-shadow: var(--shadow);
   background-color: var(--secondary-bg-color);
   &-top {
     display: flex;
