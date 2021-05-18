@@ -38,29 +38,30 @@ const UserFeed = ({ topic, search }) => {
     let newQuestions;
     try {
       newQuestions = await fetchQuestions();
+      if (newQuestions.length === 0) {
+        setHasMore(false);
+        return;
+      }
       setQuestions(newQuestions);
     } catch (err) {
       setApiError(err);
     }
   }, [fetchQuestions, setApiError]);
 
-  const fetchOldQuestions = useCallback(
-    async ({ before }) => {
-      if (!hasMore) return;
-      let newQuestions;
-      try {
-        newQuestions = await fetchQuestions({ before });
-        if (newQuestions.length === 0) {
-          setHasMore(false);
-          return;
-        }
-        setQuestions((oldQuestions) => [...oldQuestions, ...newQuestions]);
-      } catch (err) {
-        setApiError(err);
+  const fetchOldQuestions = useCallback(async () => {
+    if (!hasMore) return;
+    let newQuestions;
+    try {
+      newQuestions = await fetchQuestions({ before: finalQuestion });
+      if (newQuestions.length === 0) {
+        setHasMore(false);
+        return;
       }
-    },
-    [hasMore, fetchQuestions, setApiError]
-  );
+      setQuestions((oldQuestions) => [...oldQuestions, ...newQuestions]);
+    } catch (err) {
+      setApiError(err);
+    }
+  }, [hasMore, fetchQuestions, setApiError, finalQuestion]);
 
   const fetchNewQuestions = useCallback(async () => {
     let newQuestions;
@@ -74,14 +75,19 @@ const UserFeed = ({ topic, search }) => {
     }
   }, [fetchQuestions, setApiError, initialQuestion]);
 
+  // Fetching initial questions on component mount
+  useEffect(() => {
+    fetchInitialQuestions();
+  }, [fetchInitialQuestions]);
+
+  // Checking for new questions every one minute
   useEffect(() => {
     const timer = setInterval(fetchNewQuestions, 60000);
-    fetchInitialQuestions();
 
     return () => {
       clearInterval(timer);
     };
-  }, [fetchInitialQuestions, fetchNewQuestions]);
+  }, [fetchNewQuestions]);
 
   return (
     <>
@@ -89,10 +95,8 @@ const UserFeed = ({ topic, search }) => {
       <>
         {questions.map((question, index) => (
           <Fragment key={question._id}>
-            <QuestionCard {...question} />
-            {questions.length - 1 === index && (
-              <Waypoint onEnter={() => fetchOldQuestions({ before: finalQuestion })} />
-            )}
+            <QuestionCard questionData={question} />
+            {questions.length - 1 === index && <Waypoint onEnter={() => fetchOldQuestions()} />}
           </Fragment>
         ))}
         {hasMore ? (
