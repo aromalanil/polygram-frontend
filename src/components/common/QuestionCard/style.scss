@@ -38,6 +38,10 @@
   }
   &-middle {
     margin-bottom: 3.5rem;
+    .badge-row {
+      display: flex;
+      margin-bottom: 1rem;
+    }
     h2 {
       margin: 0;
       margin-bottom: 0.4em;

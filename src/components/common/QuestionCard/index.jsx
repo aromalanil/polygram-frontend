@@ -10,6 +10,7 @@ import Options from './Options';
 import ShareButton from './ShareButton';
 import { getShortString } from '../../../utils/string';
 import { FetchQuestionProvider } from './fetchQuestionContext';
+import Badge from '../Badge';
 
 dayjs.extend(relativeTime);
 
@@ -20,6 +21,7 @@ const QuestionCard = ({ questionData, isDetailed = false, refetchData }) => {
     _id,
     title,
     author,
+    topics,
     content,
     options,
     created_at,
@@ -50,6 +52,11 @@ const QuestionCard = ({ questionData, isDetailed = false, refetchData }) => {
           <div className="time">{dayjs(created_at).fromNow()}</div>
         </div>
         <div className="question-card-middle">
+          <div className="badge-row">
+            {topics.map((topic) => (
+              <Badge key={topic}>{topic}</Badge>
+            ))}
+          </div>
           <h2>{titleToDisplay}</h2>
           <p>{contentToDisplay}</p>
           {isDetailed && (
