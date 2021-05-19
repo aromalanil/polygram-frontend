@@ -1,0 +1,14 @@
+.bottom-nav {
+  left: 0;
+  bottom: 0;
+  width: 100vw;
+  display: flex;
+  position: fixed;
+  padding: 1.2rem 3.5rem 0.8rem;
+  justify-content: space-between;
+  transition: var(--transition);
+  background-color: var(--secondary-bg-color);
+  @media screen and(min-width:690px) {
+    display: none;
+  }
+}

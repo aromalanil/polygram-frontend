@@ -83,3 +83,9 @@ button {
 .page::-webkit-scrollbar {
   display: none;
 }
+
+@media screen and (max-width: 690px) {
+  .page {
+    padding: 1rem;
+  }
+}

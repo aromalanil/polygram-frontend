@@ -1,4 +1,5 @@
 import Navbar from '../Navbar';
+import BottomNav from '../BottomNav';
 import RightSideBar from '../RightSideBar';
 import Snackbar from '../../common/Snackbar';
 import LoginModal from '../../common/LoginModal';
@@ -13,6 +14,7 @@ const Layout = ({ children }) => (
     <Navbar />
     <div className="page">{children}</div>
     <RightSideBar />
+    <BottomNav />
     <LoginModal />
     <Snackbar />
   </>

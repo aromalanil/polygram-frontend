@@ -38,10 +38,13 @@
       margin-left: 0;
       margin-right: 0;
       align-items: center;
-      .nav-logo{
+      .nav-logo {
         width: 4.5rem;
         margin-bottom: 6rem;
       }
     }
+  }
+  @media screen and (max-width: 690px) {
+    display: none;
   }
 }
