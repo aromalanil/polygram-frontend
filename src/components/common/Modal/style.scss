@@ -1,15 +1,17 @@
 .modal-bg {
-  position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
+  z-index: 49;
+  position: fixed;
   background-color: rgba(15, 15, 15, 0.452);
 }
 
 .modal {
   top: 50%;
   left: 50%;
+  z-index: 50;
   width: 80vw;
   padding: 2rem;
   position: fixed;
