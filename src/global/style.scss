@@ -32,6 +32,11 @@ body {
   background-color: var(--primary-bg-color);
 }
 
+*::selection {
+  color: rgba(255, 255, 255, 0.9);
+  background-color: var(--primary-color);
+}
+
 h1,
 h2,
 h3,

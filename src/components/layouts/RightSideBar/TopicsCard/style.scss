@@ -1,0 +1,11 @@
+.topics-card {
+  padding: 3rem;
+  border-radius: 1.3rem;
+  box-shadow: var(--shadow);
+  background-color: var(--secondary-bg-color);
+  h3 {
+    margin: 0;
+    font-size: 1.75rem;
+    margin-bottom: 1.5rem;
+  }
+}

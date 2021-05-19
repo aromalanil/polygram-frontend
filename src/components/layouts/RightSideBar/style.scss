@@ -1,5 +1,11 @@
 .right-side-bar {
+  padding: 2rem;
+  padding-left: 0;
   min-width: 400px;
-  box-shadow: var(--shadow);
-  background-color: var(--secondary-bg-color);
+  .footer {
+    padding: 2rem;
+    font-size: 1.3rem;
+    line-height: 2rem;
+    color: var(--secondary-text-color);
+  }
 }
