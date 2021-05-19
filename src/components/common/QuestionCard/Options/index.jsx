@@ -16,13 +16,17 @@ const Options = ({ options, showPercentage, questionId }) => (
   </div>
 );
 
-const OptionWithPercentage = ({ name, percentage }) => (
-  <div className="option-with-percentage">
-    <div className="option-background" style={{ width: `${percentage}%` }} />
-    <span className="option-name">{name}</span>
-    <span className="option-percentage">{percentage}%</span>
-  </div>
-);
+const OptionWithPercentage = ({ name, percentage }) => {
+  const percentageToDisplay = percentage % 1 === 0 ? percentage : percentage.toFixed(2);
+
+  return (
+    <div className="option-with-percentage">
+      <div className="option-background" style={{ width: `${percentage}%` }} />
+      <span className="option-name">{name}</span>
+      <span className="option-percentage">{percentageToDisplay}%</span>
+    </div>
+  );
+};
 
 const VoteButton = ({ name, questionId }) => {
   const [showOpinionModal, setShowOpinionModal] = useState(false);
