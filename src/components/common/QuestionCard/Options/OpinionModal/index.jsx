@@ -54,7 +54,7 @@ const OpinionModal = ({ option, questionId, isOpen, onClose }) => {
     <Modal isOpen={isOpen} onClose={onClose}>
       <div className="opinion-wrapper">
         <div className="opinion-top">
-          <h3>{`Vote for ${option}`}</h3>
+          <h3>Vote for ${option}</h3>
           <TextArea
             autoFocus
             name="opinion"

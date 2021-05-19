@@ -20,7 +20,7 @@ const OptionWithPercentage = ({ name, percentage }) => (
   <div className="option-with-percentage">
     <div className="option-background" style={{ width: `${percentage}%` }} />
     <span className="option-name">{name}</span>
-    <span className="option-percentage">{`${percentage}%`}</span>
+    <span className="option-percentage">{percentage}%</span>
   </div>
 );
 

@@ -45,8 +45,10 @@ const QuestionCard = ({ questionData, isDetailed = false, refetchData }) => {
           <div className="author-details">
             <Avatar src={profile_picture} />
             <div>
-              <h6>{`${first_name} ${last_name || ''}`}</h6>
-              <span>{`@${username}`}</span>
+              <h6>
+                {first_name} {last_name || ''}
+              </h6>
+              <span>@{username}</span>
             </div>
           </div>
           <div className="time">{dayjs(created_at).fromNow()}</div>
