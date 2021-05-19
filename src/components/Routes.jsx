@@ -4,6 +4,7 @@ import { Route, Switch } from 'react-router-dom';
 import Loader from './common/Loader';
 
 const Home = React.lazy(() => import('./pages/Home'));
+const Search = React.lazy(() => import('./pages/Search'));
 const Profile = React.lazy(() => import('./pages/Profile'));
 const Question = React.lazy(() => import('./pages/Question'));
 const NotFound = React.lazy(() => import('./pages/NotFound'));
@@ -20,6 +21,9 @@ const Routes = () => (
       </Route>
       <Route exact path="/settings">
         <Settings />
+      </Route>
+      <Route exact path="/search">
+        <Search />
       </Route>
       <Route exact path="/questions/:id">
         <Question />

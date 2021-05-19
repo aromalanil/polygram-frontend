@@ -4,7 +4,7 @@ import UserFeed from '../../common/UserFeed';
 const Home = () => (
   <>
     <PostQuestion />
-    <UserFeed />
+    <UserFeed following />
   </>
 );
 

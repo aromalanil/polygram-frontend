@@ -9,7 +9,7 @@ import { getQuestions } from '../../../api/question';
 import useApiError from '../../../hooks/useApiError';
 import { useRhinoValue } from '../../../global/state';
 
-const UserFeed = ({ topic, search }) => {
+const UserFeed = ({ topic, search, following }) => {
   const setApiError = useApiError();
   const [hasMore, setHasMore] = useState(true);
   const [questions, setQuestions] = useState([]);
@@ -27,11 +27,11 @@ const UserFeed = ({ topic, search }) => {
       getQuestions({
         topic,
         search,
+        following,
         after_id: after,
         before_id: before,
-        following: isUserLoggedIn ? 'true' : 'false',
       }),
-    [isUserLoggedIn, topic, search]
+    [topic, search, following]
   );
 
   const fetchInitialQuestions = useCallback(async () => {
@@ -75,7 +75,7 @@ const UserFeed = ({ topic, search }) => {
   // Fetching initial questions on component mount
   useEffect(() => {
     fetchInitialQuestions();
-  }, [fetchInitialQuestions]);
+  }, [fetchInitialQuestions, isUserLoggedIn]);
 
   // Setting hasMore to true each time user login/logout
   useEffect(() => {

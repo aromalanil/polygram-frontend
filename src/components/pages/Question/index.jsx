@@ -13,7 +13,7 @@ const Question = () => {
   return (
     <>
       <div className="question-back">
-        <IconButton className="back-btn" onClick={() => history.push('/')}>
+        <IconButton className="back-btn" onClick={() => history.goBack()}>
           <FiArrowLeft />
         </IconButton>
         <h2>Question</h2>

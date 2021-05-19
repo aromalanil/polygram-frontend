@@ -6,7 +6,7 @@ const TopicRow = ({ topicName, questionCount, isFollowing }) => (
     <div className="topic-row-left">
       <h4>{topicName}</h4>
       <span>
-        ${questionCount} {questionCount === 1 ? 'Question' : 'Questions'}
+        {questionCount} {questionCount === 1 ? 'Question' : 'Questions'}
       </span>
     </div>
     <div className="topic-row-right">
