@@ -39,6 +39,14 @@ const LoginModal = () => {
     return isValid;
   };
 
+  const handleModalClose = () => {
+    setUsername('');
+    setPassword('');
+    setUsernameError(null);
+    setPasswordError(null);
+    setLoginModalVisibility(false);
+  };
+
   const handleLoginSubmit = async (e) => {
     e.preventDefault();
 
@@ -57,16 +65,8 @@ const LoginModal = () => {
     }
     setIsLoading(false);
     setIsUserLoggedIn(true);
-    setLoginModalVisibility(false);
     setSnackBarData({ type: 'success', message: 'Successfully Logged in' });
-  };
-
-  const handleModalClose = () => {
-    setUsername('');
-    setPassword('');
-    setUsernameError(null);
-    setPasswordError(null);
-    setLoginModalVisibility(false);
+    handleModalClose();
   };
 
   const onUsernameChange = (e) => {
