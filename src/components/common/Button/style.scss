@@ -12,8 +12,12 @@
   &:active:not(.loading) {
     transform: translateY(0.16rem);
   }
-  &:hover:not(.loading) {
+  &:hover:enabled:not(.loading) {
     filter: brightness(0.9);
+  }
+  &:disabled {
+    cursor: no-drop;
+    filter: saturate(0);
   }
 }
 

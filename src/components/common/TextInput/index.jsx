@@ -2,7 +2,7 @@ import './style.scss';
 import { useState } from 'react';
 import { AiFillEye, AiFillEyeInvisible } from 'react-icons/ai';
 
-const TextInput = ({ label, name, onChange, value, error, type = 'text', ...props }) => {
+const TextInput = ({ label, name, onChange, className, value, error, type = 'text', ...props }) => {
   const [inputType, setInputType] = useState(type);
 
   const handleTogglePassword = () => {
@@ -10,7 +10,7 @@ const TextInput = ({ label, name, onChange, value, error, type = 'text', ...prop
   };
 
   return (
-    <div className={`input-wrapper ${error ? 'input-error' : ''}`}>
+    <div className={`input-wrapper ${className || ''}`}>
       <div className="input-with-label">
         <input
           {...props}

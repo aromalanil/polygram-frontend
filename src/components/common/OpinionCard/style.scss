@@ -1,5 +1,6 @@
-.question-card {
+.opinion-card {
   display: flex;
+  margin-top: 2rem;
   padding: 2.5rem 3rem;
   border-radius: 1.3rem;
   flex-direction: column;
@@ -36,39 +37,24 @@
       color: var(--secondary-text-color);
     }
   }
-  &-middle {
-    margin-bottom: 3.5rem;
-    h2 {
-      margin: 0;
-      margin-bottom: 0.4em;
-    }
-    p {
-      margin: 0;
-      font-size: 1.4rem;
-    }
-  }
   &-bottom {
     display: flex;
-    justify-content: space-between;
-    &-left {
-      .view-more-btn {
-        margin: 0;
-        font-size: 1.2rem;
-      }
+    .separation {
+      width: 0.15rem;
+      opacity: 0.5;
+      background-color: var(--secondary-text-color);
+      margin: 0 1.5rem 0 1.3rem;
     }
-    &-right {
-      display: flex;
-      align-items: center;
-      span {
-        font-weight: 500;
-        font-size: 1.1rem;
-        margin-right: 2em;
-        color: var(--secondary-text-color);
+    .opinion-card-content {
+      margin-top: 0.5rem;
+      h3 {
+        margin: 0;
+        font-size: 1.4rem;
+        margin-bottom: 0.5rem;
+      }
+      p {
+        margin: 0;
       }
     }
   }
-}
-
-.question-card + .question-card {
-  margin-top: 2rem;
 }

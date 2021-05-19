@@ -5,11 +5,13 @@ import Loader from './common/Loader';
 
 const Home = React.lazy(() => import('./pages/Home'));
 const Profile = React.lazy(() => import('./pages/Profile'));
+const Question = React.lazy(() => import('./pages/Question'));
+const NotFound = React.lazy(() => import('./pages/NotFound'));
 const Settings = React.lazy(() => import('./pages/Settings'));
 
 const Routes = () => (
-  <Switch>
-    <Suspense fallback={<Loader />}>
+  <Suspense fallback={<Loader />}>
+    <Switch>
       <Route exact path="/">
         <Home />
       </Route>
@@ -19,7 +21,13 @@ const Routes = () => (
       <Route exact path="/settings">
         <Settings />
       </Route>
-    </Suspense>
-  </Switch>
+      <Route exact path="/questions/:id">
+        <Question />
+      </Route>
+      <Route path="*">
+        <NotFound />
+      </Route>
+    </Switch>
+  </Suspense>
 );
 export default Routes;

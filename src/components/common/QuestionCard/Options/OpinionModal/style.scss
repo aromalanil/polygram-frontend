@@ -1,0 +1,24 @@
+.opinion-wrapper {
+  height: 100%;
+  padding: 0rem 1.5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  .opinion-top {
+    h3 {
+      font-size: 1.8rem;
+    }
+    .opinion-textarea {
+      margin-top: 1.5rem;
+      textarea {
+        resize: none;
+        height: 20rem;
+      }
+    }
+    margin-bottom: 2rem;
+  }
+  button {
+    width: 80%;
+    margin: auto;
+  }
+}
