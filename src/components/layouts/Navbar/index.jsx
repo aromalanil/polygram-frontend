@@ -1,4 +1,4 @@
-import { BiBell, BiCog, BiDetail, BiUser } from 'react-icons/bi';
+import { BiBell, BiCog, BiHome, BiUser } from 'react-icons/bi';
 
 import './style.scss';
 import NavItem from './NavItem.js';
@@ -9,8 +9,8 @@ import { useRhinoValue } from '../../../global/state';
 
 const navLinkArray = [
   {
-    icon: <BiDetail />,
-    text: 'User Feed',
+    icon: <BiHome />,
+    text: 'Home',
     route: '/',
     isLoginRequired: false,
   },
