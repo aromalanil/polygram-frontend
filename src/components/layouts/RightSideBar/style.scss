@@ -1,11 +1,16 @@
 .right-side-bar {
   padding: 2rem;
   padding-left: 0;
-  min-width: 400px;
+  width: 45%;
+  min-width: 340px;
+  max-width: 400px;
   .footer {
     padding: 2rem;
     font-size: 1.3rem;
     line-height: 2rem;
     color: var(--secondary-text-color);
+  }
+  @media screen and (max-width: 1150px) {
+    display: none;
   }
 }

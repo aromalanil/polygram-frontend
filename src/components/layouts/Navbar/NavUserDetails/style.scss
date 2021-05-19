@@ -60,3 +60,19 @@
     }
   }
 }
+
+@media screen and (max-width: 800px) {
+  .nav-user-details {
+    // flex-direction: row;
+    justify-content: center;
+    margin: 0;
+    .nav-avatar {
+      --dimension: 5rem;
+    }
+    .nav-details-right {
+      .details {
+        display: none;
+      }
+    }
+  }
+}

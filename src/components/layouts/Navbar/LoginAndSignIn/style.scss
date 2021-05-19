@@ -1,4 +1,13 @@
 .nav-auth {
   display: flex;
+  justify-content: center;
   flex-wrap: wrap;
+  @media screen and (max-width: 800px) {
+    .auth-btn {
+      flex-direction: column;
+      font-size: 1.2rem;
+      margin-left: 0;
+      margin-right: 0;
+    }
+  }
 }

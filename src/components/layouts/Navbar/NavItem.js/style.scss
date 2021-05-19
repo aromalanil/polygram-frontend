@@ -34,3 +34,18 @@
 .nav-item + .nav-item {
   margin-top: 3.2rem;
 }
+
+@media screen and (min-width: 1150px) {
+  #search.nav-item {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .nav-item {
+    justify-content: center;
+    span {
+      display: none;
+    }
+  }
+}

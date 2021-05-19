@@ -7,10 +7,9 @@
   box-shadow: var(--shadow);
   background-color: var(--secondary-bg-color);
   .nav-content {
-    margin-top: 4.8rem;
     margin: 5rem 1.6rem 5rem 5rem;
     min-width: 22.4rem;
-    display: flex; 
+    display: flex;
     flex-direction: column;
     .nav-logo {
       width: 6rem;
@@ -25,6 +24,24 @@
       width: 90%;
       margin: 3.2rem auto;
       background-color: var(--primary-bg-color);
+    }
+    @media screen and (max-width: 900px) {
+      margin-left: 4rem;
+    }
+  }
+  @media screen and (max-width: 800px) {
+    width: fit-content;
+    .nav-content {
+      min-width: 0;
+      padding: 0 2rem;
+      margin-top: 3rem;
+      margin-left: 0;
+      margin-right: 0;
+      align-items: center;
+      .nav-logo{
+        width: 4.5rem;
+        margin-bottom: 6rem;
+      }
     }
   }
 }

@@ -11,10 +11,12 @@ const LoginAndSignIn = () => {
 
   return (
     <div className="nav-auth">
-      <Button variant="secondary" onClick={handleLoginClick}>
+      <Button className="auth-btn" variant="secondary" onClick={handleLoginClick}>
         Login
       </Button>
-      <Button variant="primary">Sign Up</Button>
+      <Button className="auth-btn" variant="primary">
+        Sign Up
+      </Button>
     </div>
   );
 };

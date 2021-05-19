@@ -4,6 +4,7 @@
   width: 14rem;
   cursor: default;
   padding: 0.5rem;
+  z-index: 1;
   position: absolute;
   border-radius: 0.8rem;
   background-color: var(--secondary-bg-color);
@@ -39,5 +40,24 @@
   }
   &:hover {
     filter: brightness(0.93);
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .logout-container {
+    top: 3.7rem;
+    left: 2rem;
+  }
+  .logout-container::after {
+    left:2%;
+    // right: 90%;
+    content: '';
+    bottom: 100%;
+    margin-left: 0rem;
+    border-width: 0.5rem;
+    position: absolute;
+    border-style: solid;
+    transform: rotate(-10deg);
+    border-color: transparent transparent var(--secondary-bg-color) transparent;
   }
 }
