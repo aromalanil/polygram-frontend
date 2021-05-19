@@ -38,10 +38,7 @@ const UserFeed = ({ topic, search }) => {
     let newQuestions;
     try {
       newQuestions = await fetchQuestions();
-      if (newQuestions.length === 0) {
-        setHasMore(false);
-        return;
-      }
+      if (newQuestions.length === 0) setHasMore(false);
       setQuestions(newQuestions);
     } catch (err) {
       setApiError(err);
@@ -80,6 +77,11 @@ const UserFeed = ({ topic, search }) => {
     fetchInitialQuestions();
   }, [fetchInitialQuestions]);
 
+  // Setting hasMore to true each time user login/logout
+  useEffect(() => {
+    setHasMore(true);
+  }, [isUserLoggedIn]);
+
   // Checking for new questions every one minute
   useEffect(() => {
     const timer = setInterval(fetchNewQuestions, 60000);
@@ -104,7 +106,11 @@ const UserFeed = ({ topic, search }) => {
         ) : (
           <div className="no-questions">
             <div className="separator" />
-            <span>There are no more questions to show right now</span>
+            <span>
+              {questions.length === 0
+                ? 'No questions to show right now'
+                : 'No more questions available'}
+            </span>
           </div>
         )}
       </>
