@@ -5,7 +5,6 @@ import Modal from '../../../Modal';
 import Button from '../../../Button';
 import TextArea from '../../../TextArea';
 import { markVote } from '../../../../../api/opinion';
-import { validateString } from '../../../../../utils/validation';
 import useApiError from '../../../../../hooks/useApiError';
 import { useFetchContext } from '../../fetchQuestionContext';
 import { useSetRhinoState } from '../../../../../global/state';
@@ -17,20 +16,9 @@ const OpinionModal = ({ option, questionId, isOpen, onClose }) => {
   const setSnackbarData = useSetRhinoState('snackBarData');
 
   const [content, setContent] = useState('');
-  const [contentError, setContentError] = useState('');
-
-  const validateContent = () => {
-    try {
-      validateString(content, 5, 150, 'Opinion', true);
-    } catch (err) {
-      setContentError(err.message);
-      return false;
-    }
-    return true;
-  };
+  const [contentError, setContentError] = useState(null);
 
   const handleMarkVote = async () => {
-    if (!validateContent()) return;
     if (contentError) return;
     try {
       setIsLoading(true);
@@ -45,11 +33,6 @@ const OpinionModal = ({ option, questionId, isOpen, onClose }) => {
     }
   };
 
-  const handleContentChange = (e) => {
-    setContent(e.target.value);
-    setContentError('');
-  };
-
   return (
     <Modal isOpen={isOpen} onClose={onClose}>
       <div className="opinion-wrapper">
@@ -58,11 +41,14 @@ const OpinionModal = ({ option, questionId, isOpen, onClose }) => {
           <TextArea
             autoFocus
             name="opinion"
+            minLength={5}
+            maxLength={150}
             value={content}
             error={contentError}
             label="Your Opinion"
+            setError={setContentError}
             className="opinion-textarea"
-            onChange={handleContentChange}
+            onChange={(e) => setContent(e.target.value)}
           />
         </div>
         <Button className="opinion-submit" isLoading={isLoading} onClick={handleMarkVote}>
