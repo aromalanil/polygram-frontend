@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
 
 import './style.scss';
 import Modal from '../Modal';
@@ -8,7 +8,9 @@ import GoogleOAuth from '../GoogleOAuth';
 import { loginUser } from '../../../api/user';
 import useApiError from '../../../hooks/useApiError';
 import { useRhinoState, useSetRhinoState } from '../../../global/state';
-import { validatePassword, validateUsername } from '../../../utils/validation';
+
+const usernameRegex = /^[a-z0-9_-]*$/;
+const passwordRegex = /^(?=.*[a-zA-Z])(?=.*\d)(?=.*[#?!@$ %^&*-])[A-Za-z\d#?!@$ %^&*-]/;
 
 const LoginModal = () => {
   const setApiError = useApiError();
@@ -21,23 +23,7 @@ const LoginModal = () => {
   const setIsUserLoggedIn = useSetRhinoState('isUserLoggedIn');
   const [isLoginModalVisible, setLoginModalVisibility] = useRhinoState('isLoginModalVisible');
 
-  const validateForm = () => {
-    let isValid = true;
-    try {
-      validateUsername(username, 'Username', true);
-    } catch (err) {
-      isValid = false;
-      setUsernameError(err.message);
-    }
-    try {
-      validatePassword(password, 'Password', true);
-    } catch (err) {
-      isValid = false;
-      setPasswordError(err.message);
-    }
-
-    return isValid;
-  };
+  const isValid = useMemo(() => !usernameError && !passwordError, [usernameError, passwordError]);
 
   const handleModalClose = () => {
     setUsername('');
@@ -50,9 +36,8 @@ const LoginModal = () => {
   const handleLoginSubmit = async (e) => {
     e.preventDefault();
 
-    // Validating user inputs
-    const isFormValid = validateForm();
-    if (!isFormValid) return;
+    // Checking if form has any errors
+    if (!isValid) return;
 
     // Calling api for login the user
     try {
@@ -69,16 +54,6 @@ const LoginModal = () => {
     handleModalClose();
   };
 
-  const onUsernameChange = (e) => {
-    setUsername(e.target.value);
-    setUsernameError(null);
-  };
-
-  const onPasswordChange = (e) => {
-    setPassword(e.target.value);
-    setPasswordError(null);
-  };
-
   return (
     <>
       <Modal isOpen={isLoginModalVisible} onClose={handleModalClose}>
@@ -91,17 +66,27 @@ const LoginModal = () => {
           </div>
           <form onSubmit={handleLoginSubmit} className="login-form">
             <TextInput
+              minLength={4}
+              maxLength={15}
               label="Username"
               value={username}
               error={usernameError}
-              onChange={onUsernameChange}
+              pattern={usernameRegex}
+              setError={setUsernameError}
+              onChange={(e) => setUsername(e.target.value)}
+              patternMessage="Username must only contain small letters, numbers, dashes and underscore"
             />
             <TextInput
+              minLength={8}
+              maxLength={50}
               type="password"
               label="Password"
               value={password}
               error={passwordError}
-              onChange={onPasswordChange}
+              pattern={passwordRegex}
+              setError={setPasswordError}
+              onChange={(e) => setPassword(e.target.value)}
+              patternMessage="Password must contain al teast 1 letter, 1 digit and 1 number"
             />
             <p className="forgot-password">
               <a href="https://localhost:3000">Forgot Password?</a>
