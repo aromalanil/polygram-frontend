@@ -4,9 +4,10 @@
   width: 100vw;
   display: flex;
   position: fixed;
+  box-shadow: var(--shadow);
+  transition: var(--transition);
   padding: 1.2rem 3.5rem 0.8rem;
   justify-content: space-between;
-  transition: var(--transition);
   background-color: var(--secondary-bg-color);
   @media screen and(min-width:690px) {
     display: none;
