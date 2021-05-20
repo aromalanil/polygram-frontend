@@ -1,15 +1,17 @@
 import { useState } from 'react';
-import { followTopics, unfollowTopics } from '../../../api/topic';
 import useApiError from '../../../hooks/useApiError';
+import useProtectedFunction from '../../../hooks/useProtectedFunction';
+import { followTopics, unfollowTopics } from '../../../api/topic';
 
 import Button from '../Button';
 
 const TopicFollowButton = ({ topic, initialIsFollowing, ...props }) => {
   const setApiError = useApiError();
+  const protectFunction = useProtectedFunction();
   const [isLoading, setIsLoading] = useState(false);
   const [isFollowing, setIsFollowing] = useState(initialIsFollowing);
 
-  const handleFollowTopic = async () => {
+  const handleFollowTopic = protectFunction(async () => {
     setIsLoading(true);
     try {
       if (isFollowing) {
@@ -24,7 +26,7 @@ const TopicFollowButton = ({ topic, initialIsFollowing, ...props }) => {
     } finally {
       setIsLoading(false);
     }
-  };
+  });
 
   return (
     <Button isLoading={isLoading} onClick={handleFollowTopic} {...props}>
