@@ -1,0 +1,11 @@
+.settings-back {
+  display: flex;
+  align-items: center;
+  .back-btn {
+    color: var(--primary-color);
+  }
+  h2 {
+    margin-left: 1rem;
+    font-size: 2rem;
+  }
+}

@@ -29,6 +29,11 @@
 .secondary-btn {
   color: hsl(245, 70%, 50%);
   background-color: hsl(243, 79%, 95%);
+  .dark & {
+    color: var(--primary-color);
+    background-color: transparent;
+    border: 1px solid var(--primary-color);
+  }
 }
 
 .secondary-btn.loading {
@@ -36,6 +41,12 @@
     repeating-linear-gradient(60deg, transparent, transparent 10px, #d4d2ff 10px, #d4d2ff 20px);
   background-size: 200% 200%;
   animation: button-loading 3s linear infinite;
+  .dark & {
+    background: transparent
+    repeating-linear-gradient(60deg, transparent, transparent 10px, #2c3241 10px, #2c3241 20px);
+    background-size: 200% 200%;
+    animation: button-loading 3s linear infinite;
+  }
 }
 
 .primary-btn.loading {

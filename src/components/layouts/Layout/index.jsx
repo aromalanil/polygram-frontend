@@ -5,6 +5,7 @@ import Snackbar from '../../common/Snackbar';
 import LoginModal from '../../common/LoginModal';
 import useUserData from '../../../hooks/useUserData';
 import OfflineBanner from '../../common/OfflineBanner';
+import useThemeChange from '../../../hooks/useThemeChange';
 import useIsUserLoggedIn from '../../../hooks/useIsUserLoggedIn';
 
 const Layout = ({ children }) => (
@@ -22,6 +23,7 @@ const Layout = ({ children }) => (
 
 const GlobalDataFetch = () => {
   useUserData();
+  useThemeChange();
   useIsUserLoggedIn();
   return <></>;
 };

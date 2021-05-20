@@ -24,6 +24,18 @@ body {
   --shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
 }
 
+.dark {
+  --primary-color: hsl(245, 90%, 72%);
+  --primary-text-color: #dde2ee;
+  --secondary-text-color: #a3a9b3;
+  --primary-bg-color: #151a26;
+  --secondary-bg-color: #1d222e;
+  --error-color: #f54337;
+  --warning-color: #fe9900;
+  --success-color: #4caf50;
+  --transition: 100ms ease-in;
+  --shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
 
 body {
   width: 100%;
@@ -56,6 +68,16 @@ a {
   font-weight: 600;
   text-decoration: none;
   color: var(--primary-color);
+}
+
+input {
+  color: var(--primary-text-color);
+  background-color: transparent;
+}
+
+textarea {
+  color: var(--primary-text-color);
+  background-color: transparent;
 }
 
 button {

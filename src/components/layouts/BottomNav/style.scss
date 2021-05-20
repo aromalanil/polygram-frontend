@@ -12,4 +12,8 @@
   @media screen and(min-width:690px) {
     display: none;
   }
+
+  .dark & {
+    border-top: 0.01px solid rgb(88, 88, 88);
+  }
 }
