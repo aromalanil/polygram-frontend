@@ -1,7 +1,6 @@
-import { useHistory } from 'react-router-dom';
 import { FiArrowLeft } from 'react-icons/fi';
+import { useHistory } from 'react-router-dom';
 
-import './style.scss';
 import IconButton from '../../common/IconButton';
 import ThemeControl from './ThemeControl';
 
@@ -9,7 +8,7 @@ const Settings = () => {
   const history = useHistory();
   return (
     <>
-      <div className="settings-back">
+      <div className="page-back">
         <IconButton className="back-btn" onClick={() => history.goBack()}>
           <FiArrowLeft />
         </IconButton>

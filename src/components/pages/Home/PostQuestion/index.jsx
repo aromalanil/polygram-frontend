@@ -38,6 +38,7 @@ const PostQuestion = () => {
       <div className="post-question">
         <Avatar
           className="avatar"
+          username={isLoading ? '' : userData.username}
           src={isLoading ? placeHolderImage : userData.profile_picture}
           name={isLoading ? 'User Avatar' : 'userData.full_name'}
         />

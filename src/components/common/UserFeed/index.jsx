@@ -9,7 +9,7 @@ import { getQuestions } from '../../../api/question';
 import useApiError from '../../../hooks/useApiError';
 import { useRhinoValue } from '../../../global/state';
 
-const UserFeed = ({ topic, search, following }) => {
+const UserFeed = ({ topic, search, following, user_id }) => {
   const setApiError = useApiError();
   const [hasMore, setHasMore] = useState(true);
   const [questions, setQuestions] = useState([]);
@@ -27,11 +27,12 @@ const UserFeed = ({ topic, search, following }) => {
       getQuestions({
         topic,
         search,
+        user_id,
         following,
         after_id: after,
         before_id: before,
       }),
-    [topic, search, following]
+    [topic, search, following, user_id]
   );
 
   const fetchInitialQuestions = useCallback(async () => {

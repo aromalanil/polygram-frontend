@@ -43,7 +43,7 @@ const QuestionCard = ({ questionData, isDetailed = false, refetchData }) => {
       <div className="question-card" ref={cardRef}>
         <div className="question-card-top">
           <div className="author-details">
-            <Avatar src={profile_picture} />
+            <Avatar src={profile_picture} username={username} />
             <div>
               <h6>
                 {first_name} {last_name || ''}

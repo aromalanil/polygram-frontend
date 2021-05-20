@@ -37,7 +37,7 @@ const OpinionCard = ({ opinionData }) => {
     <div className="opinion-card">
       <div className="opinion-card-top">
         <div className="author-details">
-          <Avatar src={profile_picture} />
+          <Avatar src={profile_picture} username={username} />
           <div>
             <h6>
               {first_name} {last_name || ''}

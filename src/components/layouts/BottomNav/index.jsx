@@ -1,42 +1,50 @@
-import { BiBell, BiCog, BiHome, BiSearchAlt2 } from 'react-icons/bi';
+import { useMemo } from 'react';
+import { BiCog, BiHome, BiSearchAlt2, BiUser } from 'react-icons/bi';
 
 import './style.scss';
 import BottomNavItem from './BottomNavItem';
+import { useRhinoValue } from '../../../global/state';
 
-const navLinkArray = [
-  {
-    icon: <BiHome />,
-    route: '/',
-    isLoginRequired: false,
-  },
-  {
-    icon: <BiSearchAlt2 />,
-    route: '/search',
-    isLoginRequired: false,
-  },
-  {
-    icon: <BiBell />,
-    route: '/notification',
-    isLoginRequired: true,
-  },
-  {
-    icon: <BiCog />,
-    route: '/settings',
-    isLoginRequired: false,
-  },
-];
+const BottomNav = () => {
+  const userData = useRhinoValue('userData');
+  const navLinkArray = useMemo(
+    () => [
+      {
+        icon: <BiHome />,
+        route: '/',
+        isLoginRequired: false,
+      },
+      {
+        icon: <BiSearchAlt2 />,
+        route: '/search',
+        isLoginRequired: false,
+      },
+      {
+        icon: <BiUser />,
+        route: `/u/${userData?.username ?? ''}`,
+        isLoginRequired: true,
+      },
+      {
+        icon: <BiCog />,
+        route: '/settings',
+        isLoginRequired: false,
+      },
+    ],
+    [userData]
+  );
 
-const BottomNav = () => (
-  <div className="bottom-nav">
-    {navLinkArray.map((navLink) => (
-      <BottomNavItem
-        key={navLink.route}
-        icon={navLink.icon}
-        route={navLink.route}
-        isLoginRequired={navLink.isLoginRequired}
-      />
-    ))}
-  </div>
-);
+  return (
+    <div className="bottom-nav">
+      {navLinkArray.map((navLink) => (
+        <BottomNavItem
+          key={navLink.route}
+          icon={navLink.icon}
+          route={navLink.route}
+          isLoginRequired={navLink.isLoginRequired}
+        />
+      ))}
+    </div>
+  );
+};
 
 export default BottomNav;

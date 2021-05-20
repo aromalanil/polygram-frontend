@@ -1,5 +1,6 @@
 import { useCallback, useEffect } from 'react';
-import { getLoggedInUserData } from '../api/user';
+
+import { getUserData } from '../api/user';
 import { useRhinoValue, useSetRhinoState } from '../global/state';
 
 const useUserData = () => {
@@ -11,7 +12,7 @@ const useUserData = () => {
       if (_isUserLoggedIn) {
         let userData;
         try {
-          userData = await getLoggedInUserData();
+          userData = await getUserData();
           setUserData(userData ?? null);
         } catch (err) {
           console.log('Unable to get user details'); // eslint-disable-line

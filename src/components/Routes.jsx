@@ -16,7 +16,10 @@ const Routes = () => (
       <Route exact path="/">
         <Home />
       </Route>
-      <Route exact path="/profile">
+      <Route exact path="/u">
+        <Profile />
+      </Route>
+      <Route exact path="/u/:username">
         <Profile />
       </Route>
       <Route exact path="/settings">
@@ -27,6 +30,9 @@ const Routes = () => (
       </Route>
       <Route exact path="/questions/:id">
         <Question />
+      </Route>
+      <Route path="/404">
+        <NotFound />
       </Route>
       <Route path="*">
         <NotFound />

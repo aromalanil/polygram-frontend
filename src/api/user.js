@@ -7,8 +7,8 @@ export const logoutUser = async () => api.post('/users/logout');
 
 export const googleOAuth = async ({ token }) => api.post('/users/auth/google', { token });
 
-export const getLoggedInUserData = async () => {
-  const userData = await api.get('/users/');
+export const getUserData = async (username) => {
+  const userData = await api.get(`/users/${username ?? ''}`);
   return userData?.data?.data?.user;
 };
 

@@ -1,10 +1,9 @@
-import { useHistory, useParams } from 'react-router-dom';
 import { FiArrowLeft } from 'react-icons/fi';
+import { useHistory, useParams } from 'react-router-dom';
 
-import './style.scss';
 import Opinions from './Opinions';
-import DetailedQuestion from './DetailedQuestion';
 import IconButton from '../../common/IconButton';
+import DetailedQuestion from './DetailedQuestion';
 
 const Question = () => {
   const { id } = useParams();
@@ -12,7 +11,7 @@ const Question = () => {
 
   return (
     <>
-      <div className="question-back">
+      <div className="page-back">
         <IconButton className="back-btn" onClick={() => history.goBack()}>
           <FiArrowLeft />
         </IconButton>
