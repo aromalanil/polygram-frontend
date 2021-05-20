@@ -23,8 +23,11 @@
       left: 0;
       height: 100%;
       border-radius: 0.43rem;
-      background-color: #dee2f8;
       position: absolute;
+      background-color: #dee2f8;
+      .dark & {
+        background-color: var(--primary-bg-color);
+      }
     }
   }
 

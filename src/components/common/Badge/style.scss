@@ -7,14 +7,12 @@
   color: var(--badge-color);
   background-color: var(--badge-background);
   .dark & {
-    color: var(--badge-background);
-    border: 0.1px solid var(--badge-background);
-    background-color: var(--dark-badge-background);
+    filter: saturate(0.9);
   }
 }
 
-.badge + .badge {
-  margin-left: 0.5rem;
+.badge:not(.badge + .badge) {
+  margin-right: 0.5rem;
 }
 
 .badge.red {
