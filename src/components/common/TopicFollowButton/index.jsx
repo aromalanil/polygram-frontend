@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import useApiError from '../../../hooks/useApiError';
 import useProtectedFunction from '../../../hooks/useProtectedFunction';
 import { followTopics, unfollowTopics } from '../../../api/topic';
@@ -10,6 +10,10 @@ const TopicFollowButton = ({ topic, initialIsFollowing, ...props }) => {
   const protectFunction = useProtectedFunction();
   const [isLoading, setIsLoading] = useState(false);
   const [isFollowing, setIsFollowing] = useState(initialIsFollowing);
+
+  useEffect(() => {
+    setIsFollowing(initialIsFollowing);
+  }, [initialIsFollowing]);
 
   const handleFollowTopic = protectFunction(async () => {
     setIsLoading(true);

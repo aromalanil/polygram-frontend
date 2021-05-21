@@ -5,11 +5,13 @@ import TopicRow from './TopicRow';
 import Loader from '../../../common/Loader';
 import { getTopics } from '../../../../api/topic';
 import useApiError from '../../../../hooks/useApiError';
+import { useRhinoValue } from '../../../../global/state';
 
 const TopicsCard = () => {
-  const [isLoading, setIsLoading] = useState(true);
-  const [topics, setTopics] = useState([]);
   const setApiError = useApiError();
+  const [topics, setTopics] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const isUserLoggedIn = useRhinoValue('isUserLoggedIn');
 
   useEffect(() => {
     const fetchTopics = async () => {
@@ -23,7 +25,7 @@ const TopicsCard = () => {
       }
     };
     fetchTopics();
-  }, [setApiError]);
+  }, [setApiError, isUserLoggedIn]);
 
   return (
     <div className="topics-card">
