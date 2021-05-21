@@ -13,7 +13,6 @@
     border-radius: 0.5rem;
     padding: 1rem;
     font-weight: 700;
-    border: 0.05rem solid var(--secondary-text-color);
     color: var(--secondary-text-color);
     * {
       position: relative;
@@ -55,4 +54,10 @@
   .vote-button + .vote-button {
     margin-top: 1rem;
   }
+}
+
+.card-options.result {
+  padding: 1rem;
+  border-radius: 1rem;
+  border: 1px solid #68778d8e;
 }

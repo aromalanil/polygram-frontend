@@ -5,7 +5,7 @@
   height: 100vh;
   z-index: 49;
   position: fixed;
-  background-color: rgba(15, 15, 15, 0.452);
+  background-color: rgba(15, 15, 15, 0.70);
   .dark & {
     background-color: rgba(15, 15, 15, 0.95);
   }
@@ -55,11 +55,13 @@
 
   .modal-body {
     max-height: 100%;
-    min-height: 30rem;
   }
 }
 
 @media screen and (max-width: 600px) {
+  .modal {
+    width: 94vw;
+  }
   .full-screen {
     bottom: 0;
     height: 100%;

@@ -4,7 +4,7 @@
   width: 100vw;
   display: flex;
   position: fixed;
-  box-shadow: var(--shadow);
+  box-shadow: 0 -1px 20px -3px rgba(0, 0, 0, 0.2);
   transition: var(--transition);
   padding: 1.2rem 3.5rem 0.8rem;
   justify-content: space-between;
@@ -14,6 +14,7 @@
   }
 
   .dark & {
+    box-shadow: none;
     border-top: 0.01px solid rgb(88, 88, 88);
   }
 }

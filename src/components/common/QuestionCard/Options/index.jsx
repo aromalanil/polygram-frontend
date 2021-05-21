@@ -5,7 +5,7 @@ import OpinionModal from './OpinionModal';
 import useProtectedFunction from '../../../../hooks/useProtectedFunction';
 
 const Options = ({ options, showPercentage, questionId }) => (
-  <div className="card-options">
+  <div className={`card-options ${showPercentage && 'result'}`}>
     {options.map((option) =>
       showPercentage ? (
         <OptionWithPercentage key={option.name} name={option.name} percentage={option.percentage} />

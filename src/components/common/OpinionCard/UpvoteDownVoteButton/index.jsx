@@ -1,5 +1,5 @@
 import { useCallback } from 'react';
-import { GoArrowDown, GoArrowUp } from 'react-icons/go';
+import { VscTriangleDown, VscTriangleUp } from 'react-icons/vsc';
 
 import './style.scss';
 import useApiError from '../../../../hooks/useApiError';
@@ -56,8 +56,8 @@ const UpvoteDownVoteButton = ({ opinion_id, isVoted, type, count, setCount, setI
         tabIndex={0}
         onClick={protectFunction(handleVote)}
       >
-        {type === 'upvote' && <GoArrowUp />}
-        {type === 'downvote' && <GoArrowDown />}
+        {type === 'upvote' && <VscTriangleUp />}
+        {type === 'downvote' && <VscTriangleDown />}
       </div>
       <div className="vote-count">{count}</div>
     </div>

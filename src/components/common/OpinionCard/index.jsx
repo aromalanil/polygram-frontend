@@ -66,7 +66,6 @@ const OpinionCard = ({ opinionData }) => {
             isVoted={isVoted.downvote}
           />
         </div>
-        <div className="separation" />
         <div className="opinion-card-content">
           <h3>Voted For {option}</h3>
           <p>{content}</p>

@@ -3,9 +3,9 @@
   align-items: center;
   font-size: 1.4rem;
   .vote-button {
-    padding: 0.3rem;
+    padding: 0rem 0.1rem;
     border-radius: 0.4rem;
-    font-size: 2.2rem;
+    font-size: 2.5rem;
     line-height: 2.2rem;
     cursor: pointer;
     display: flex;
@@ -18,36 +18,37 @@
       filter: brightness(0.9);
       &.upvote {
         svg {
-          fill: red;
+          fill: #3f5bf0;
         }
       }
       &.downvote {
         svg {
-          fill: blue;
+          fill: #ff3350;
         }
       }
     }
   }
   .vote-count {
+    font-size: 1.3rem;
     margin-left: 0.2rem;
     font-weight: 600;
     color: var(--secondary-text-color);
   }
   .voted.upvote {
     svg {
-      fill: red;
+      fill: #3f5bf0;
     }
     & + .vote-count {
-      color: red;
+      color: #3f5bf0;
     }
   }
 
   .voted.downvote {
     svg {
-      fill: blue;
+      fill: #ff3350;
     }
     & + .vote-count {
-      color: blue;
+      color: #ff3350;
     }
   }
 }

@@ -75,6 +75,7 @@ const LoginModal = () => {
           </div>
           <form onSubmit={handleLoginSubmit} className="login-form">
             <TextInput
+              autoFocus
               minLength={4}
               maxLength={15}
               label="Username"

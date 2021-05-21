@@ -1,0 +1,30 @@
+.confirm-dialog-popup {
+  padding: 1.5rem;
+  padding-top: 2rem;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  &-top {
+    display: flex;
+    flex-direction: column;
+    margin-right: 3.8rem;
+    h3 {
+      margin: 0;
+      font-size: 2rem;
+    }
+    p {
+      margin: 0.7em 0;
+    }
+    margin-bottom: 1rem;
+  }
+  &-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
+  @media screen and (max-width: 600px) {
+    padding: 1rem;
+    padding-top: 2rem;
+  }
+}

@@ -1,12 +1,12 @@
 .user-profile-card {
   width: 100%;
-  border-radius: 1.5rem;
-  margin-bottom: 3rem;
+  border-radius: 1.3rem;
+  margin-bottom: 2rem;
   background-color: var(--secondary-bg-color);
   &-top {
     .cover-img {
-      border-top-right-radius: 1.5rem;
-      border-top-left-radius: 1.5rem;
+      border-top-right-radius: 1.3rem;
+      border-top-left-radius: 1.3rem;
       object-fit: cover;
       width: 100%;
       height: 20rem;

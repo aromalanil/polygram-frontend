@@ -29,4 +29,7 @@
     height: 0.1rem;
     background-color: var(--secondary-text-color);
   }
+  @media screen and (max-width: 690px) {
+    padding: 3rem;
+  }
 }
