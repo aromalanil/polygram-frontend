@@ -7,7 +7,7 @@ const { RhinoProvider, useRhinoState, useRhinoValue, useSetRhinoState } = create
   isDeviceOffline: false,
   theme: getInitialTheme(),
   isLoginModalVisible: false,
-  isSignInModalVisible: false,
+  isSignUpModalVisible: false,
   snackBarData: { type: 'error', message: null },
 });
 

@@ -28,6 +28,9 @@
     border-radius: 0.8rem;
     transition: var(--transition);
     border: 0.2rem solid #bccad8;
+    .dark & {
+      border-color: #a3a9b3d7;
+    }
     &:focus {
       outline: none;
       border: 0.2rem solid var(--primary-text-color);

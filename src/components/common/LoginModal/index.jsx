@@ -21,6 +21,7 @@ const LoginModal = () => {
   const [passwordError, setPasswordError] = useState(null);
   const setSnackBarData = useSetRhinoState('snackBarData');
   const setIsUserLoggedIn = useSetRhinoState('isUserLoggedIn');
+  const setSignUpModalVisibility = useSetRhinoState('isSignUpModalVisible');
   const [isLoginModalVisible, setLoginModalVisibility] = useRhinoState('isLoginModalVisible');
 
   const isValid = useMemo(() => !usernameError && !passwordError, [usernameError, passwordError]);
@@ -54,6 +55,11 @@ const LoginModal = () => {
     handleModalClose();
   };
 
+  const handleSignUpClick = () => {
+    setSignUpModalVisibility(true);
+    handleModalClose();
+  };
+
   return (
     <>
       <Modal isOpen={isLoginModalVisible} onClose={handleModalClose}>
@@ -61,7 +67,10 @@ const LoginModal = () => {
           <div className="login-head">
             <h1 className="login-title">Login to Poly</h1>
             <p className="login-subtitle">
-              Not a member? <a href="http://localhost:3000">Sign up now</a>
+              Not a member?{' '}
+              <span role="link" tabIndex={0} className="link" onClick={handleSignUpClick}>
+                Sign up now
+              </span>
             </p>
           </div>
           <form onSubmit={handleLoginSubmit} className="login-form">
@@ -86,11 +95,9 @@ const LoginModal = () => {
               pattern={passwordRegex}
               setError={setPasswordError}
               onChange={(e) => setPassword(e.target.value)}
-              patternMessage="Password must contain al teast 1 letter, 1 digit and 1 number"
+              patternMessage="Password must contain at least 1 alphabet, special character and number"
             />
-            <p className="forgot-password">
-              <a href="https://localhost:3000">Forgot Password?</a>
-            </p>
+            <span className="link forgot-password">Forgot Password?</span>
             <Button type="submit" variant="primary" isLoading={isLoading}>
               Login
             </Button>

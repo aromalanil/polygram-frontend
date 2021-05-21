@@ -3,6 +3,7 @@ import BottomNav from '../BottomNav';
 import RightSideBar from '../RightSideBar';
 import Snackbar from '../../common/Snackbar';
 import LoginModal from '../../common/LoginModal';
+import SignUpModal from '../../common/SignUpModal';
 import useUserData from '../../../hooks/useUserData';
 import OfflineBanner from '../../common/OfflineBanner';
 import useThemeChange from '../../../hooks/useThemeChange';
@@ -16,6 +17,7 @@ const Layout = ({ children }) => (
     <div className="page">{children}</div>
     <RightSideBar />
     <BottomNav />
+    <SignUpModal />
     <LoginModal />
     <Snackbar />
   </>

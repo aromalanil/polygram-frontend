@@ -1,13 +1,26 @@
-.login-modal {
+.sign-up-modal {
   padding: 1.2rem;
-  .login-head {
-    margin-bottom: 3.5rem;
-    .login-title {
+  .sign-up-head {
+    margin-bottom: 3rem;
+    .sign-up-title {
       font-size: 2.4rem;
       color: var(--primary-text-color);
     }
   }
-  .login-form {
+  .sign-up-form {
+    .input-wrapper {
+      width: 100%;
+      margin: 0.8rem 0;
+    }
+    .name-row {
+      display: flex;
+      .first-name {
+        margin-right: 1rem;
+      }
+      .last-name {
+        margin-left: 1rem;
+      }
+    }
     display: flex;
     flex-direction: column;
     .forgot-password {
@@ -16,7 +29,7 @@
     }
     button {
       width: 50%;
-      margin: 2rem auto 0;
+      margin: 2rem auto 1rem;
       font-size: 1.5rem;
     }
   }
@@ -24,7 +37,7 @@
     width: 80%;
     height: 0.1rem;
     position: relative;
-    margin: 4rem auto;
+    margin: 2.5rem auto;
     background-color: #bccad8;
     span {
       top: 50%;
@@ -38,11 +51,11 @@
       background-color: var(--secondary-bg-color);
     }
   }
-  .google-login {
+  .google-sign-up {
     display: flex;
     width: 60%;
     margin: auto;
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
     justify-content: center;
     @media screen and (max-width: 600px) {
       width: 90%;

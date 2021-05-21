@@ -16,3 +16,8 @@ export const findIfUserIsLoggedIn = async () => {
   const response = await api.get('/users/is-logged-in');
   return response?.data?.data?.is_user_logged_in;
 };
+
+export const registerUser = async ({ email, first_name, last_name, username, password }) =>
+  api.post('/users/register', { email, first_name, last_name, username, password });
+
+export const verifyUser = async ({ username, otp }) => api.post('/users/verify', { username, otp });

@@ -16,6 +16,7 @@ const TextInput = ({
   maxLength,
   minLength,
   type = 'text',
+  autoComplete = 'off',
   patternMessage,
   ...props
 }) => {
@@ -70,6 +71,7 @@ const TextInput = ({
           {...props}
           value={value}
           type={inputType}
+          autoComplete={autoComplete}
           onChange={handleInputChange}
           className={type === 'password' ? 'password-input' : ''}
           name={name ?? 'text-input'}
