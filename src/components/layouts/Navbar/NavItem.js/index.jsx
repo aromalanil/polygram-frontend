@@ -3,7 +3,7 @@ import { useHistory, useRouteMatch } from 'react-router-dom';
 import './style.scss';
 import useProtectedFunction from '../../../../hooks/useProtectedFunction';
 
-const NavItem = ({ icon, text, route, isLoginRequired, id }) => {
+const NavItem = ({ icon, text, route, isLoginRequired }) => {
   const history = useHistory();
   const protectFunction = useProtectedFunction();
   const isLinkActive = useRouteMatch({ path: route, exact: true });
@@ -13,7 +13,6 @@ const NavItem = ({ icon, text, route, isLoginRequired, id }) => {
 
   return (
     <div
-      id={id}
       role="link"
       tabIndex={0}
       onClick={isLoginRequired ? protectedHandleClick : handleClick}

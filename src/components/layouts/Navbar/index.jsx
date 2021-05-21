@@ -1,5 +1,5 @@
 import { useMemo } from 'react';
-import { BiBell, BiCog, BiHome, BiSearchAlt2, BiUser } from 'react-icons/bi';
+import { BiCog, BiHome, BiSearchAlt2, BiUser } from 'react-icons/bi';
 
 import './style.scss';
 import NavItem from './NavItem.js';
@@ -18,13 +18,11 @@ const Navbar = () => {
         icon: <BiHome />,
         text: 'Home',
         route: '/',
-        id: 'home',
         isLoginRequired: false,
       },
       {
         icon: <BiSearchAlt2 />,
         text: 'Search',
-        id: 'search',
         route: '/search',
         isLoginRequired: false,
       },
@@ -32,20 +30,11 @@ const Navbar = () => {
         icon: <BiUser />,
         text: 'Profile',
         route: `/u/${userData?.username ?? ''}`,
-        id: 'profile',
-        isLoginRequired: true,
-      },
-      {
-        icon: <BiBell />,
-        text: 'Notification',
-        id: 'notification',
-        route: '/notification',
         isLoginRequired: true,
       },
       {
         icon: <BiCog />,
         text: 'Settings',
-        id: 'settings',
         route: '/settings',
         isLoginRequired: false,
       },
