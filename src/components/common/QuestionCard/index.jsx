@@ -4,13 +4,13 @@ import { useEffect, useRef, useState } from 'react';
 import relativeTime from 'dayjs/plugin/relativeTime';
 
 import './style.scss';
+import Badge from '../Badge';
 import Avatar from '../Avatar';
 import Button from '../Button';
 import Options from './Options';
 import ShareButton from './ShareButton';
 import { getShortString } from '../../../utils/string';
 import { FetchQuestionProvider } from './fetchQuestionContext';
-import Badge from '../Badge';
 
 dayjs.extend(relativeTime);
 

@@ -1,0 +1,16 @@
+.menu-popup {
+  top: 3.5rem;
+  right: 1rem;
+  min-width: 16rem;
+  padding: 0.5rem 0;
+  position: absolute;
+  border: 1px solid #e1e4e8;
+  border-radius: 0.5rem;
+  background-color: var(--secondary-bg-color);
+  box-shadow: 0 5px 10px rgba(70, 71, 77, 0.144);
+  box-shadow: 0px 0px 15px 0px rgba(50, 50, 50, 0.29);
+  .dark & {
+    box-shadow: 0 5px 10px rgba(121, 121, 121, 0.144);
+    border-color: #5a5a5a96;
+  }
+}

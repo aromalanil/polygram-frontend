@@ -23,7 +23,6 @@
     ]
   },
   "dependencies": {
-    "@material-ui/core": "^4.11.4",
     "axios": "^0.21.1",
     "dayjs": "^1.10.4",
     "html2canvas": "^1.0.0-rc.7",
