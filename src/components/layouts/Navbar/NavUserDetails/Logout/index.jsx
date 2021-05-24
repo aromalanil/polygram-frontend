@@ -1,37 +1,47 @@
+import { useState } from 'react';
 import { CgLogOut } from 'react-icons/cg';
 
 import './style.scss';
 import MenuPopup from './MenuPopup';
-import { logoutUser } from '../../../../../api/user';
-import useApiError from '../../../../../hooks/useApiError';
-import { useSetRhinoState } from '../../../../../global/state';
+import ConfirmDialog from '../../../../common/ConfirmDialog';
+import useLogoutUser from '../../../../../hooks/useLogoutUser';
 
 const Logout = ({ isLogoutVisible, onClose }) => {
-  const setApiError = useApiError();
-  const setSnackBarData = useSetRhinoState('snackBarData');
-  const setIsUserLoggedIn = useSetRhinoState('isUserLoggedIn');
+  const logout = useLogoutUser();
+  const [isPopupVisible, setPopupVisibility] = useState(false);
 
-  const handleLogoutClick = async () => {
-    // Calling api for logout the user
-    try {
-      await logoutUser();
-    } catch (err) {
-      setApiError(err);
-      return;
+  const handleButtonClick = async () => {
+    setPopupVisibility(true);
+  };
+
+  const logoutUser = async () => {
+    if (await logout()) {
+      onClose();
     }
-    setIsUserLoggedIn(false);
-    setSnackBarData({ type: 'success', message: 'Successfully Logged out' });
+  };
+
+  const handlePopupClose = () => {
+    setPopupVisibility(false);
+    onClose();
   };
 
   return (
     <>
       <MenuPopup isOpen={isLogoutVisible} onClose={onClose}>
         <div className="logout-container">
-          <div role="button" className="logout" tabIndex={0} onClick={handleLogoutClick}>
+          <div role="button" className="logout" tabIndex={0} onClick={handleButtonClick}>
             <CgLogOut />
             <span>Logout</span>
           </div>
         </div>
+        <ConfirmDialog
+          title="Logout"
+          onSuccess={logoutUser}
+          isOpen={isPopupVisible}
+          onClose={handlePopupClose}
+          onAbort={handlePopupClose}
+          message="Are you sure you want to logout?"
+        />
       </MenuPopup>
     </>
   );
