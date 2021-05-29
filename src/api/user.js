@@ -21,3 +21,8 @@ export const registerUser = async ({ email, first_name, last_name, username, pas
   api.post('/users/register', { email, first_name, last_name, username, password });
 
 export const verifyUser = async ({ username, otp }) => api.post('/users/verify', { username, otp });
+
+export const sendOtp = async (email) => api.post('/users/send-otp', { email });
+
+export const forgotPassword = async ({ email, new_password, otp }) =>
+  api.post('/users/forgot-password', { email, new_password, otp });

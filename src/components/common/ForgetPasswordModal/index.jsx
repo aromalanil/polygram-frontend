@@ -5,47 +5,41 @@ import Modal from '../Modal';
 import Button from '../Button';
 import OtpModal from '../OtpModal';
 import TextInput from '../TextInput';
-import GoogleOAuth from '../GoogleOAuth';
 import useApiError from '../../../hooks/useApiError';
 import { makeObjectFromArray } from '../../../utils/common';
-import { registerUser, verifyUser } from '../../../api/user';
+import { forgotPassword, sendOtp } from '../../../api/user';
 import { useRhinoState, useSetRhinoState } from '../../../global/state';
 
-const usernameRegex = /^[a-z0-9_-]*$/;
 const emailRegex = /^[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+$/;
 const passwordRegex = /^(?=.*[a-zA-Z])(?=.*\d)(?=.*[#?!@$ %^&*-])[A-Za-z\d#?!@$ %^&*-]/;
 
-const signUpInputFields = [
-  'email',
-  'username',
-  'password',
-  'last_name',
-  'first_name',
-  'confirm_password',
-];
+const forgetPasswordInputFields = ['email', 'password', 'confirm_password'];
 
-const SignUpModal = () => {
+const ForgetPasswordModal = () => {
   const setApiError = useApiError();
   const [isLoading, setIsLoading] = useState(false);
   const setSnackBarData = useSetRhinoState('snackBarData');
-  const setIsUserLoggedIn = useSetRhinoState('isUserLoggedIn');
   const [isOtpModalVisible, setIsOtpModalVisible] = useState(false);
   const setLoginModalVisibility = useSetRhinoState('isLoginModalVisible');
-  const [isSignUpModalVisible, setSignUpModalVisibility] = useRhinoState('isSignUpModalVisible');
+  const setSignUpModalVisibility = useSetRhinoState('isSignUpModalVisible');
+  const [isForgetPasswordModalVisible, setForgetPasswordModalVisibility] = useRhinoState(
+    'isForgetPasswordModalVisible'
+  );
 
   // An object with names of each input field as keys  and value ''
-  const [inputs, setInputs] = useState(makeObjectFromArray(signUpInputFields, ''));
+  const [inputs, setInputs] = useState(makeObjectFromArray(forgetPasswordInputFields, ''));
 
   // An object with names of each input field as keys and value null
-  const [errors, setErrors] = useState(makeObjectFromArray(signUpInputFields, null));
+  const [errors, setErrors] = useState(makeObjectFromArray(forgetPasswordInputFields, null));
 
   // isValid will be false if any entries of error object is not null
   const isValid = useMemo(() => Object.values(errors).every((error) => error === null), [errors]);
 
   const handleModalClose = () => {
-    setInputs(makeObjectFromArray(signUpInputFields, ''));
-    setErrors(makeObjectFromArray(signUpInputFields, null));
-    setSignUpModalVisibility(false);
+    setInputs(makeObjectFromArray(forgetPasswordInputFields, ''));
+    setErrors(makeObjectFromArray(forgetPasswordInputFields, null));
+    setForgetPasswordModalVisibility(false);
+    setLoginModalVisibility(true);
   };
 
   const handleInputChange = (inputName) => (e) => {
@@ -56,7 +50,7 @@ const SignUpModal = () => {
     setErrors((initialErrors) => ({ ...initialErrors, [inputName]: error }));
   };
 
-  const handleSignUpSubmit = async (e) => {
+  const handleForgetPasswordSubmit = async (e) => {
     e.preventDefault();
 
     // Checking if form has any errors
@@ -68,10 +62,10 @@ const SignUpModal = () => {
       return;
     }
 
-    // Calling api for Registering the user
+    // Calling api for sending OTP
     try {
       setIsLoading(true);
-      await registerUser(inputs);
+      await sendOtp(inputs.email);
     } catch (err) {
       setIsLoading(false);
       setApiError(err);
@@ -81,9 +75,14 @@ const SignUpModal = () => {
     setIsLoading(false);
   };
 
+  // Calling api for forget password
   const handleVerify = async (otp) => {
     try {
-      await verifyUser({ otp, username: inputs.username });
+      await forgotPassword({
+        email: inputs.email,
+        new_password: inputs.confirm_password,
+        otp,
+      });
       return true;
     } catch (err) {
       setApiError(err);
@@ -93,7 +92,7 @@ const SignUpModal = () => {
 
   const handleResendOTP = async () => {
     try {
-      await registerUser(inputs);
+      await sendOtp(inputs.email);
       setSnackBarData({ type: 'success', message: 'A new OTP has been send' });
       return true;
     } catch (err) {
@@ -103,65 +102,29 @@ const SignUpModal = () => {
   };
 
   const handleVerificationSuccess = () => {
-    setIsUserLoggedIn(true);
-    setSnackBarData({ type: 'success', message: 'Account created successfully' });
+    setSnackBarData({ type: 'success', message: 'Password changed successfully' });
     handleModalClose();
   };
 
   const handleLoginClick = () => {
-    setLoginModalVisibility(true);
-    handleModalClose();
+    setSignUpModalVisibility(true);
   };
-
   return (
     <>
-      <Modal isOpen={isSignUpModalVisible} onClose={handleModalClose}>
-        <div className="sign-up-modal">
-          <div className="sign-up-head">
-            <h1 className="sign-up-title">Sign Up for Poly</h1>
-            <p className="sign-up-subtitle">
-              Already a member?{' '}
+      <Modal isOpen={isForgetPasswordModalVisible} onClose={handleModalClose}>
+        <div className="forget-password-modal">
+          <div className="forget-password-head">
+            <h1 className="forget-password-title">Forgot Password</h1>
+            <p className="forget-password-subtitle">
+              Not a member?{' '}
               <span className="link" onClick={handleLoginClick} role="link" tabIndex={0}>
-                Login now
+                Sign Up now
               </span>
             </p>
           </div>
-          <form onSubmit={handleSignUpSubmit} className="sign-up-form">
-            <div className="name-row">
-              <TextInput
-                autoFocus
-                minLength={3}
-                maxLength={30}
-                label="First Name"
-                className="first-name"
-                error={errors.first_name}
-                value={inputs.first_name}
-                setError={setSingleError('first_name')}
-                onChange={handleInputChange('first_name')}
-              />
-              <TextInput
-                minLength={0}
-                maxLength={30}
-                label="Last Name"
-                className="last-name"
-                error={errors.last_name}
-                value={inputs.last_name}
-                setError={setSingleError('last_name')}
-                onChange={handleInputChange('last_name')}
-              />
-            </div>
+          <form onSubmit={handleForgetPasswordSubmit} className="forget-password-form">
             <TextInput
-              minLength={4}
-              maxLength={15}
-              label="Username"
-              error={errors.username}
-              value={inputs.username}
-              pattern={usernameRegex}
-              setError={setSingleError('username')}
-              onChange={handleInputChange('username')}
-              patternMessage="Username must only contain small letters, numbers, dashes and underscore"
-            />
-            <TextInput
+              autoFocus
               minLength={5}
               maxLength={50}
               label="Email"
@@ -176,34 +139,28 @@ const SignUpModal = () => {
               minLength={8}
               maxLength={50}
               type="password"
-              label="Password"
+              label="New Password"
               value={inputs.password}
               error={errors.password}
               pattern={passwordRegex}
               setError={setSingleError('password')}
               onChange={handleInputChange('password')}
-              patternMessage="Password must contain at least an alphabet, a special character and a number"
+              patternMessage="Password must contain at least 1 alphabet, special character and number"
             />
             <TextInput
               minLength={8}
               maxLength={50}
               type="password"
-              label="Confirm Password"
+              label="Confirm New Password"
               value={inputs.confirm_password}
               error={errors.confirm_password}
               setError={setSingleError('confirm_password')}
               onChange={handleInputChange('confirm_password')}
             />
             <Button type="submit" variant="primary" isLoading={isLoading}>
-              Sign Up
+              Reset Password
             </Button>
           </form>
-          <div className="line-separator">
-            <span>OR</span>
-          </div>
-          <div className="google-sign-up">
-            <GoogleOAuth text="Sign Up with Google" onSuccess={handleModalClose} />
-          </div>
         </div>
         <OtpModal
           resendOtp={handleResendOTP}
@@ -218,4 +175,4 @@ const SignUpModal = () => {
   );
 };
 
-export default SignUpModal;
+export default ForgetPasswordModal;
