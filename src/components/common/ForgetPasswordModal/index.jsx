@@ -20,7 +20,6 @@ const ForgetPasswordModal = () => {
   const [isLoading, setIsLoading] = useState(false);
   const setSnackBarData = useSetRhinoState('snackBarData');
   const [isOtpModalVisible, setIsOtpModalVisible] = useState(false);
-  const setLoginModalVisibility = useSetRhinoState('isLoginModalVisible');
   const setSignUpModalVisibility = useSetRhinoState('isSignUpModalVisible');
   const [isForgetPasswordModalVisible, setForgetPasswordModalVisibility] = useRhinoState(
     'isForgetPasswordModalVisible'
@@ -39,7 +38,6 @@ const ForgetPasswordModal = () => {
     setInputs(makeObjectFromArray(forgetPasswordInputFields, ''));
     setErrors(makeObjectFromArray(forgetPasswordInputFields, null));
     setForgetPasswordModalVisibility(false);
-    setLoginModalVisibility(true);
   };
 
   const handleInputChange = (inputName) => (e) => {
@@ -106,8 +104,9 @@ const ForgetPasswordModal = () => {
     handleModalClose();
   };
 
-  const handleLoginClick = () => {
+  const handleSignUpClick = () => {
     setSignUpModalVisibility(true);
+    handleModalClose();
   };
   return (
     <>
@@ -117,7 +116,7 @@ const ForgetPasswordModal = () => {
             <h1 className="forget-password-title">Forgot Password</h1>
             <p className="forget-password-subtitle">
               Not a member?{' '}
-              <span className="link" onClick={handleLoginClick} role="link" tabIndex={0}>
+              <span className="link" onClick={handleSignUpClick} role="link" tabIndex={0}>
                 Sign Up now
               </span>
             </p>
@@ -162,15 +161,15 @@ const ForgetPasswordModal = () => {
             </Button>
           </form>
         </div>
-        <OtpModal
-          resendOtp={handleResendOTP}
-          onSubmit={handleVerify}
-          onSuccess={handleVerificationSuccess}
-          isOpen={isOtpModalVisible}
-          email={inputs.email}
-          onClose={() => setIsOtpModalVisible(false)}
-        />
       </Modal>
+      <OtpModal
+        resendOtp={handleResendOTP}
+        onSubmit={handleVerify}
+        onSuccess={handleVerificationSuccess}
+        isOpen={isOtpModalVisible}
+        email={inputs.email}
+        onClose={() => setIsOtpModalVisible(false)}
+      />
     </>
   );
 };

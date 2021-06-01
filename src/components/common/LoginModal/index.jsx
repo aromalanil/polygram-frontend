@@ -33,7 +33,6 @@ const LoginModal = () => {
     setUsernameError(null);
     setPasswordError(null);
     setLoginModalVisibility(false);
-    setForgetPasswordModalVisibility(false);
   };
 
   const handleLoginSubmit = async (e) => {
