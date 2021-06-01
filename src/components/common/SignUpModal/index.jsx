@@ -68,7 +68,7 @@ const SignUpModal = () => {
       return;
     }
 
-    // Calling api for login the user
+    // Calling api for Registering the user
     try {
       setIsLoading(true);
       await registerUser(inputs);
@@ -182,7 +182,7 @@ const SignUpModal = () => {
               pattern={passwordRegex}
               setError={setSingleError('password')}
               onChange={handleInputChange('password')}
-              patternMessage="Password must contain at least 1 alphabet, special character and number"
+              patternMessage="Password must contain at least an alphabet, a special character and a number"
             />
             <TextInput
               minLength={8}

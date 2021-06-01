@@ -8,6 +8,7 @@ const { RhinoProvider, useRhinoState, useRhinoValue, useSetRhinoState } = create
   theme: getInitialTheme(),
   isLoginModalVisible: false,
   isSignUpModalVisible: false,
+  isForgetPasswordModalVisible: false,
   snackBarData: { type: 'error', message: null },
 });
 

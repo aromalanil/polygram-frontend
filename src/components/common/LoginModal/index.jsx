@@ -22,6 +22,7 @@ const LoginModal = () => {
   const setSnackBarData = useSetRhinoState('snackBarData');
   const setIsUserLoggedIn = useSetRhinoState('isUserLoggedIn');
   const setSignUpModalVisibility = useSetRhinoState('isSignUpModalVisible');
+  const setForgetPasswordModalVisibility = useSetRhinoState('isForgetPasswordModalVisible');
   const [isLoginModalVisible, setLoginModalVisibility] = useRhinoState('isLoginModalVisible');
 
   const isValid = useMemo(() => !usernameError && !passwordError, [usernameError, passwordError]);
@@ -60,6 +61,11 @@ const LoginModal = () => {
     handleModalClose();
   };
 
+  const handleForgetPasswordClick = () => {
+    setForgetPasswordModalVisibility(true);
+    setLoginModalVisibility(false);
+  };
+
   return (
     <>
       <Modal isOpen={isLoginModalVisible} onClose={handleModalClose}>
@@ -96,9 +102,16 @@ const LoginModal = () => {
               pattern={passwordRegex}
               setError={setPasswordError}
               onChange={(e) => setPassword(e.target.value)}
-              patternMessage="Password must contain at least 1 alphabet, special character and number"
+              patternMessage="Password must contain at least an alphabet, a special character and a number"
             />
-            <span className="link forgot-password">Forgot Password?</span>
+            <span
+              role="link"
+              tabIndex={0}
+              className="link forgot-password"
+              onClick={handleForgetPasswordClick}
+            >
+              Forgot Password?
+            </span>
             <Button type="submit" variant="primary" isLoading={isLoading}>
               Login
             </Button>

@@ -8,6 +8,7 @@ import useUserData from '../../../hooks/useUserData';
 import OfflineBanner from '../../common/OfflineBanner';
 import useThemeChange from '../../../hooks/useThemeChange';
 import useIsUserLoggedIn from '../../../hooks/useIsUserLoggedIn';
+import ForgetPasswordModal from '../../common/ForgetPasswordModal';
 
 const Layout = ({ children }) => (
   <>
@@ -17,6 +18,7 @@ const Layout = ({ children }) => (
     <div className="page">{children}</div>
     <RightSideBar />
     <BottomNav />
+    <ForgetPasswordModal />
     <SignUpModal />
     <LoginModal />
     <Snackbar />
