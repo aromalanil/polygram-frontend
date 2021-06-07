@@ -9,9 +9,7 @@ import useApiError from '../../../hooks/useApiError';
 import { makeObjectFromArray } from '../../../utils/common';
 import { forgotPassword, sendOtp } from '../../../api/user';
 import { useRhinoState, useSetRhinoState } from '../../../global/state';
-
-const emailRegex = /^[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+$/;
-const passwordRegex = /^(?=.*[a-zA-Z])(?=.*\d)(?=.*[#?!@$ %^&*-])[A-Za-z\d#?!@$ %^&*-]/;
+import { emailRegex, passwordRegex } from '../../../utils/regex';
 
 const forgetPasswordInputFields = ['email', 'password', 'confirm_password'];
 

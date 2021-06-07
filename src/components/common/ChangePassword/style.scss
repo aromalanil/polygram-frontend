@@ -1,0 +1,13 @@
+.edit-password {
+  h3 {
+    font-size: 2rem;
+    margin: 0;
+    margin-bottom: 1em;
+  }
+  .input-wrapper + .input-wrapper {
+    margin-top: 2em;
+  }
+  button {
+    margin: 0.7em 0;
+  }
+}

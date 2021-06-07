@@ -26,3 +26,9 @@ export const sendOtp = async (email) => api.post('/users/send-otp', { email });
 
 export const forgotPassword = async ({ email, new_password, otp }) =>
   api.post('/users/forgot-password', { email, new_password, otp });
+
+export const changePassword = async ({ old_password, new_password }) =>
+  api.post('/users/change-password', { old_password, new_password });
+
+export const editDetails = async ({ first_name, last_name, bio }) =>
+  api.post('/users/edit', { first_name, last_name, bio });

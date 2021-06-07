@@ -10,10 +10,7 @@ import useApiError from '../../../hooks/useApiError';
 import { makeObjectFromArray } from '../../../utils/common';
 import { registerUser, verifyUser } from '../../../api/user';
 import { useRhinoState, useSetRhinoState } from '../../../global/state';
-
-const usernameRegex = /^[a-z0-9_-]*$/;
-const emailRegex = /^[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+$/;
-const passwordRegex = /^(?=.*[a-zA-Z])(?=.*\d)(?=.*[#?!@$ %^&*-])[A-Za-z\d#?!@$ %^&*-]/;
+import { emailRegex, passwordRegex, usernameRegex } from '../../../utils/regex';
 
 const signUpInputFields = [
   'email',

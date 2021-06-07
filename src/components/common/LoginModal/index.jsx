@@ -7,10 +7,8 @@ import TextInput from '../TextInput';
 import GoogleOAuth from '../GoogleOAuth';
 import { loginUser } from '../../../api/user';
 import useApiError from '../../../hooks/useApiError';
+import { passwordRegex, usernameRegex } from '../../../utils/regex';
 import { useRhinoState, useSetRhinoState } from '../../../global/state';
-
-const usernameRegex = /^[a-z0-9_-]*$/;
-const passwordRegex = /^(?=.*[a-zA-Z])(?=.*\d)(?=.*[#?!@$ %^&*-])[A-Za-z\d#?!@$ %^&*-]/;
 
 const LoginModal = () => {
   const setApiError = useApiError();
