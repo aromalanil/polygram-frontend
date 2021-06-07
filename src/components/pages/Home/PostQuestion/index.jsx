@@ -42,7 +42,7 @@ const PostQuestion = () => {
           className="avatar"
           username={isLoading ? '' : userData.username}
           src={isLoading ? placeHolderImage : userData.profile_picture}
-          name={isLoading ? 'User Avatar' : 'userData.full_name'}
+          name={isLoading ? 'User Avatar' : userData.first_name}
         />
         <input
           type="text"

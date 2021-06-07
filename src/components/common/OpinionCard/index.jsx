@@ -4,6 +4,7 @@ import relativeTime from 'dayjs/plugin/relativeTime';
 
 import './style.scss';
 import Avatar from '../Avatar';
+import { getFullName } from '../../../utils/common';
 import UpvoteDownVoteButton from './UpvoteDownVoteButton';
 
 dayjs.extend(relativeTime);
@@ -20,7 +21,7 @@ const OpinionCard = ({ opinionData }) => {
     is_upvoted = false,
     is_downvoted = false,
   } = opinionData;
-  const { profile_picture, first_name, last_name, username } = author;
+  const { profile_picture, username } = author;
 
   const [count, setCount] = useState({ upvote: upvote_count, downvote: downvote_count });
   const [isVoted, setIsVoted] = useState({ upvote: is_upvoted, downvote: is_downvoted });
@@ -39,9 +40,7 @@ const OpinionCard = ({ opinionData }) => {
         <div className="author-details">
           <Avatar src={profile_picture} username={username} />
           <div>
-            <h6>
-              {first_name} {last_name || ''}
-            </h6>
+            <h6>{getFullName(author)}</h6>
             <span>@{username}</span>
           </div>
         </div>

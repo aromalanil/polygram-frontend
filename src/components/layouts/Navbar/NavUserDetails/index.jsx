@@ -7,6 +7,7 @@ import Avatar from '../../../common/Avatar';
 import { useRhinoValue } from '../../../../global/state';
 import { getShortString } from '../../../../utils/string';
 import placeHolderImage from '../../../../assets/images/placeholder_profile_picture.png';
+import { getFullName } from '../../../../utils/common';
 
 const NavUserDetails = () => {
   const [logoutVisible, setLogoutVisible] = useState(false);
@@ -19,6 +20,8 @@ const NavUserDetails = () => {
     username: 'loading...',
   };
 
+  const fullName = getFullName(userData);
+
   return (
     <div className="nav-user-details">
       <Avatar
@@ -29,7 +32,7 @@ const NavUserDetails = () => {
       />
       <div className="nav-details-right">
         <div className="details">
-          <h3>{isLoading ? placeholder.full_name : getShortString(userData.full_name, 12)}</h3>
+          <h3>{isLoading ? placeholder.full_name : getShortString(fullName, 12)}</h3>
           <p>{isLoading ? placeholder.username : `@${getShortString(userData.username, 12)}`}</p>
         </div>
         <div className="options-wrapper">

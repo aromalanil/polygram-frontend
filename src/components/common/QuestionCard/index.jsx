@@ -9,6 +9,7 @@ import Avatar from '../Avatar';
 import Button from '../Button';
 import Options from './Options';
 import ShareButton from './ShareButton';
+import { getFullName } from '../../../utils/common';
 import { getShortString } from '../../../utils/string';
 import { FetchQuestionProvider } from './fetchQuestionContext';
 
@@ -28,7 +29,7 @@ const QuestionCard = ({ questionData, isDetailed = false, refetchData }) => {
     opinion_count,
     have_user_voted = false,
   } = questionData;
-  const { username, first_name, last_name, profile_picture } = author;
+  const { username, profile_picture } = author;
 
   const [showPercentage, setShowPercentage] = useState(have_user_voted);
   const titleToDisplay = isDetailed ? title : getShortString(title, 50);
@@ -45,9 +46,7 @@ const QuestionCard = ({ questionData, isDetailed = false, refetchData }) => {
           <div className="author-details">
             <Avatar src={profile_picture} username={username} />
             <div>
-              <h6>
-                {first_name} {last_name || ''}
-              </h6>
+              <h6>{getFullName(author)}</h6>
               <span>@{username}</span>
             </div>
           </div>

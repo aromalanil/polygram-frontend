@@ -20,3 +20,11 @@ export const filterObject = (object, valueToFilter) => {
   );
   return newObject;
 };
+
+export const getFullName = (user) => {
+  const { first_name = null, last_name = null } = user || {};
+  if (last_name) {
+    return `${first_name} ${last_name}`;
+  }
+  return first_name;
+};
