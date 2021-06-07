@@ -1,0 +1,16 @@
+.add-question-modal {
+  h3 {
+    font-size: 2rem;
+  }
+  padding: 1.5rem;
+  padding-top: 0;
+  display: flex;
+  flex-direction: column;
+  .title-input,
+  .body-input {
+    margin: 0.7em 0;
+  }
+  button {
+    margin-top: 3rem;
+  }
+}

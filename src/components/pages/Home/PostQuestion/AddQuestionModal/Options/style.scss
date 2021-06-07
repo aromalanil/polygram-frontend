@@ -1,0 +1,42 @@
+.options {
+  p {
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: var(--primary-text-color);
+    margin: 0;
+    margin-left: 0.3em;
+    margin-bottom: 0.4em;
+  }
+  .option {
+    margin: 0;
+    display: flex;
+    align-items: center;
+    button {
+      margin: 0;
+      margin-left: 0.5em;
+    }
+    input {
+      width: 100%;
+      font-size: 1.4rem;
+      padding: 1.2rem 1.4rem;
+      border-radius: 0.8rem;
+      transition: var(--transition);
+      border: 0.2rem solid #bccad8;
+      &:focus {
+        outline: none;
+      }
+      &::placeholder {
+        font-weight: 500;
+        opacity: 0.8;
+      }
+    }
+  }
+  .option + .option {
+    margin-top: 0.7em;
+  }
+
+  .add-option-btn {
+    font-size: 1.2rem;
+    margin: 1em 0 0;
+  }
+}

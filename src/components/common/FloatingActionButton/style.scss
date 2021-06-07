@@ -1,0 +1,22 @@
+.floating-action-button {
+  position: fixed;
+  right: 2rem;
+  bottom: 7.3rem;
+  border: none;
+  border-radius: 50%;
+  padding: 1.5rem;
+  background-color: var(--primary-color);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.8rem;
+  transition: 300ms ease-in-out;
+  box-shadow: var(--shadow);
+  @media screen and (min-width: 690px) {
+    display: none;
+  }
+  &.active {
+    transform: rotate(180deg);
+  }
+}
