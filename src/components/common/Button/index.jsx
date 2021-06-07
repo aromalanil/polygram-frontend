@@ -16,9 +16,9 @@ const getClassNameFromVariant = (variant) => {
 };
 
 const Button = ({ variant = 'primary', children, isLoading, className, ...props }) => {
-  const modifiedClassName = `btn ${
-    isLoading ? 'loading' : ' '
-  } ${className} ${getClassNameFromVariant(variant)}`;
+  const modifiedClassName = `btn ${isLoading ? 'loading' : ' '} ${
+    className ?? ''
+  } ${getClassNameFromVariant(variant)}`;
 
   return (
     <button className={modifiedClassName} {...props}>

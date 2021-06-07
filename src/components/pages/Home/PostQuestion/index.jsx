@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { FiPlus } from 'react-icons/fi';
 
 import './style.scss';
 import Avatar from '../../../common/Avatar';
@@ -6,6 +7,7 @@ import Button from '../../../common/Button';
 import AddQuestionModal from './AddQuestionModal';
 import { useRhinoValue } from '../../../../global/state';
 import useProtectedFunction from '../../../../hooks/useProtectedFunction';
+import FloatingActionButton from '../../../common/FloatingActionButton';
 import placeHolderImage from '../../../../assets/images/placeholder_profile_picture.png';
 
 const PostQuestion = () => {
@@ -59,6 +61,9 @@ const PostQuestion = () => {
         isOpen={isModalOpen}
         onClose={() => setIsModalOpen(false)}
       />
+      <FloatingActionButton isActive={isModalOpen} onClick={() => setIsModalOpen(true)}>
+        <FiPlus />
+      </FloatingActionButton>
     </>
   );
 };

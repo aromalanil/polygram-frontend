@@ -1,5 +1,8 @@
 import api from './config';
 
+export const createQuestion = async ({ title, content, topics, options }) =>
+  api.post('/questions', { title, content, topics, options });
+
 export const getSingleQuestion = async ({ id }) => {
   const response = await api.get(`/questions/${id}`);
   return response?.data?.data?.question;
