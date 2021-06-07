@@ -1,0 +1,31 @@
+.profile-picture-uploader {
+  padding: 2rem 4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  .reactEasyCrop_Container {
+    margin: 1rem;
+    position: relative;
+    height: 40rem;
+    width: 40rem;
+    margin-top: 3rem;
+    background-color: var(--primary-bg-color);
+    @media screen and (max-width: 600px) {
+      height: 80vw;
+      width: 80vw;
+    }
+  }
+  .controls {
+    margin: 2rem 0;
+    width: 80%;
+    .MuiSlider-thumb {
+      color: var(--primary-color);
+    }
+    .MuiSlider-track {
+      color: var(--primary-color);
+    }
+    .MuiSlider-rail {
+      color: var(--primary-color);
+    }
+  }
+}

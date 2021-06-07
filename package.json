@@ -23,12 +23,14 @@
     ]
   },
   "dependencies": {
+    "@material-ui/core": "^4.11.4",
     "axios": "^0.21.1",
     "dayjs": "^1.10.4",
     "html2canvas": "^1.0.0-rc.7",
     "node-sass": "^5.0.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-easy-crop": "^3.5.1",
     "react-google-login": "^5.2.2",
     "react-icons": "^4.2.0",
     "react-otp-input": "^2.3.0",

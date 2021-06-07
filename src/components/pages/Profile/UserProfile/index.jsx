@@ -4,6 +4,8 @@ import { MdEmail } from 'react-icons/md';
 import './style.scss';
 import EditProfile from './EditProfile';
 import Button from '../../../common/Button';
+import FileUploadButton from '../../../common/FileUploadButton';
+import UploadProfilePicture from '../../../common/UploadProfilePicture';
 
 const UserProfile = ({ userDetails, isCurrentUser }) => {
   const {
@@ -16,7 +18,14 @@ const UserProfile = ({ userDetails, isCurrentUser }) => {
     followed_topics,
   } = userDetails;
 
+  const [uploadedProfilePicture, setUploadedProfilePicture] = useState(null);
   const [isEditProfileVisible, setEditProfileVisibility] = useState(false);
+  const [isPictureUploadVisible, setPictureUploadVisibility] = useState(false);
+
+  const handlePictureUpload = (file) => {
+    setUploadedProfilePicture(file);
+    setPictureUploadVisibility(true);
+  };
 
   const followingCount = followed_topics.length;
   return (
@@ -30,11 +39,20 @@ const UserProfile = ({ userDetails, isCurrentUser }) => {
           />
         </div>
         <div className="user-profile-card-middle">
-          <img
-            src={profile_picture}
-            alt={`${first_name} profile_picture`}
-            className="profile_picture"
-          />
+          <div className="profile-image">
+            <img
+              src={profile_picture}
+              alt={`${first_name} profile_picture`}
+              className="profile-picture"
+            />
+            {isCurrentUser && (
+              <FileUploadButton
+                accept="image/png, image/jpeg, image/jpg"
+                className="profile-picture-upload"
+                onUpload={handlePictureUpload}
+              />
+            )}
+          </div>
           {isCurrentUser && (
             <Button
               variant="secondary"
@@ -71,6 +89,14 @@ const UserProfile = ({ userDetails, isCurrentUser }) => {
         </div>
       </div>
       <EditProfile isOpen={isEditProfileVisible} onClose={() => setEditProfileVisibility(false)} />
+      <UploadProfilePicture
+        profilePicture={uploadedProfilePicture}
+        isOpen={isPictureUploadVisible}
+        onClose={() => {
+          setUploadedProfilePicture(null);
+          setPictureUploadVisibility(false);
+        }}
+      />
     </>
   );
 };

@@ -32,3 +32,8 @@ export const changePassword = async ({ old_password, new_password }) =>
 
 export const editDetails = async ({ first_name, last_name, bio }) =>
   api.post('/users/edit', { first_name, last_name, bio });
+
+export const updateProfilePicture = async (image) => {
+  const response = await api.post('/users/profile_picture', { image });
+  return response?.data?.data?.profile_picture;
+};

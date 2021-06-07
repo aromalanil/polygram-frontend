@@ -28,3 +28,10 @@ export const getFullName = (user) => {
   }
   return first_name;
 };
+
+export const readFile = (file) =>
+  new Promise((resolve) => {
+    const reader = new FileReader();
+    reader.addEventListener('load', () => resolve(reader.result), false);
+    reader.readAsDataURL(file);
+  });
