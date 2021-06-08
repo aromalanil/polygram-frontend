@@ -3,8 +3,9 @@ import { VscTriangleDown, VscTriangleUp } from 'react-icons/vsc';
 
 import './style.scss';
 import useApiError from '../../../../hooks/useApiError';
-import useProtectedFunction from '../../../../hooks/useProtectedFunction';
 import { addVote, removeVote } from '../../../../api/opinion';
+import useProtectedFunction from '../../../../hooks/useProtectedFunction';
+import { useRefetchData } from '../../../pages/Question/isDataUpdated';
 
 const UpvoteDownVoteButton = ({ opinion_id, isVoted, type, count, setCount, setIsVoted }) => {
   // Checking if type prop is valid
@@ -12,6 +13,7 @@ const UpvoteDownVoteButton = ({ opinion_id, isVoted, type, count, setCount, setI
 
   const setApiError = useApiError();
   const protectFunction = useProtectedFunction();
+  const refetchQuestionData = useRefetchData();
 
   const handleVote = useCallback(async () => {
     if (!isVoted) {
@@ -25,6 +27,7 @@ const UpvoteDownVoteButton = ({ opinion_id, isVoted, type, count, setCount, setI
           downvote: type === 'downvote',
         };
         setIsVoted(newIsVoted);
+        if (refetchQuestionData?.current) refetchQuestionData.current();
       } catch (err) {
         setApiError(err);
       }
@@ -42,11 +45,12 @@ const UpvoteDownVoteButton = ({ opinion_id, isVoted, type, count, setCount, setI
           newIsVoted[type] = false;
           return newIsVoted;
         });
+        if (refetchQuestionData?.current) refetchQuestionData.current();
       } catch (err) {
         setApiError(err);
       }
     }
-  }, [isVoted, opinion_id, setApiError, setCount, setIsVoted, type]);
+  }, [isVoted, opinion_id, setApiError, setCount, setIsVoted, type, refetchQuestionData]);
 
   return (
     <div className="vote-status">
