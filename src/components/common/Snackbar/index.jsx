@@ -49,7 +49,13 @@ const Snackbar = ({ onClose, type, message }) => {
         <span className="snackbar-content">{message}</span>
       </div>
       <div className="snackbar-right">
-        <div role="button" tabIndex={0} className="snackbar-close" onClick={handleCloseButtonClick}>
+        <div
+          role="button"
+          tabIndex={0}
+          aria-label="Close SnackBar"
+          className="snackbar-close"
+          onClick={handleCloseButtonClick}
+        >
           <BiX />
         </div>
       </div>

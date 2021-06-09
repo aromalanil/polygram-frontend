@@ -27,7 +27,6 @@ const NavUserDetails = () => {
       <Avatar
         username={isLoading ? '' : userData.username}
         className="nav-avatar"
-        name="Spider-man"
         src={isLoading ? placeholder.profile_picture : userData.profile_picture}
       />
       <div className="nav-details-right">

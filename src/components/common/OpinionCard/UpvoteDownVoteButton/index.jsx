@@ -57,6 +57,7 @@ const UpvoteDownVoteButton = ({ opinion_id, isVoted, type, count, setCount, setI
       <div
         className={`vote-button ${type} ${isVoted ? 'voted' : ''}`}
         role="button"
+        aria-label={`${type} button`}
         tabIndex={0}
         onClick={protectFunction(handleVote)}
       >

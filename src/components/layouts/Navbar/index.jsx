@@ -16,25 +16,25 @@ const Navbar = () => {
     () => [
       {
         icon: <BiHome />,
-        text: 'Home',
+        name: 'Home',
         route: '/',
         isLoginRequired: false,
       },
       {
         icon: <BiSearchAlt2 />,
-        text: 'Search',
+        name: 'Search',
         route: '/search',
         isLoginRequired: false,
       },
       {
         icon: <BiUser />,
-        text: 'Profile',
+        name: 'Profile',
         route: `/u/${userData?.username ?? ''}`,
         isLoginRequired: true,
       },
       {
         icon: <BiCog />,
-        text: 'Settings',
+        name: 'Settings',
         route: '/settings',
         isLoginRequired: false,
       },
