@@ -6,7 +6,6 @@ import Logout from './Logout';
 import Avatar from '../../../common/Avatar';
 import { useRhinoValue } from '../../../../global/state';
 import { getShortString } from '../../../../utils/string';
-import placeHolderImage from '../../../../assets/images/placeholder_profile_picture.png';
 import { getFullName } from '../../../../utils/common';
 
 const NavUserDetails = () => {
@@ -15,7 +14,7 @@ const NavUserDetails = () => {
 
   const isLoading = userData === null;
   const placeholder = {
-    profile_picture: placeHolderImage,
+    profile_picture: '/assets/placeholder_profile_picture.png',
     full_name: 'Loading...',
     username: 'loading...',
   };

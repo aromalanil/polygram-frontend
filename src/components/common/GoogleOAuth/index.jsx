@@ -5,7 +5,6 @@ import './style.scss';
 import { googleOAuth } from '../../../api/user';
 import useApiError from '../../../hooks/useApiError';
 import { useSetRhinoState } from '../../../global/state';
-import googleLogo from '../../../assets/images/google_logo.svg';
 
 const googleClientId = process.env.REACT_APP_GOOGLE_CLIENT_ID;
 
@@ -53,7 +52,7 @@ const GoogleOAuth = ({ text, onSuccess }) => {
         className={`google-oauth-btn ${isLoading ? 'loading' : ''}`}
       >
         <div className="logo-wrapper">
-          <img src={googleLogo} alt="Google Logo" className="google-logo" />
+          <img src="/assets/google_logo.svg" alt="Google Logo" className="google-logo" />
         </div>
         <span>{text}</span>
       </div>
