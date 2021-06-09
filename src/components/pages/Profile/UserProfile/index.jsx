@@ -6,6 +6,7 @@ import EditProfile from './EditProfile';
 import Button from '../../../common/Button';
 import FileUploadButton from '../../../common/FileUploadButton';
 import UploadProfilePicture from '../../../common/UploadProfilePicture';
+import LogoutButton from './LogoutButton';
 
 const UserProfile = ({ userDetails, isCurrentUser }) => {
   const {
@@ -18,8 +19,8 @@ const UserProfile = ({ userDetails, isCurrentUser }) => {
     followed_topics,
   } = userDetails;
 
-  const [uploadedProfilePicture, setUploadedProfilePicture] = useState(null);
   const [isEditProfileVisible, setEditProfileVisibility] = useState(false);
+  const [uploadedProfilePicture, setUploadedProfilePicture] = useState(null);
   const [isPictureUploadVisible, setPictureUploadVisibility] = useState(false);
 
   const handlePictureUpload = (file) => {
@@ -54,13 +55,16 @@ const UserProfile = ({ userDetails, isCurrentUser }) => {
             )}
           </div>
           {isCurrentUser && (
-            <Button
-              variant="secondary"
-              className="edit-profile"
-              onClick={() => setEditProfileVisibility(true)}
-            >
-              Edit Profile
-            </Button>
+            <div className="button-grp">
+              <Button
+                variant="secondary"
+                className="edit-profile"
+                onClick={() => setEditProfileVisibility(true)}
+              >
+                Edit Profile
+              </Button>
+              <LogoutButton />
+            </div>
           )}
         </div>
         <div className="user-profile-card-bottom">
@@ -88,15 +92,22 @@ const UserProfile = ({ userDetails, isCurrentUser }) => {
           </div>
         </div>
       </div>
-      <EditProfile isOpen={isEditProfileVisible} onClose={() => setEditProfileVisibility(false)} />
-      <UploadProfilePicture
-        profilePicture={uploadedProfilePicture}
-        isOpen={isPictureUploadVisible}
-        onClose={() => {
-          setUploadedProfilePicture(null);
-          setPictureUploadVisibility(false);
-        }}
-      />
+      {isCurrentUser && (
+        <>
+          <EditProfile
+            isOpen={isEditProfileVisible}
+            onClose={() => setEditProfileVisibility(false)}
+          />
+          <UploadProfilePicture
+            profilePicture={uploadedProfilePicture}
+            isOpen={isPictureUploadVisible}
+            onClose={() => {
+              setUploadedProfilePicture(null);
+              setPictureUploadVisibility(false);
+            }}
+          />
+        </>
+      )}
     </>
   );
 };

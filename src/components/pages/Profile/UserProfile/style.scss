@@ -40,10 +40,14 @@
         }
       }
     }
-    .edit-profile {
-      font-size: 1.3rem;
+    .button-grp {
       position: relative;
+      display: flex;
+      align-items: center;
       top: -1rem;
+      .edit-profile {
+        font-size: 1.3rem;
+      }
     }
   }
 

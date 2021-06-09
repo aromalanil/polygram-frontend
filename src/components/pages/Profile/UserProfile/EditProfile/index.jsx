@@ -8,17 +8,16 @@ import TextInput from '../../../../common/TextInput';
 import { editDetails } from '../../../../../api/user';
 import useApiError from '../../../../../hooks/useApiError';
 import ChangePassword from '../../../../common/ChangePassword';
-import { useRhinoValue, useSetRhinoState } from '../../../../../global/state';
+import { useRhinoState, useSetRhinoState } from '../../../../../global/state';
 import { filterObject, makeObjectFromArray } from '../../../../../utils/common';
 
 const editDetailsFields = ['last_name', 'first_name', 'bio'];
 
 const EditProfile = ({ isOpen, onClose }) => {
   const setApiError = useApiError();
-  const setUserData = useSetRhinoState('userData');
   const [isLoading, setIsLoading] = useState(false);
   const setSnackBarData = useSetRhinoState('snackBarData');
-  const userData = useRhinoValue('userData');
+  const [userData, setUserData] = useRhinoState('userData');
 
   // An object with names of each input field as keys  and value ''
   const [inputs, setInputs] = useState({
