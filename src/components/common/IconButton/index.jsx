@@ -1,7 +1,7 @@
 import './styles.scss';
 
-const IconButton = ({ children, className, ...props }) => (
-  <button className={`icon-button ${className}`} {...props}>
+const IconButton = ({ children, className, label, ...props }) => (
+  <button aria-label={label} className={`icon-button ${className}`} {...props}>
     {children}
   </button>
 );

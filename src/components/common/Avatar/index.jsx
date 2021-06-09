@@ -2,15 +2,15 @@ import { useHistory } from 'react-router-dom';
 
 import './style.scss';
 
-const Avatar = ({ src, name, username, className }) => {
+const Avatar = ({ src, username, className }) => {
   const history = useHistory();
   return (
     <img
       src={src}
-      alt={name}
+      alt={username}
       tabIndex={0}
       role="button" // eslint-disable-line
-      className={`avatar ${className}`}
+      className={`avatar ${className ?? ''}`}
       onClick={() => history.push(`/u/${username}`)}
     />
   );

@@ -11,21 +11,25 @@ const BottomNav = () => {
     () => [
       {
         icon: <BiHome />,
+        name: 'Home',
         route: '/',
         isLoginRequired: false,
       },
       {
         icon: <BiSearchAlt2 />,
+        name: 'Search',
         route: '/search',
         isLoginRequired: false,
       },
       {
         icon: <BiUser />,
+        name: 'Profile',
         route: `/u/${userData?.username ?? ''}`,
         isLoginRequired: true,
       },
       {
         icon: <BiCog />,
+        name: 'Settings',
         route: '/settings',
         isLoginRequired: false,
       },
@@ -39,6 +43,7 @@ const BottomNav = () => {
         <BottomNavItem
           key={navLink.route}
           icon={navLink.icon}
+          name={navLink.name}
           route={navLink.route}
           isLoginRequired={navLink.isLoginRequired}
         />

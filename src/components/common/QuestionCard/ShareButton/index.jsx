@@ -49,7 +49,7 @@ const ShareButton = ({ title, url, card }) => {
   };
 
   return (
-    <IconButton onClick={handleClick}>
+    <IconButton label="Share" onClick={handleClick}>
       <BiShareAlt />
     </IconButton>
   );

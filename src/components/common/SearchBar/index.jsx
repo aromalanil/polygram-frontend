@@ -33,7 +33,7 @@ const SearchBar = ({ initialQuery, autoFocus }) => {
         autoFocus={autoFocus}
         onChange={(e) => setQuery(e.target.value)}
       />
-      <IconButton className="search-btn" type="submit">
+      <IconButton label="Search Button" className="search-btn" type="submit">
         <BiSearchAlt2 />
       </IconButton>
     </form>

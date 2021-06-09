@@ -42,7 +42,6 @@ const PostQuestion = () => {
           className="avatar"
           username={isLoading ? '' : userData.username}
           src={isLoading ? placeHolderImage : userData.profile_picture}
-          name={isLoading ? 'User Avatar' : userData.first_name}
         />
         <input
           type="text"
@@ -61,7 +60,11 @@ const PostQuestion = () => {
         isOpen={isModalOpen}
         onClose={() => setIsModalOpen(false)}
       />
-      <FloatingActionButton isActive={isModalOpen} onClick={() => setIsModalOpen(true)}>
+      <FloatingActionButton
+        label="Add Question"
+        isActive={isModalOpen}
+        onClick={() => setIsModalOpen(true)}
+      >
         <FiPlus />
       </FloatingActionButton>
     </>
