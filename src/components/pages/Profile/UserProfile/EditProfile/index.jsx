@@ -7,8 +7,8 @@ import TextArea from '../../../../common/TextArea';
 import TextInput from '../../../../common/TextInput';
 import { editDetails } from '../../../../../api/user';
 import useApiError from '../../../../../hooks/useApiError';
-import { useSetRhinoState } from '../../../../../global/state';
 import ChangePassword from '../../../../common/ChangePassword';
+import { useRhinoValue, useSetRhinoState } from '../../../../../global/state';
 import { filterObject, makeObjectFromArray } from '../../../../../utils/common';
 
 const editDetailsFields = ['last_name', 'first_name', 'bio'];
@@ -18,9 +18,14 @@ const EditProfile = ({ isOpen, onClose }) => {
   const setUserData = useSetRhinoState('userData');
   const [isLoading, setIsLoading] = useState(false);
   const setSnackBarData = useSetRhinoState('snackBarData');
+  const userData = useRhinoValue('userData');
 
   // An object with names of each input field as keys  and value ''
-  const [inputs, setInputs] = useState(makeObjectFromArray(editDetailsFields, ''));
+  const [inputs, setInputs] = useState({
+    first_name: userData.first_name,
+    last_name: userData.last_name,
+    bio: userData.bio,
+  });
 
   // An object with names of each input field as keys and value null
   const [errors, setErrors] = useState(makeObjectFromArray(editDetailsFields, null));
@@ -65,7 +70,6 @@ const EditProfile = ({ isOpen, onClose }) => {
         <form className="edit-details">
           <h3>Edit Details</h3>
           <TextInput
-            autoFocus
             minLength={3}
             maxLength={30}
             label="First Name"
