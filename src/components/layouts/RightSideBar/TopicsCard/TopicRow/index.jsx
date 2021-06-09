@@ -1,13 +1,16 @@
+import { Link } from 'react-router-dom';
 import './style.scss';
 import TopicFollowButton from '../../../../common/TopicFollowButton';
 
 const TopicRow = ({ topicName, questionCount, isFollowing }) => (
   <div className="topic-row">
     <div className="topic-row-left">
-      <h4>{topicName}</h4>
-      <span>
-        {questionCount} {questionCount === 1 ? 'Question' : 'Questions'}
-      </span>
+      <Link to={`/topics/${topicName}`}>
+        <h4>{topicName}</h4>
+        <span>
+          {questionCount} {questionCount === 1 ? 'Question' : 'Questions'}
+        </span>
+      </Link>
     </div>
     <div className="topic-row-right">
       <TopicFollowButton

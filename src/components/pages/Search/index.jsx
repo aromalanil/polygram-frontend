@@ -1,6 +1,11 @@
+import { useState } from 'react';
 import { useLocation } from 'react-router-dom';
-import SearchBar from '../../common/SearchBar';
+
+import './style.scss';
+import Tab from '../../common/Tab';
 import UserFeed from '../../common/UserFeed';
+import TopicFeed from '../../common/TopicFeed';
+import SearchBar from '../../common/SearchBar';
 
 function useQuery() {
   return new URLSearchParams(useLocation().search);
@@ -9,11 +14,18 @@ function useQuery() {
 const Search = () => {
   const queries = useQuery();
   const searchQuery = queries.get('query');
+  const [activeTab, setActiveTab] = useState(queries.get('tab') ?? 'Questions');
 
   return (
     <>
-      <SearchBar autoFocus initialQuery={searchQuery} />
-      {searchQuery && <UserFeed search={searchQuery} />}
+      <SearchBar className="large-search-bar" autoFocus initialQuery={searchQuery} />
+      <Tab
+        activeTab={activeTab}
+        tabNames={['Questions', 'Topics']}
+        setActiveTab={(tab) => setActiveTab(tab)}
+      />
+      {activeTab === 'Questions' && <UserFeed search={searchQuery} />}
+      {activeTab === 'Topics' && <TopicFeed search={searchQuery} />}
     </>
   );
 };

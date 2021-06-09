@@ -1,0 +1,33 @@
+.topic-card {
+  display: flex;
+  padding: 2rem;
+  padding-left: 3rem;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 1.3rem;
+  box-shadow: var(--shadow);
+  background-color: var(--secondary-bg-color);
+  &-left {
+    h2 {
+      margin: 0;
+      margin-bottom: 0.2em;
+    }
+    p {
+      margin: 0;
+      font-weight: 500;
+      font-size: 1.2rem;
+    }
+  }
+  &-right {
+    .follow-topic-btn {
+      font-size: 1.2rem;
+    }
+  }
+}
+
+.topic-card + .topic-card {
+  margin-top: 1.8rem;
+  @media screen and (max-width: 690px) {
+    margin-top: 1rem;
+  }
+}

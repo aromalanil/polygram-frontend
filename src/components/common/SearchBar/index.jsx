@@ -5,7 +5,7 @@ import { BiSearchAlt2 } from 'react-icons/bi';
 import './style.scss';
 import IconButton from '../IconButton';
 
-const SearchBar = ({ initialQuery, autoFocus }) => {
+const SearchBar = ({ initialQuery, autoFocus, className }) => {
   const [query, setQuery] = useState('');
   const history = useHistory();
 
@@ -25,7 +25,7 @@ const SearchBar = ({ initialQuery, autoFocus }) => {
   }, [initialQuery]);
 
   return (
-    <form className="search-bar" onSubmit={handleSearch}>
+    <form className={`search-bar ${className ?? ''}`} onSubmit={handleSearch}>
       <input
         type="text"
         value={query}

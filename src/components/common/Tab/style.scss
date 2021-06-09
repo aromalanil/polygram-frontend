@@ -1,0 +1,29 @@
+.tab {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  margin-bottom: 1.8rem;
+  border-radius: 0.8rem;
+  box-shadow: var(--shadow);
+  background-color: var(--secondary-bg-color);
+  overflow: hidden;
+  .tab-link {
+    cursor: pointer;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 4rem;
+    span {
+      color: var(--primary-text-color);
+      font-weight: 500;
+      font-size: 1.4rem;
+    }
+  }
+  .tab-link.active {
+    border-bottom: 0.25rem solid var(--primary-color);
+    span {
+      transform: translateY(0.18rem);
+    }
+  }
+}

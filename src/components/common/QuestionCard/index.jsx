@@ -1,5 +1,5 @@
 import dayjs from 'dayjs';
-import { useHistory } from 'react-router-dom';
+import { useHistory, Link } from 'react-router-dom';
 import { useEffect, useRef, useState } from 'react';
 import relativeTime from 'dayjs/plugin/relativeTime';
 
@@ -55,7 +55,9 @@ const QuestionCard = ({ questionData, isDetailed = false, refetchData }) => {
         <div className="question-card-middle">
           <div className="badge-row">
             {topics.map((topic) => (
-              <Badge key={topic}>{topic}</Badge>
+              <Link key={topic} to={`/topics/${topic}`}>
+                <Badge>{topic}</Badge>
+              </Link>
             ))}
           </div>
           <h2>{titleToDisplay}</h2>

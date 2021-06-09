@@ -4,6 +4,7 @@ import { Route, Switch } from 'react-router-dom';
 import Loader from './common/Loader';
 
 const Home = React.lazy(() => import('./pages/Home'));
+const Topic = React.lazy(() => import('./pages/Topic'));
 const Search = React.lazy(() => import('./pages/Search'));
 const Profile = React.lazy(() => import('./pages/Profile'));
 const Question = React.lazy(() => import('./pages/Question'));
@@ -30,6 +31,9 @@ const Routes = () => (
       </Route>
       <Route exact path="/questions/:id">
         <Question />
+      </Route>
+      <Route exact path="/topics/:name">
+        <Topic />
       </Route>
       <Route path="/404">
         <NotFound />

@@ -1,8 +1,8 @@
 import api from './config';
 
-export const getTopics = async ({ search, includeCount, limit = 5 }) => {
+export const getTopics = async ({ search, includeCount, limit = 5, before_id }) => {
   const response = await api.get('/topics', {
-    params: { search, page_size: limit, count: includeCount },
+    params: { search, page_size: limit, count: includeCount, before_id },
   });
   return response?.data?.data?.topics;
 };
