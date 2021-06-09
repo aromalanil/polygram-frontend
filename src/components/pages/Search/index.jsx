@@ -1,5 +1,4 @@
-import { useState } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useHistory, useLocation } from 'react-router-dom';
 
 import './style.scss';
 import Tab from '../../common/Tab';
@@ -13,16 +12,29 @@ function useQuery() {
 
 const Search = () => {
   const queries = useQuery();
-  const searchQuery = queries.get('query');
-  const [activeTab, setActiveTab] = useState(queries.get('tab') ?? 'Questions');
+  const history = useHistory();
+  const activeTab = queries.get('tab') ?? 'Questions';
+  const searchQuery = queries.get('query') ?? '';
+
+  const changeActiveTab = (tab) => {
+    history.push({
+      pathname: '/search',
+      search: `?query=${searchQuery}&tab=${tab}`,
+    });
+  };
 
   return (
     <>
-      <SearchBar className="large-search-bar" autoFocus initialQuery={searchQuery} />
+      <SearchBar
+        tab={activeTab}
+        className="large-search-bar"
+        autoFocus
+        initialQuery={searchQuery}
+      />
       <Tab
         activeTab={activeTab}
         tabNames={['Questions', 'Topics']}
-        setActiveTab={(tab) => setActiveTab(tab)}
+        setActiveTab={changeActiveTab}
       />
       {activeTab === 'Questions' && <UserFeed search={searchQuery} />}
       {activeTab === 'Topics' && <TopicFeed search={searchQuery} />}

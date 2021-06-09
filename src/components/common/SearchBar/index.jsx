@@ -5,7 +5,7 @@ import { BiSearchAlt2 } from 'react-icons/bi';
 import './style.scss';
 import IconButton from '../IconButton';
 
-const SearchBar = ({ initialQuery, autoFocus, className }) => {
+const SearchBar = ({ initialQuery, autoFocus, className, tab = '' }) => {
   const [query, setQuery] = useState('');
   const history = useHistory();
 
@@ -16,7 +16,7 @@ const SearchBar = ({ initialQuery, autoFocus, className }) => {
     setQuery('');
     history.push({
       pathname: '/search',
-      search: `?query=${tempQuery}`,
+      search: `?query=${tempQuery}&tab=${tab}`,
     });
   };
 
