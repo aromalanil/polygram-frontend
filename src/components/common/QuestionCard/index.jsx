@@ -1,6 +1,6 @@
 import dayjs from 'dayjs';
 import { useHistory, Link } from 'react-router-dom';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 import relativeTime from 'dayjs/plugin/relativeTime';
 
 import './style.scss';
@@ -17,7 +17,6 @@ dayjs.extend(relativeTime);
 
 const QuestionCard = ({ questionData, isDetailed = false, refetchData }) => {
   const history = useHistory();
-  const cardRef = useRef(null);
   const {
     _id,
     title,
@@ -41,7 +40,7 @@ const QuestionCard = ({ questionData, isDetailed = false, refetchData }) => {
 
   return (
     <FetchQuestionProvider value={refetchData}>
-      <div className="question-card" ref={cardRef}>
+      <div className="question-card">
         <div className="question-card-top">
           <div className="author-details">
             <Avatar src={profile_picture} username={username} />
@@ -91,11 +90,7 @@ const QuestionCard = ({ questionData, isDetailed = false, refetchData }) => {
             <span>
               {opinion_count > 1 ? `${opinion_count} Opinions` : `${opinion_count} Opinion`}
             </span>
-            <ShareButton
-              title={title}
-              card={cardRef.current}
-              url={`${window.location.origin}/questions/${_id}`}
-            />
+            <ShareButton title={title} url={`${window.location.origin}/questions/${_id}`} />
           </div>
         </div>
       </div>
