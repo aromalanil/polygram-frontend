@@ -25,7 +25,7 @@ const ThemeControl = () => {
           </IconButton>
         </div>
       </div>
-      <div className="accent-color-control">
+      <div className="accent-color-control" style={{ display: 'none' }}>
         <h3>Accent Color</h3>
       </div>
     </div>
