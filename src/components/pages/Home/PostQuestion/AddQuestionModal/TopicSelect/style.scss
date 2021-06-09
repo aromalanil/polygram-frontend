@@ -33,6 +33,10 @@
     }
   }
 
+  .topic-select__input input {
+    color: var(--primary-text-color) !important;
+  }
+
   .topic-select__placeholder {
     opacity: 0.7;
     font-weight: 600;

@@ -14,16 +14,18 @@
     justify-content: center;
     color: var(--secondary-text-color);
     background-color: var(--secondary-bg-color);
-    &:hover {
-      filter: brightness(0.9);
-      &.upvote {
-        svg {
-          fill: #3f5bf0;
+    @media (hover: hover) {
+      &:hover {
+        filter: brightness(0.9);
+        &.upvote {
+          svg {
+            fill: #3f5bf0;
+          }
         }
-      }
-      &.downvote {
-        svg {
-          fill: #ff3350;
+        &.downvote {
+          svg {
+            fill: #ff3350;
+          }
         }
       }
     }

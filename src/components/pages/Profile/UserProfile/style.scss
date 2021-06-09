@@ -25,9 +25,8 @@
         width: 12rem;
         height: 12rem;
         border-radius: 50%;
-        padding: 0.5rem;
-        background-color: var(--secondary-bg-color);
-        border: 0.3rem solid white;
+        background-color: var(--primary-bg-color);
+        border: 0.6rem solid var(--secondary-bg-color);
       }
       .profile-picture-upload {
         position: absolute;

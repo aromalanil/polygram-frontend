@@ -14,7 +14,7 @@ const TopicSelect = ({ setTopics }) => {
   };
 
   const loadOptions = useDebounce(async (inputValue, callback) => {
-    const fetchedTopics = await getTopics({ search: inputValue, limit: 2 });
+    const fetchedTopics = await getTopics({ search: inputValue, limit: 5 });
     callback(fetchedTopics.map((topic) => ({ label: topic.name, value: topic.name })));
   }, 600);
 
@@ -27,12 +27,12 @@ const TopicSelect = ({ setTopics }) => {
         defaultOptions
         cacheOptions={false}
         name="topic-select"
-        loadOptions={selectionCount < 2 ? loadOptions : (_, callback) => callback([])}
+        loadOptions={selectionCount < 5 ? loadOptions : (_, callback) => callback([])}
         onChange={handleTopicChange}
         classNamePrefix="topic-select"
         className="topic-select-container"
         noOptionsMessage={() =>
-          selectionCount < 2 ? 'No Topic Found' : 'User can only select upto 5 topics'
+          selectionCount < 5 ? 'No Topic Found' : 'User can only select upto 5 topics'
         }
       />
     </div>

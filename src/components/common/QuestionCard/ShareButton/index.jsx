@@ -2,10 +2,10 @@ import { BiShareAlt } from 'react-icons/bi';
 import IconButton from '../../IconButton';
 import { useSetRhinoState } from '../../../../global/state';
 
-const ShareButton = ({ title, url }) => {
+const ShareButton = ({ text, url }) => {
   const setSnackBarData = useSetRhinoState('snackBarData');
   const handleClick = async () => {
-    const dataToShare = { title, url };
+    const dataToShare = { title: text, text, url };
 
     // Using web share api to share data
     if (navigator.canShare) {

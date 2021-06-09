@@ -90,7 +90,7 @@ const QuestionCard = ({ questionData, isDetailed = false, refetchData }) => {
             <span>
               {opinion_count > 1 ? `${opinion_count} Opinions` : `${opinion_count} Opinion`}
             </span>
-            <ShareButton title={title} url={`${window.location.origin}/questions/${_id}`} />
+            <ShareButton text={title} url={`${window.location.origin}/questions/${_id}`} />
           </div>
         </div>
       </div>
