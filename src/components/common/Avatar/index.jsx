@@ -11,7 +11,7 @@ const Avatar = ({ src, username, className }) => {
       tabIndex={0}
       role="button" // eslint-disable-line
       className={`avatar ${className ?? ''}`}
-      onClick={() => history.push(`/u/${username}`)}
+      onClick={() => username && history.push(`/u/${username}`)}
     />
   );
 };
