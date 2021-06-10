@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import './style.scss';
 import TopicRow from './TopicRow';
 import Loader from '../../../common/Loader';
-import { getTopics } from '../../../../api/topic';
+import { getTrendingTopics } from '../../../../api/topic';
 import useApiError from '../../../../hooks/useApiError';
 import { useRhinoValue } from '../../../../global/state';
 
@@ -16,8 +16,7 @@ const TopicsCard = () => {
   useEffect(() => {
     const fetchTopics = async () => {
       try {
-        const newTopics = await getTopics({ includeCount: true });
-        if (newTopics.length > 4) newTopics.length = 4;
+        const newTopics = await getTrendingTopics({ limit: 4 });
         setIsLoading(false);
         setTopics(newTopics);
       } catch (err) {

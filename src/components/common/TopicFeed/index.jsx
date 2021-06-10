@@ -19,7 +19,6 @@ const TopicFeed = ({ search }) => {
       getTopics({
         search,
         before_id: before,
-        includeCount: true,
       }),
     [search]
   );
