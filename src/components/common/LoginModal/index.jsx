@@ -69,7 +69,7 @@ const LoginModal = () => {
       <Modal isOpen={isLoginModalVisible} onClose={handleModalClose}>
         <div className="login-modal">
           <div className="login-head">
-            <h1 className="login-title">Login to Poly</h1>
+            <h1 className="login-title">Login to Polygram</h1>
             <p className="login-subtitle">
               Not a member?{' '}
               <span role="link" tabIndex={0} className="link" onClick={handleSignUpClick}>

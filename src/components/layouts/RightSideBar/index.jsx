@@ -7,7 +7,7 @@ const RightSideBar = () => (
     <SearchBar autoFocus={false} />
     <TopicsCard />
     <div className="footer">
-      &#169; {new Date().getFullYear()} Poly &bull; Final year Project, College Of Engineering
+      &#169; {new Date().getFullYear()} Polygram &bull; Final year Project, College Of Engineering
       Cherthala
     </div>
   </div>

@@ -115,7 +115,7 @@ const SignUpModal = () => {
       <Modal isOpen={isSignUpModalVisible} onClose={handleModalClose}>
         <div className="sign-up-modal">
           <div className="sign-up-head">
-            <h1 className="sign-up-title">Sign Up for Poly</h1>
+            <h1 className="sign-up-title">Sign Up for Polygram</h1>
             <p className="sign-up-subtitle">
               Already a member?{' '}
               <span className="link" onClick={handleLoginClick} role="link" tabIndex={0}>

@@ -1,6 +1,6 @@
 {
-  "name": "poly",
-  "version": "0.1.0",
+  "name": "polygram-frontend",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "start": "react-scripts start",
