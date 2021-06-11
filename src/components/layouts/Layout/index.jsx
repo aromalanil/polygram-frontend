@@ -2,6 +2,7 @@ import Navbar from '../Navbar';
 import BottomNav from '../BottomNav';
 import RightSideBar from '../RightSideBar';
 import Snackbar from '../../common/Snackbar';
+import EasterEgg from '../../common/EasterEgg';
 import LoginModal from '../../common/LoginModal';
 import SignUpModal from '../../common/SignUpModal';
 import useUserData from '../../../hooks/useUserData';
@@ -22,6 +23,7 @@ const Layout = ({ children }) => (
     <SignUpModal />
     <LoginModal />
     <Snackbar />
+    <EasterEgg />
   </>
 );
 
