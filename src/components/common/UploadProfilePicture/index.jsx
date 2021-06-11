@@ -7,10 +7,10 @@ import Modal from '../Modal';
 import Loader from '../Loader';
 import Button from '../Button';
 import { readFile } from '../../../utils/common';
-import { getCroppedImg, calculateImageSize } from '../../../utils/image';
-import { updateProfilePicture } from '../../../api/user';
 import useApiError from '../../../hooks/useApiError';
+import { updateProfilePicture } from '../../../api/user';
 import { useSetRhinoState } from '../../../global/state';
+import { getCroppedImg, calculateImageSize, downscaleImage } from '../../../utils/image';
 
 const UploadProfilePicture = ({ profilePicture, isOpen, onClose }) => {
   const [zoom, setZoom] = useState(1);
@@ -49,6 +49,7 @@ const UploadProfilePicture = ({ profilePicture, isOpen, onClose }) => {
     let croppedImage;
     try {
       croppedImage = await getCroppedImg(image, croppedAreaPixels, 0 /* rotate */);
+      croppedImage = await downscaleImage(croppedImage, 300);
     } catch (e) {
       setIsButtonLoading(false);
       return;

@@ -64,3 +64,30 @@ export const calculateImageSize = (base64String) => {
   const padding = data.endsWith('==') ? 2 : 1;
   return (base64String.length / 4) * 3 - padding;
 };
+
+export const downscaleImage = (base64Url, maxWidth) =>
+  new Promise((resolve, reject) => {
+    const image = new Image();
+    image.onload = function () {
+      if (this.width < maxWidth) return resolve(base64Url);
+
+      const canvas = document.createElement('canvas');
+      const ctx = canvas.getContext('2d');
+
+      const scale = maxWidth / this.width;
+      const wantedWidth = maxWidth;
+      const wantedHeight = this.height * scale;
+
+      canvas.width = wantedWidth;
+      canvas.height = wantedHeight;
+
+      ctx.drawImage(this, 0, 0, wantedWidth, wantedHeight);
+
+      const dataURI = canvas.toDataURL('image/jpeg');
+
+      return resolve(dataURI);
+    };
+    image.addEventListener('error', (error) => reject(error));
+    image.setAttribute('crossOrigin', 'anonymous');
+    image.src = base64Url;
+  });
