@@ -16,6 +16,8 @@ export const getOpinions = async ({ question_id, before_id, after_id }) => {
   return response?.data?.opinions;
 };
 
+export const deleteOpinion = async (id) => api.delete(`/opinions/${id}`);
+
 export const addVote = async ({ type, opinion_id }) => {
   if (!['upvote', 'downvote'].includes(type)) throw new Error('Invalid type');
 

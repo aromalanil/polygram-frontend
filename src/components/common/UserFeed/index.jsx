@@ -73,6 +73,10 @@ const UserFeed = ({ topic, search, following, user_id }) => {
     }
   }, [fetchQuestions, setApiError, initialQuestion]);
 
+  const onQuestionDelete = (id) => {
+    setQuestions((oldQuestions) => oldQuestions.filter((question) => question._id !== id));
+  };
+
   // Fetching initial questions on component mount
   useEffect(() => {
     fetchInitialQuestions();
@@ -98,7 +102,7 @@ const UserFeed = ({ topic, search, following, user_id }) => {
       <>
         {questions.map((question, index) => (
           <Fragment key={question._id}>
-            <QuestionCard questionData={question} />
+            <QuestionCard questionData={question} onDelete={onQuestionDelete} />
             {questions.length - 1 === index && <Waypoint onEnter={() => fetchOldQuestions()} />}
           </Fragment>
         ))}

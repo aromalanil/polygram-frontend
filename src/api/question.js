@@ -22,3 +22,5 @@ export const getQuestions = async ({ following, topic, user_id, before_id, after
   });
   return response?.data?.questions;
 };
+
+export const deleteQuestion = async (id) => api.delete(`/questions/${id}`);

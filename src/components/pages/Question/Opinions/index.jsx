@@ -57,6 +57,10 @@ const Opinions = ({ question_id }) => {
     }
   }, [setApiError, finalOpinion, hasMore, question_id]);
 
+  const onOpinionDelete = (id) => {
+    setOpinion((oldOpinion) => oldOpinion.filter((opinion) => opinion._id !== id));
+  };
+
   // Fetching initial questions on component mount
   useEffect(() => {
     fetchInitialOpinions();
@@ -75,7 +79,7 @@ const Opinions = ({ question_id }) => {
     <div className="opinions">
       {opinions.map((opinion, index) => (
         <Fragment key={opinion._id}>
-          <OpinionCard opinionData={opinion} />
+          <OpinionCard opinionData={opinion} onDelete={onOpinionDelete} />
           {opinions.length - 1 === index && <Waypoint onEnter={() => fetchOldOpinions()} />}
         </Fragment>
       ))}

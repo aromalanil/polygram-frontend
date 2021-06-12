@@ -8,10 +8,11 @@ import LinkPreview from '../LinkPreview';
 import RichContent from '../RichContent';
 import { getFullName } from '../../../utils/common';
 import UpvoteDownVoteButton from './UpvoteDownVoteButton';
+import OpinionMenu from './OpinionMenu';
 
 dayjs.extend(relativeTime);
 
-const OpinionCard = ({ opinionData }) => {
+const OpinionCard = ({ opinionData, onDelete }) => {
   const {
     _id,
     author,
@@ -46,7 +47,10 @@ const OpinionCard = ({ opinionData }) => {
             <span>@{username}</span>
           </div>
         </div>
-        <div className="time">{dayjs(created_at).fromNow()}</div>
+        <div className="opinion-card-top-right">
+          <span className="time">{dayjs(created_at).fromNow()}</span>
+          <OpinionMenu onDelete={() => onDelete(_id)} id={_id} username={username} />
+        </div>
       </div>
       <div className="opinion-card-bottom">
         <div className="opinion-card-voting">

@@ -8,7 +8,7 @@ const MenuPopup = ({ isOpen, children, onClose }) => {
   // Click outside the popup will make the popup close
   useEffect(() => {
     const hideMenuPopup = (e) => {
-      if (ref.current && !ref.current.parentNode.contains(e.target)) {
+      if (ref.current && !ref.current.contains(e.target)) {
         onClose();
       }
     };

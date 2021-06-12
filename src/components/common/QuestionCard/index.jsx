@@ -14,12 +14,13 @@ import Button from '../Button';
 import Options from './Options';
 import ShareButton from './ShareButton';
 import RichContent from '../RichContent';
+import QuestionMenu from './QuestionMenu';
 import { getFullName } from '../../../utils/common';
 import { FetchQuestionProvider } from './fetchQuestionContext';
 
 dayjs.extend(relativeTime);
 
-const QuestionCard = ({ questionData, isDetailed = false, refetchData }) => {
+const QuestionCard = ({ questionData, refetchData, isDetailed = false, onDelete }) => {
   const history = useHistory();
   const {
     _id,
@@ -51,7 +52,10 @@ const QuestionCard = ({ questionData, isDetailed = false, refetchData }) => {
               <span>@{username}</span>
             </div>
           </div>
-          <div className="time">{dayjs(created_at).fromNow()}</div>
+          <div className="question-card-top-right">
+            <span className="time">{dayjs(created_at).fromNow()}</span>
+            <QuestionMenu onDelete={() => onDelete(_id)} id={_id} username={username} />
+          </div>
         </div>
         <div className="question-card-middle">
           <div className="badge-row">

@@ -1,13 +1,9 @@
 import './style.scss';
 
-const MenuList = ({ options }) => (
-  <div className="menu-list">
-    {options.map(({ name, onClick }) => (
-      <span className="menu-item" onClick={onClick} role="button" tabIndex={0} key={name}>
-        {name}
-      </span>
-    ))}
-  </div>
-);
+export const MenuList = ({ children }) => <div className="menu-list">{children}</div>;
 
-export default MenuList;
+export const MenuItem = ({ children, onClick }) => (
+  <span className="menu-item" onClick={onClick} role="button" tabIndex={0}>
+    {children}
+  </span>
+);

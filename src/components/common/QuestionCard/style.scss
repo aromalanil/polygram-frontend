@@ -30,10 +30,17 @@
         }
       }
     }
-    .time {
-      font-weight: 500;
-      font-size: 1.1rem;
-      color: var(--secondary-text-color);
+    &-right {
+      display: flex;
+      align-items: center;
+      .time {
+        font-weight: 500;
+        font-size: 1.1rem;
+        color: var(--secondary-text-color);
+      }
+      .menu {
+        margin-left: 0.5rem;
+      }
     }
   }
   &-middle {

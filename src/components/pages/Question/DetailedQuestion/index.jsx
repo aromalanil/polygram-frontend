@@ -1,3 +1,4 @@
+import { useHistory } from 'react-router-dom';
 import { useCallback, useEffect, useState } from 'react';
 
 import Loader from '../../../common/Loader';
@@ -8,6 +9,7 @@ import { getSingleQuestion } from '../../../../api/question';
 
 const DetailedQuestion = ({ id, refetchDataRef }) => {
   const setApiError = useApiError();
+  const history = useHistory();
   const [questionData, setQuestionData] = useState(null);
   const isUserLoggedIn = useRhinoValue('isUserLoggedIn');
 
@@ -30,7 +32,12 @@ const DetailedQuestion = ({ id, refetchDataRef }) => {
   }, [fetchQuestion, isUserLoggedIn]);
 
   return questionData ? (
-    <QuestionCard questionData={questionData} isDetailed refetchData={fetchQuestion} />
+    <QuestionCard
+      onDelete={() => history.goBack()}
+      questionData={questionData}
+      isDetailed
+      refetchData={fetchQuestion}
+    />
   ) : (
     <Loader />
   );
