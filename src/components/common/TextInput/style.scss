@@ -68,10 +68,12 @@
     svg {
       pointer-events: none;
     }
-    &:hover {
-      border-radius: 50%;
-      background-color: var(--primary-bg-color);
-      color: var(--primary-text-color);
+    @media (hover: hover) {
+      &:hover {
+        border-radius: 50%;
+        background-color: var(--primary-bg-color);
+        color: var(--primary-text-color);
+      }
     }
   }
 }

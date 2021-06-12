@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { memo, useEffect, useState } from 'react';
 
 import './style.scss';
 import { getLinkPreview } from '../../../api/utils';
@@ -37,4 +37,4 @@ const LinkPreview = ({ content }) => {
   ) : null;
 };
 
-export default LinkPreview;
+export default memo(LinkPreview);

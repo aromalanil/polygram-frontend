@@ -13,8 +13,10 @@
     color: var(--primary-text-color);
     background-color: var(--secondary-bg-color);
     transition-property: background-color;
-    &:hover {
-      filter: brightness(0.93);
+    @media (hover: hover) {
+      &:hover {
+        filter: brightness(0.93);
+      }
     }
   }
 }

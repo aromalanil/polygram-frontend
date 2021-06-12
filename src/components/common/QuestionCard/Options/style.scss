@@ -46,10 +46,12 @@
     font-weight: 700;
     border: 0.1rem solid var(--primary-color);
     color: var(--primary-color);
-    &:hover {
-      background-color: #e9e8fc;
-      .dark & {
-        background-color: #23304b;
+    @media (hover: hover) {
+      &:hover {
+        background-color: #e9e8fc;
+        .dark & {
+          background-color: #23304b;
+        }
       }
     }
   }

@@ -50,8 +50,10 @@
       align-items: center;
       justify-content: center;
       transition: var(--transition);
-      &:hover {
-        background-color: rgba(0, 0, 0, 0.116);
+      @media (hover: hover) {
+        &:hover {
+          background-color: rgba(0, 0, 0, 0.116);
+        }
       }
     }
   }

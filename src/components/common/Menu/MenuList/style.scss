@@ -10,10 +10,12 @@
     color: var(--primary-text-color);
     font-weight: 500;
     font-size: 1.4rem;
-    &:hover {
-      background-color: rgb(236, 236, 236);
-      .dark & {
-        background-color: rgba(100, 100, 100, 0.116);
+    @media (hover: hover) {
+      &:hover {
+        background-color: rgb(236, 236, 236);
+        .dark & {
+          background-color: rgba(100, 100, 100, 0.116);
+        }
       }
     }
   }

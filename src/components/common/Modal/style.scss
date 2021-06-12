@@ -47,8 +47,10 @@
       color: var(--secondary-text-color);
       background-color: var(--primary-bg-color);
       transition: var(--transition);
-      &:hover {
-        filter: brightness(0.95);
+      @media (hover: hover) {
+        &:hover {
+          filter: brightness(0.95);
+        }
       }
     }
   }

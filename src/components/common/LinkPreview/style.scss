@@ -52,8 +52,10 @@
     }
   }
 
-  &:hover {
-    filter: brightness(0.95);
+  @media (hover: hover) {
+    &:hover {
+      filter: brightness(0.95);
+    }
   }
 
   &.with-large-image {
