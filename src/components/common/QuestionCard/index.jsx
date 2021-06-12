@@ -1,7 +1,11 @@
 import dayjs from 'dayjs';
-import { useHistory, Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
+import { useHistory, Link } from 'react-router-dom';
 import relativeTime from 'dayjs/plugin/relativeTime';
+
+// Don't change order of this import👇🏻 or you may break build😈
+// Issue status: https://github.com/facebook/create-react-app/issues/5372
+import LinkPreview from '../LinkPreview';
 
 import './style.scss';
 import Badge from '../Badge';
@@ -59,6 +63,7 @@ const QuestionCard = ({ questionData, isDetailed = false, refetchData }) => {
           </div>
           <h2 className={!isDetailed ? 'short' : ''}>{title}</h2>
           <RichContent className={!isDetailed ? 'short' : ''}>{content}</RichContent>
+          <LinkPreview content={content} />
           {isDetailed && (
             <Options questionId={_id} options={options} showPercentage={showPercentage} />
           )}

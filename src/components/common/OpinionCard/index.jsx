@@ -4,9 +4,10 @@ import relativeTime from 'dayjs/plugin/relativeTime';
 
 import './style.scss';
 import Avatar from '../Avatar';
+import LinkPreview from '../LinkPreview';
+import RichContent from '../RichContent';
 import { getFullName } from '../../../utils/common';
 import UpvoteDownVoteButton from './UpvoteDownVoteButton';
-import RichContent from '../RichContent';
 
 dayjs.extend(relativeTime);
 
@@ -69,6 +70,7 @@ const OpinionCard = ({ opinionData }) => {
         <div className="opinion-card-content">
           <h3>Voted For {option}</h3>
           <RichContent>{content}</RichContent>
+          <LinkPreview content={content} />
         </div>
       </div>
     </div>
