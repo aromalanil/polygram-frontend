@@ -6,6 +6,7 @@ import './style.scss';
 import Avatar from '../Avatar';
 import { getFullName } from '../../../utils/common';
 import UpvoteDownVoteButton from './UpvoteDownVoteButton';
+import RichContent from '../RichContent';
 
 dayjs.extend(relativeTime);
 
@@ -67,7 +68,7 @@ const OpinionCard = ({ opinionData }) => {
         </div>
         <div className="opinion-card-content">
           <h3>Voted For {option}</h3>
-          <p>{content}</p>
+          <RichContent>{content}</RichContent>
         </div>
       </div>
     </div>

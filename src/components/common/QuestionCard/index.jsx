@@ -9,8 +9,8 @@ import Avatar from '../Avatar';
 import Button from '../Button';
 import Options from './Options';
 import ShareButton from './ShareButton';
+import RichContent from '../RichContent';
 import { getFullName } from '../../../utils/common';
-import { getShortString } from '../../../utils/string';
 import { FetchQuestionProvider } from './fetchQuestionContext';
 
 dayjs.extend(relativeTime);
@@ -31,8 +31,6 @@ const QuestionCard = ({ questionData, isDetailed = false, refetchData }) => {
   const { username, profile_picture } = author;
 
   const [showPercentage, setShowPercentage] = useState(have_user_voted);
-  const titleToDisplay = isDetailed ? title : getShortString(title, 50);
-  const contentToDisplay = isDetailed ? content : getShortString(content, 700);
 
   useEffect(() => {
     setShowPercentage(have_user_voted);
@@ -59,8 +57,8 @@ const QuestionCard = ({ questionData, isDetailed = false, refetchData }) => {
               </Link>
             ))}
           </div>
-          <h2>{titleToDisplay}</h2>
-          <p>{contentToDisplay}</p>
+          <h2 className={!isDetailed ? 'short' : ''}>{title}</h2>
+          <RichContent className={!isDetailed ? 'short' : ''}>{content}</RichContent>
           {isDetailed && (
             <Options questionId={_id} options={options} showPercentage={showPercentage} />
           )}

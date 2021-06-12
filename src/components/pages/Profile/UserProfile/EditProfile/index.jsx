@@ -91,7 +91,7 @@ const EditProfile = ({ isOpen, onClose }) => {
           <TextArea
             label="Bio"
             minLength={5}
-            maxLength={60}
+            maxLength={160}
             className="bio"
             error={errors.bio}
             value={inputs.bio}

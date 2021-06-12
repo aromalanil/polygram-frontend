@@ -46,10 +46,22 @@
     h2 {
       margin: 0;
       margin-bottom: 0.4em;
+      &.short {
+        display: -webkit-box;
+        overflow: hidden;
+        -webkit-line-clamp: 1;
+        -webkit-box-orient: vertical;
+      }
     }
     p {
       margin: 0;
       font-size: 1.4rem;
+      &.short {
+        display: -webkit-box;
+        overflow: hidden;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+      }
     }
   }
   &-bottom {

@@ -42,7 +42,7 @@ const OpinionModal = ({ option, questionId, isOpen, onClose }) => {
             autoFocus
             name="opinion"
             minLength={5}
-            maxLength={150}
+            maxLength={1600}
             value={content}
             error={contentError}
             label="Your Opinion"

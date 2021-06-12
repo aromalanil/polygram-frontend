@@ -7,6 +7,7 @@ import Button from '../../../common/Button';
 import FileUploadButton from '../../../common/FileUploadButton';
 import UploadProfilePicture from '../../../common/UploadProfilePicture';
 import LogoutButton from './LogoutButton';
+import RichContent from '../../../common/RichContent';
 
 const UserProfile = ({ userDetails, isCurrentUser }) => {
   const {
@@ -73,7 +74,9 @@ const UserProfile = ({ userDetails, isCurrentUser }) => {
             {last_name && ` ${last_name}`}
           </h3>
           <span className="username">@{username}</span>
-          <p className="bio">{bio ?? 'This profile has no bio added right now.'}</p>
+          <RichContent className="bio">
+            {bio ?? 'This profile has no bio added right now.'}
+          </RichContent>
           <div className="extra-details">
             <span className="email-container">
               <MdEmail />
