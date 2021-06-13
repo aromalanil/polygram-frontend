@@ -3,7 +3,7 @@ import { Fragment, useCallback, useEffect, useMemo, useState } from 'react';
 
 import './style.scss';
 import Loader from '../Loader';
-import TopicCard from './TopicCard';
+import TopicCard from '../TopicCard';
 import { getTopics } from '../../../api/topic';
 import useApiError from '../../../hooks/useApiError';
 

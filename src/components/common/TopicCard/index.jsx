@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
+
 import './style.scss';
-import TopicFollowButton from '../../TopicFollowButton';
+import TopicFollowButton from '../TopicFollowButton';
 
 const TopicCard = ({ topicData }) => {
   const { name, followed_by_user, question_count } = topicData || {};

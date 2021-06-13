@@ -7,6 +7,11 @@ export const getTopics = async ({ search, limit = 5, before_id }) => {
   return response?.data?.data?.topics;
 };
 
+export const getSingleTopic = async (name) => {
+  const response = await api.get(`/topics/single/${name}`);
+  return response?.data?.data?.topic;
+};
+
 export const getTrendingTopics = async ({ limit = 5 }) => {
   const response = await api.get('/topics/trending', {
     params: { page_size: limit },
