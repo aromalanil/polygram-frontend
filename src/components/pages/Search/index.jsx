@@ -13,8 +13,8 @@ function useQuery() {
 const Search = () => {
   const queries = useQuery();
   const history = useHistory();
-  const activeTab = queries.get('tab') ?? 'Questions';
   const searchQuery = queries.get('query') ?? '';
+  const activeTab = queries.get('tab') ?? 'Questions';
 
   const changeActiveTab = (tab) => {
     history.push({

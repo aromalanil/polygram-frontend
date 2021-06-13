@@ -11,7 +11,6 @@ const SearchBar = ({ initialQuery, autoFocus, className, tab = '' }) => {
 
   const handleSearch = (e) => {
     e.preventDefault();
-    if (query === '') return;
     const tempQuery = query;
     setQuery('');
     history.push({

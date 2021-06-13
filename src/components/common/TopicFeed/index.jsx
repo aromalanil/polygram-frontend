@@ -54,6 +54,10 @@ const TopicFeed = ({ search }) => {
     fetchInitialTopics();
   }, [fetchInitialTopics]);
 
+  useEffect(() => {
+    setHasMore(true);
+  }, [search]);
+
   return (
     <>
       {topics.map((topic, index) => (

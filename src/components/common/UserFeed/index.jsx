@@ -85,7 +85,7 @@ const UserFeed = ({ topic, search, following, user_id }) => {
   // Setting hasMore to true each time user login/logout
   useEffect(() => {
     setHasMore(true);
-  }, [isUserLoggedIn]);
+  }, [isUserLoggedIn, search]);
 
   // Checking for new questions every one minute
   useEffect(() => {
