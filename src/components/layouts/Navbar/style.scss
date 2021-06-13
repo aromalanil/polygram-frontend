@@ -13,16 +13,17 @@
     flex-direction: column;
     .nav-logo {
       width: 6rem;
-      margin-bottom: 8rem;
+      margin-bottom: 5rem;
     }
     .nav-top {
       width: min-content;
+      // margin-top: 2rem;
     }
     .nav-separator {
       height: 0.3rem;
       border-radius: 0.5rem;
       width: 90%;
-      margin: 3.2rem auto;
+      margin: 3.5rem auto;
       opacity: 0.1;
       background-color: var(--secondary-text-color);
     }
