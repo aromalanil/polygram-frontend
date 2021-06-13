@@ -24,7 +24,7 @@ const LinkPreview = ({ content }) => {
   return data ? (
     <a className="link-preview-anchor" href={data?.url} target="_blank" rel="noreferrer">
       <div className={`link-preview ${hasLargeImage && 'with-large-image'}`}>
-        <img src={data?.images[0]} alt={data?.title} />
+        <img src={data?.images[0] ?? data?.favicons[0]} alt={data?.title} />
         <div className="content">
           <div className="top">
             <h1 className="title">{data?.title ?? 'Not Found'}</h1>
