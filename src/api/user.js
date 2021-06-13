@@ -5,7 +5,8 @@ export const loginUser = async ({ username, password }) =>
 
 export const logoutUser = async () => api.post('/users/logout');
 
-export const googleOAuth = async ({ token }) => api.post('/users/auth/google', { token });
+export const googleOAuth = async ({ token, type }) =>
+  api.post('/users/auth/google', { token, type });
 
 export const getUserData = async (username) => {
   const userData = await api.get(`/users/${username ?? ''}`);

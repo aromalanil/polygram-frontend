@@ -118,7 +118,7 @@ const LoginModal = () => {
             <span>OR</span>
           </div>
           <div className="google-login">
-            <GoogleOAuth text="Login with Google" onSuccess={handleModalClose} />
+            <GoogleOAuth oAuthType="login" text="Login with Google" onSuccess={handleModalClose} />
           </div>
         </div>
       </Modal>

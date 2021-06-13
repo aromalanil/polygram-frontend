@@ -8,7 +8,7 @@ import { useSetRhinoState } from '../../../global/state';
 
 const googleClientId = process.env.REACT_APP_GOOGLE_CLIENT_ID;
 
-const GoogleOAuth = ({ text, onSuccess }) => {
+const GoogleOAuth = ({ text, onSuccess, oAuthType }) => {
   const setApiError = useApiError();
   const [isLoading, setIsLoading] = useState(false);
   const setSnackBarData = useSetRhinoState('snackBarData');
@@ -17,11 +17,14 @@ const GoogleOAuth = ({ text, onSuccess }) => {
   const onLoginSuccess = async (res) => {
     const { tokenId: token } = res;
     try {
-      await googleOAuth({ token });
+      await googleOAuth({ token, type: oAuthType });
     } catch (err) {
       setApiError(err);
       return;
+    } finally {
+      setIsLoading(false);
     }
+
     setIsUserLoggedIn(true);
     setSnackBarData({ type: 'success', message: 'Successfully Logged in' });
     if (onSuccess) onSuccess();
