@@ -3,10 +3,6 @@ import { useEffect, useState } from 'react';
 import { useHistory, Link } from 'react-router-dom';
 import relativeTime from 'dayjs/plugin/relativeTime';
 
-// Don't change order of this import👇🏻 or you may break build😈
-// Issue status: https://github.com/facebook/create-react-app/issues/5372
-import LinkPreview from '../LinkPreview';
-
 import './style.scss';
 import Badge from '../Badge';
 import Avatar from '../Avatar';
@@ -14,6 +10,7 @@ import Button from '../Button';
 import Options from './Options';
 import ShareButton from './ShareButton';
 import RichContent from '../RichContent';
+import LinkPreview from '../LinkPreview';
 import QuestionMenu from './QuestionMenu';
 import { getFullName } from '../../../utils/common';
 import { FetchQuestionProvider } from './fetchQuestionContext';
