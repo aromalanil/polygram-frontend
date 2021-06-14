@@ -4,9 +4,10 @@ import { BiDotsVerticalRounded } from 'react-icons/bi';
 
 import Logout from './Logout';
 import Avatar from '../../../common/Avatar';
+import { getFullName } from '../../../../utils/common';
 import { useRhinoValue } from '../../../../global/state';
 import { getShortString } from '../../../../utils/string';
-import { getFullName } from '../../../../utils/common';
+import placeholderProfilePicture from '../../../../assets/images/placeholder_profile_picture.png';
 
 const NavUserDetails = () => {
   const [logoutVisible, setLogoutVisible] = useState(false);
@@ -14,7 +15,7 @@ const NavUserDetails = () => {
 
   const isLoading = userData === null;
   const placeholder = {
-    profile_picture: '/assets/placeholder_profile_picture.png',
+    profile_picture: placeholderProfilePicture,
     full_name: 'Loading...',
     username: 'loading...',
   };

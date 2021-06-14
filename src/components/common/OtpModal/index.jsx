@@ -5,6 +5,7 @@ import './style.scss';
 import Modal from '../Modal';
 import Button from '../Button';
 import { useSetRhinoState } from '../../../global/state';
+import verificationImage from '../../../assets/images/verification.webp';
 
 const OtpModal = ({ email, isOpen, onClose, resendOtp, onSubmit, onSuccess }) => {
   const [otp, setOtp] = useState('');
@@ -34,7 +35,7 @@ const OtpModal = ({ email, isOpen, onClose, resendOtp, onSubmit, onSuccess }) =>
     <Modal isOpen={isOpen} onClose={handleModalClose}>
       <div className="otp-modal">
         <div className="otp-modal-top">
-          <img className="otp-image" src="/assets/verification.webp" alt="Verification" />
+          <img className="otp-image" src={verificationImage} alt="Verification" />
           <h2 className="title">Enter OTP</h2>
           <p className="subtitle">
             We have send an OTP to <span>{email}</span>

@@ -8,6 +8,7 @@ import AddQuestionModal from './AddQuestionModal';
 import { useRhinoValue } from '../../../../global/state';
 import FloatingActionButton from '../../../common/FloatingActionButton';
 import useProtectedFunction from '../../../../hooks/useProtectedFunction';
+import placeholderProfilePicture from '../../../../assets/images/placeholder_profile_picture.png';
 
 const PostQuestion = () => {
   const userData = useRhinoValue('userData');
@@ -40,7 +41,7 @@ const PostQuestion = () => {
         <Avatar
           className="avatar"
           username={isLoading ? '' : userData.username}
-          src={isLoading ? '/assets/placeholder_profile_picture.png' : userData.profile_picture}
+          src={isLoading ? placeholderProfilePicture : userData.profile_picture}
         />
         <input
           type="text"
