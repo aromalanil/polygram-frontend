@@ -38,3 +38,5 @@ export const updateProfilePicture = async (image) => {
   const response = await api.post('/users/profile_picture', { image });
   return response?.data?.data?.profile_picture;
 };
+
+export const deleteAccount = async ({ password }) => api.post('/users/account', { password });

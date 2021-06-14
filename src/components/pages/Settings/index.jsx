@@ -1,8 +1,9 @@
 import { FiArrowLeft } from 'react-icons/fi';
 import { useHistory } from 'react-router-dom';
 
-import IconButton from '../../common/IconButton';
 import ThemeControl from './ThemeControl';
+import DeleteAccount from './DeleteAccount';
+import IconButton from '../../common/IconButton';
 
 const Settings = () => {
   const history = useHistory();
@@ -15,6 +16,7 @@ const Settings = () => {
         <h2>Settings</h2>
       </div>
       <ThemeControl />
+      <DeleteAccount />
     </>
   );
 };
