@@ -1,25 +1,64 @@
 {
   "short_name": "Polygram",
   "name": "Polygram",
+  "description": "A simple, convenient & efficient way to seek, share & ask opinions, views & questions with society for better decision making.",
   "icons": [
     {
-      "src": "/favicon.ico",
-      "sizes": "64x64 32x32 24x24 48x48 16x16",
-      "type": "image/x-icon"
+      "src": "favicons/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
     },
     {
-      "src": "/favicons/android-chrome-192x192.png",
+      "src": "favicons/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "favicons/maskable-icon-192x192.png",
       "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "favicons/maskable-icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "favicon.ico",
+      "sizes": "64x64 32x32 24x24 48x48 16x16",
+      "type": "image/x-icon"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "assets/desktop-screenshot.png",
+      "sizes": "1280x720",
       "type": "image/png"
     },
     {
-      "src": "/favicons/android-chrome-512x512.png",
-      "sizes": "512x512",
+      "src": "assets/desktop-screenshot-2.png",
+      "sizes": "1280x720",
+      "type": "image/png"
+    },
+    {
+      "src": "assets/mobile-screenshot.png",
+      "sizes": "410x730",
+      "type": "image/png"
+    },
+    {
+      "src": "assets/mobile-screenshot-2.png",
+      "sizes": "410x730",
       "type": "image/png"
     }
   ],
-  "start_url": ".",
+  "start_url": "/",
   "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "theme_color": "#7d71fe",
+  "orientation": "portrait",
+  "background_color": "#383448",
+  "categories": ["social", "utilities", "productivity"]
 }
