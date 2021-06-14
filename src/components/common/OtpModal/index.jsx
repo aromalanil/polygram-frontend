@@ -34,7 +34,7 @@ const OtpModal = ({ email, isOpen, onClose, resendOtp, onSubmit, onSuccess }) =>
     <Modal isOpen={isOpen} onClose={handleModalClose}>
       <div className="otp-modal">
         <div className="otp-modal-top">
-          <img className="otp-image" src="assets/verification.webp" alt="Verification" />
+          <img className="otp-image" src="/assets/verification.webp" alt="Verification" />
           <h2 className="title">Enter OTP</h2>
           <p className="subtitle">
             We have send an OTP to <span>{email}</span>
