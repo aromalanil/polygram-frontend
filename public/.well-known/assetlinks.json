@@ -1,0 +1,12 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "app.netlify.polygram.twa",
+      "sha256_cert_fingerprints": [
+        "C0:82:DD:E9:0F:6C:8A:AA:F7:7A:8D:A0:42:6D:E5:40:4B:01:FD:94:AE:41:37:7E:8E:B3:E3:B4:C2:6B:75:CB"
+      ]
+    }
+  }
+]
