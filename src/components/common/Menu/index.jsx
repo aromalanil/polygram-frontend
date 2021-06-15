@@ -6,7 +6,7 @@ import { MenuList } from './MenuList';
 
 const Menu = ({ children, isOpen, onOpen, onClose }) => (
   <div className="menu">
-    <div role="button" tabIndex={0} className="menu-button" onClick={onOpen}>
+    <div role="button" tabIndex={0} className="menu-button" onClick={isOpen ? onClose : onOpen}>
       <BiDotsVerticalRounded />
     </div>
     <MenuPopup isOpen={isOpen} onClose={onClose}>

@@ -10,10 +10,6 @@ const Logout = ({ isLogoutVisible, onClose }) => {
   const logout = useLogoutUser();
   const [isPopupVisible, setPopupVisibility] = useState(false);
 
-  const handleButtonClick = async () => {
-    setPopupVisibility(true);
-  };
-
   const logoutUser = async () => {
     if (await logout()) {
       onClose();
@@ -29,7 +25,12 @@ const Logout = ({ isLogoutVisible, onClose }) => {
     <>
       <MenuPopup isOpen={isLogoutVisible} onClose={onClose}>
         <div className="logout-container">
-          <div role="button" className="logout" tabIndex={0} onClick={handleButtonClick}>
+          <div
+            role="button"
+            className="logout"
+            tabIndex={0}
+            onClick={() => setPopupVisibility(true)}
+          >
             <CgLogOut />
             <span>Logout</span>
           </div>
