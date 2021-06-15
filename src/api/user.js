@@ -39,4 +39,5 @@ export const updateProfilePicture = async (image) => {
   return response?.data?.data?.profile_picture;
 };
 
-export const deleteAccount = async ({ password }) => api.post('/users/account', { password });
+export const deleteAccount = async ({ password }) =>
+  api.post('/users/delete-account', { password });
