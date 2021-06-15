@@ -4,11 +4,11 @@ import relativeTime from 'dayjs/plugin/relativeTime';
 
 import './style.scss';
 import Avatar from '../Avatar';
+import OpinionMenu from './OpinionMenu';
 import LinkPreview from '../LinkPreview';
 import RichContent from '../RichContent';
 import { getFullName } from '../../../utils/common';
 import UpvoteDownVoteButton from './UpvoteDownVoteButton';
-import OpinionMenu from './OpinionMenu';
 
 dayjs.extend(relativeTime);
 

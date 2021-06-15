@@ -4,6 +4,7 @@ import { BiCog, BiHome, BiSearchAlt2, BiUser } from 'react-icons/bi';
 import './style.scss';
 import BottomNavItem from './BottomNavItem';
 import { useRhinoValue } from '../../../global/state';
+import NotificationIcon from '../../common/NotificationIcon';
 
 const BottomNav = () => {
   const userData = useRhinoValue('userData');
@@ -25,6 +26,12 @@ const BottomNav = () => {
         icon: <BiUser />,
         name: 'Profile',
         route: `/u/${userData?.username ?? ''}`,
+        isLoginRequired: true,
+      },
+      {
+        icon: <NotificationIcon />,
+        name: 'Notification',
+        route: '/notification',
         isLoginRequired: true,
       },
       {
