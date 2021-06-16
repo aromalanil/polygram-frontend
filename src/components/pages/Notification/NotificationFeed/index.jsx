@@ -5,15 +5,15 @@ import './style.scss';
 import Loader from '../../../common/Loader';
 import NotificationCard from './NotificationCard';
 import useApiError from '../../../../hooks/useApiError';
-import { useRhinoValue } from '../../../../global/state';
-import { getNotifications } from '../../../../api/notification';
+import { useRhinoState, useRhinoValue } from '../../../../global/state';
+import { getNotificationCount, getNotifications } from '../../../../api/notification';
 
 const NotificationFeed = () => {
   const setApiError = useApiError();
   const [hasMore, setHasMore] = useState(true);
   const [notifications, setNotifications] = useState([]);
   const isUserLoggedIn = useRhinoValue('isUserLoggedIn');
-  const notificationCount = useRhinoValue('notificationCount');
+  const [notificationCount, setNotificationCount] = useRhinoState('notificationCount');
 
   const finalNotification = useMemo(() => notifications[notifications.length - 1]?._id, [
     notifications,
@@ -47,6 +47,7 @@ const NotificationFeed = () => {
   }, [setApiError, finalNotification, hasMore]);
 
   const onDeleteNotification = (id) => {
+    setNotificationCount((count) => count - 1);
     setNotifications((oldNotification) =>
       oldNotification.filter((notification) => notification._id !== id)
     );
@@ -69,6 +70,15 @@ const NotificationFeed = () => {
       );
     }
   }, [notificationCount]);
+
+  useEffect(() => {
+    const updateNotificationCount = async () => {
+      const newNotificationCount = await getNotificationCount();
+      if (newNotificationCount !== notificationCount) setNotificationCount(newNotificationCount);
+    };
+
+    updateNotificationCount();
+  }, []); // eslint-disable-line
 
   return isUserLoggedIn ? (
     <div className="notification-feed">

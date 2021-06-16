@@ -10,14 +10,11 @@ const NotificationIcon = memo(() => {
   const [notificationCount, setNotificationCount] = useRhinoState('notificationCount');
 
   const updateNotificationStatus = useCallback(async () => {
-    if (!isUserLoggedIn) {
-      setNotificationCount(0);
-      return;
-    }
-
     const newNotificationCount = await getNotificationCount();
-    setNotificationCount(newNotificationCount);
-  }, [setNotificationCount, isUserLoggedIn]);
+    if (newNotificationCount !== notificationCount) {
+      setNotificationCount(newNotificationCount);
+    }
+  }, [setNotificationCount, notificationCount]);
 
   // Fetching initial status
   useEffect(() => {
@@ -26,12 +23,19 @@ const NotificationIcon = memo(() => {
 
   // Re-fetching status every minute
   useEffect(() => {
-    const timer = setInterval(updateNotificationStatus, 30000);
+    let timer;
+
+    if (isUserLoggedIn) {
+      timer = setInterval(updateNotificationStatus, 60000);
+    } else {
+      clearInterval(timer);
+      setNotificationCount(0);
+    }
 
     return () => {
       clearInterval(timer);
     };
-  }, [updateNotificationStatus]);
+  }, [isUserLoggedIn, updateNotificationStatus, setNotificationCount]);
 
   return (
     <div className="notification-icon">

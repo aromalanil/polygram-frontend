@@ -49,11 +49,16 @@
       right: 0.5rem;
     }
   }
+
   &.has-read {
     filter: saturate(0.5) brightness(0.95);
     .dark & {
       filter: saturate(0.85) brightness(0.85);
     }
+  }
+
+  &.with-popup {
+    z-index: 1;
   }
 
   @media screen and (max-width: 690px) {

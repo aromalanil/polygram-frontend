@@ -77,7 +77,11 @@ const NotificationCard = ({ notificationData, onDelete }) => {
   }, [notificationData]);
 
   return (
-    <div className={`notification-card ${userHasRead ? 'has-read' : ''}`}>
+    <div
+      className={`notification-card ${userHasRead ? 'has-read' : ''} ${
+        isOptionsOpen ? 'with-popup' : ''
+      }`}
+    >
       <div className="notification-card-body">
         <Avatar
           src={image}
