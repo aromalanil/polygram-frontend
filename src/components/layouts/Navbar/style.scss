@@ -17,7 +17,6 @@
     }
     .nav-top {
       width: min-content;
-      // margin-top: 2rem;
     }
     .nav-separator {
       height: 0.3rem;
@@ -45,8 +44,5 @@
         margin-bottom: 6rem;
       }
     }
-  }
-  @media screen and (max-width: 690px) {
-    display: none;
   }
 }

@@ -7,10 +7,12 @@ import Logo from '../../common/Logo';
 import NavUserDetails from './NavUserDetails';
 import LoginAndSignIn from './LoginAndSignIn';
 import { useRhinoValue } from '../../../global/state';
+import useMediaQuery from '../../../hooks/useMediaQuery';
 import NotificationIcon from '../../common/NotificationIcon';
 
 const Navbar = () => {
   const userData = useRhinoValue('userData');
+  const isMobile = useMediaQuery('(max-width:690px)');
   const isUserLoggedIn = useRhinoValue('isUserLoggedIn');
 
   const navLinkArray = useMemo(
@@ -49,7 +51,7 @@ const Navbar = () => {
     [userData]
   );
 
-  return (
+  return isMobile ? null : (
     <nav className="nav-bar">
       <div className="nav-content">
         <div className="nav-top">

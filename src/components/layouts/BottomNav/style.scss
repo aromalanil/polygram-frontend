@@ -9,9 +9,6 @@
   padding: 1.2rem 3.5rem 0.8rem;
   justify-content: space-between;
   background-color: var(--secondary-bg-color);
-  @media screen and(min-width:690px) {
-    display: none;
-  }
 
   .dark & {
     box-shadow: none;
