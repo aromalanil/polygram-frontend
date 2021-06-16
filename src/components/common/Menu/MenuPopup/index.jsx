@@ -8,7 +8,7 @@ const MenuPopup = ({ isOpen, children, onClose }) => {
   // Click outside the popup will make the popup close
   useEffect(() => {
     const hideMenuPopup = (e) => {
-      if (ref.current && !ref.current.contains(e.target)) {
+      if (ref.current && !ref.current.parentNode.contains(e.target)) {
         onClose();
       }
     };
@@ -17,16 +17,14 @@ const MenuPopup = ({ isOpen, children, onClose }) => {
     return () => {
       document.removeEventListener('mousedown', hideMenuPopup);
     };
-  }, [onClose]);
+  }, []); // eslint-disable-line
 
   return (
-    <>
-      {isOpen && (
-        <div ref={ref} className="menu-popup">
-          {children}
-        </div>
-      )}
-    </>
+    isOpen && (
+      <div ref={ref} className="menu-popup">
+        {children}
+      </div>
+    )
   );
 };
 

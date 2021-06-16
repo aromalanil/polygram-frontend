@@ -10,6 +10,7 @@ const Profile = React.lazy(() => import('./pages/Profile'));
 const Question = React.lazy(() => import('./pages/Question'));
 const NotFound = React.lazy(() => import('./pages/NotFound'));
 const Settings = React.lazy(() => import('./pages/Settings'));
+const Notification = React.lazy(() => import('./pages/Notification'));
 
 const Routes = () => (
   <Suspense fallback={<Loader />}>
@@ -22,6 +23,9 @@ const Routes = () => (
       </Route>
       <Route exact path="/settings">
         <Settings />
+      </Route>
+      <Route exact path="/notification">
+        <Notification />
       </Route>
       <Route exact path="/search">
         <Search />

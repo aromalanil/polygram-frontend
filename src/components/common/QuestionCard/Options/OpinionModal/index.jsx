@@ -26,7 +26,6 @@ const OpinionModal = ({ option, questionId, isOpen, onClose }) => {
       setSnackbarData({ type: 'success', message: 'Opinion added successfully' });
       await refetchData();
       setIsLoading(false);
-      onClose();
     } catch (err) {
       setApiError(err);
       setIsLoading(false);

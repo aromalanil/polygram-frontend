@@ -7,6 +7,7 @@ import Logo from '../../common/Logo';
 import NavUserDetails from './NavUserDetails';
 import LoginAndSignIn from './LoginAndSignIn';
 import { useRhinoValue } from '../../../global/state';
+import NotificationIcon from '../../common/NotificationIcon';
 
 const Navbar = () => {
   const userData = useRhinoValue('userData');
@@ -30,6 +31,12 @@ const Navbar = () => {
         icon: <BiUser />,
         name: 'Profile',
         route: `/u/${userData?.username ?? ''}`,
+        isLoginRequired: true,
+      },
+      {
+        icon: <NotificationIcon />,
+        name: 'Notification',
+        route: '/notification',
         isLoginRequired: true,
       },
       {
