@@ -1,22 +1,31 @@
-import { useCallback, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 
+/**
+ *
+ * A custom hook which takes a media query as the argument and returns a state
+ * which will be true when the media query is active and false when not
+ *
+ * @example
+ * const isMobile = useMediaQuery("(max-width:600px)");
+ *
+ * @returns {boolean} Is the media query active
+ */
 const useMediaQuery = (mediaQuery) => {
   const [doesQueryMatch, setDoesQueryMatch] = useState(() => window.matchMedia(mediaQuery).matches);
 
-  const mediaQueryEventHandler = useCallback(
-    (e) => {
-      if (e.matches !== doesQueryMatch) setDoesQueryMatch(e.matches);
-    },
-    [doesQueryMatch]
-  );
-
   useEffect(() => {
-    window.matchMedia(mediaQuery).addEventListener('change', mediaQueryEventHandler);
-
-    return () => {
-      window.matchMedia(mediaQuery).removeEventListener('change', mediaQueryEventHandler);
+    const mediaQueryChangeHandler = (e) => {
+      setDoesQueryMatch(e.matches);
     };
-  }, [mediaQueryEventHandler, mediaQuery]);
+
+    // Adding event listener for media query change on component mount
+    window.matchMedia(mediaQuery).addEventListener('change', mediaQueryChangeHandler);
+
+    // Removing event listener component unmount
+    return () => {
+      window.matchMedia(mediaQuery).removeEventListener('change', mediaQueryChangeHandler);
+    };
+  }, []); // eslint-disable-line
 
   return doesQueryMatch;
 };
