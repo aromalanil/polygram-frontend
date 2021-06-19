@@ -63,6 +63,8 @@
     p {
       margin: 0;
       font-size: 1.4rem;
+      word-wrap: break-word;
+      white-space: pre-wrap;
       &.short {
         display: -webkit-box;
         overflow: hidden;

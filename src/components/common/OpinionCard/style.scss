@@ -60,6 +60,8 @@
         font-weight: 400;
         font-size: 1.3rem;
         margin-top: 0.5em;
+        white-space: pre-wrap;
+        word-wrap: break-word;
       }
       @media screen and (max-width: 690px) {
         margin-top: 0.4rem;
