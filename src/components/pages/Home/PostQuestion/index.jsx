@@ -63,7 +63,7 @@ const PostQuestion = () => {
       <FloatingActionButton
         label="Add Question"
         isActive={isModalOpen}
-        onClick={() => setIsModalOpen(true)}
+        onClick={openAddQuestionPopup}
       >
         <FiPlus />
       </FloatingActionButton>
