@@ -28,7 +28,6 @@ const Search = () => {
       <SearchBar
         tab={activeTab}
         className="large-search-bar"
-        autoFocus
         initialQuery={searchQuery}
       />
       <Tab
