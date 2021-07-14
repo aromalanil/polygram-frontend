@@ -10,6 +10,7 @@ import OfflineBanner from '../../common/OfflineBanner';
 import useThemeChange from '../../../hooks/useThemeChange';
 import useIsUserLoggedIn from '../../../hooks/useIsUserLoggedIn';
 import ForgetPasswordModal from '../../common/ForgetPasswordModal';
+import usePushNotification from '../../../hooks/usePushNotification';
 import useNotificationCount from '../../../hooks/useNotificationCount';
 
 const Layout = ({ children }) => (
@@ -32,6 +33,7 @@ const GlobalDataFetch = () => {
   useUserData();
   useThemeChange();
   useIsUserLoggedIn();
+  usePushNotification();
   useNotificationCount();
   return null;
 };

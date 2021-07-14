@@ -25,11 +25,7 @@ const Search = () => {
 
   return (
     <>
-      <SearchBar
-        tab={activeTab}
-        className="large-search-bar"
-        initialQuery={searchQuery}
-      />
+      <SearchBar tab={activeTab} className="large-search-bar" initialQuery={searchQuery} />
       <Tab
         activeTab={activeTab}
         tabNames={['Questions', 'Topics']}
