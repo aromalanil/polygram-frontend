@@ -12,6 +12,7 @@ const useLogoutUser = () => {
     // Calling api for logout the user
     try {
       await logoutUser();
+      localStorage.setItem('isUserSubscribed', false);
       setIsUserLoggedIn(false);
       setSnackBarData({ type: 'success', message: 'Successfully Logged out' });
     } catch (err) {

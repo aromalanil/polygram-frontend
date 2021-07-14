@@ -19,3 +19,11 @@ export const updateMarkAsRead = async ({ notificationId, has_read }) =>
   api.post(`/notifications/${notificationId}/has-read`, { has_read });
 
 export const markAllNotificationsAsRead = async () => api.post('/notifications/mark-all-as-read');
+
+export const subscribeForPushNotification = async (subscription) => {
+  const response = await api.post('/notifications/subscribe', { subscription });
+
+  return response?.data?.subscribed;
+};
+
+export const unsubscribeForPushNotification = async () => api.post('/notifications/unsubscribe');
