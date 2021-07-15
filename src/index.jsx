@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 
 import './global/style.scss';
 import App from './components/App';
+import swConfig from './sw.config';
 import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 
 ReactDOM.render(
@@ -12,4 +13,4 @@ ReactDOM.render(
   document.getElementById('root')
 );
 
-serviceWorkerRegistration.register();
+serviceWorkerRegistration.register(swConfig);
