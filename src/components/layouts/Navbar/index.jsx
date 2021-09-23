@@ -1,4 +1,5 @@
 import { useMemo } from 'react';
+import { useRhinoValue } from 'react-rhino';
 import { BiCog, BiHome, BiSearchAlt2, BiUser } from 'react-icons/bi';
 
 import './style.scss';
@@ -6,7 +7,6 @@ import NavItem from './NavItem.js';
 import Logo from '../../common/Logo';
 import NavUserDetails from './NavUserDetails';
 import LoginAndSignIn from './LoginAndSignIn';
-import { useRhinoValue } from '../../../global/state';
 import useMediaQuery from '../../../hooks/useMediaQuery';
 import NotificationIcon from '../../common/NotificationIcon';
 

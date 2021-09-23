@@ -1,10 +1,10 @@
 import { useState } from 'react';
+import { useSetRhinoState } from 'react-rhino';
 import { useGoogleLogin } from 'react-google-login';
 
 import './style.scss';
 import { googleOAuth } from '../../../api/user';
 import useApiError from '../../../hooks/useApiError';
-import { useSetRhinoState } from '../../../global/state';
 import googleLogo from '../../../assets/images/google_logo.svg';
 
 const googleClientId = process.env.REACT_APP_GOOGLE_CLIENT_ID;

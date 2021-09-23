@@ -1,4 +1,5 @@
 import { useMemo, useState } from 'react';
+import { useRhinoState, useSetRhinoState } from 'react-rhino';
 
 import './style.scss';
 import Modal from '../Modal';
@@ -8,7 +9,6 @@ import TextInput from '../TextInput';
 import useApiError from '../../../hooks/useApiError';
 import { makeObjectFromArray } from '../../../utils/common';
 import { forgotPassword, sendOtp } from '../../../api/user';
-import { useRhinoState, useSetRhinoState } from '../../../global/state';
 import { emailRegex, passwordRegex } from '../../../utils/regex';
 
 const forgetPasswordInputFields = ['email', 'password', 'confirm_password'];

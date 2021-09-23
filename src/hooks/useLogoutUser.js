@@ -1,7 +1,8 @@
 import { useCallback } from 'react';
+import { useSetRhinoState } from 'react-rhino';
+
 import useApiError from './useApiError';
 import { logoutUser } from '../api/user';
-import { useSetRhinoState } from '../global/state';
 
 const useLogoutUser = () => {
   const setApiError = useApiError();

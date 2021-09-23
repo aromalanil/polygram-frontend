@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useSetRhinoState } from 'react-rhino';
 
 import './style.scss';
 import Button from '../Button';
@@ -6,7 +7,6 @@ import TextInput from '../TextInput';
 import { changePassword } from '../../../api/user';
 import { passwordRegex } from '../../../utils/regex';
 import useApiError from '../../../hooks/useApiError';
-import { useSetRhinoState } from '../../../global/state';
 import { makeObjectFromArray } from '../../../utils/common';
 
 const changePasswordInputs = ['old_password', 'new_password', 'confirm_password'];

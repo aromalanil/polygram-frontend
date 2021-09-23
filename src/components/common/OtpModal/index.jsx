@@ -1,10 +1,10 @@
-import { useEffect, useState } from 'react';
 import OtpInput from 'react-otp-input';
+import { useEffect, useState } from 'react';
+import { useSetRhinoState } from 'react-rhino';
 
 import './style.scss';
 import Modal from '../Modal';
 import Button from '../Button';
-import { useSetRhinoState } from '../../../global/state';
 import verificationImage from '../../../assets/images/verification.webp';
 
 const OtpModal = ({ email, isOpen, onClose, resendOtp, onSubmit, onSuccess }) => {

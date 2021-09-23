@@ -1,8 +1,8 @@
-import { BiBell } from 'react-icons/bi';
 import { memo } from 'react';
+import { BiBell } from 'react-icons/bi';
+import { useRhinoValue } from 'react-rhino';
 
 import './style.scss';
-import { useRhinoValue } from '../../../global/state';
 
 const NotificationIcon = () => {
   const notificationCount = useRhinoValue('notificationCount');

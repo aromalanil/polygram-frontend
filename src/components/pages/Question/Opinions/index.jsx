@@ -1,4 +1,5 @@
 import { Waypoint } from 'react-waypoint';
+import { useRhinoValue } from 'react-rhino';
 import { Fragment, useCallback, useEffect, useMemo, useState } from 'react';
 
 import './style.scss';
@@ -6,7 +7,6 @@ import Loader from '../../../common/Loader';
 import { getOpinions } from '../../../../api/opinion';
 import OpinionCard from '../../../common/OpinionCard';
 import useApiError from '../../../../hooks/useApiError';
-import { useRhinoValue } from '../../../../global/state';
 
 const Opinions = ({ question_id }) => {
   const setApiError = useApiError();

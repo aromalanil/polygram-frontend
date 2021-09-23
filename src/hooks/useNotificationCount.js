@@ -1,6 +1,6 @@
 import { useCallback, useEffect } from 'react';
+import { useRhinoState, useRhinoValue } from 'react-rhino';
 import { getNotificationCount } from '../api/notification';
-import { useRhinoState, useRhinoValue } from '../global/state';
 
 const useNotificationCount = () => {
   const isUserLoggedIn = useRhinoValue('isUserLoggedIn');

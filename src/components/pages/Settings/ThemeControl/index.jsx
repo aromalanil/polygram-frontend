@@ -1,8 +1,8 @@
+import { useRhinoState } from 'react-rhino';
 import { FaMoon, FaSun } from 'react-icons/fa';
 
 import './style.scss';
 import IconButton from '../../../common/IconButton';
-import { useRhinoState } from '../../../../global/state';
 
 /* eslint-disable */
 const ThemeControl = () => {

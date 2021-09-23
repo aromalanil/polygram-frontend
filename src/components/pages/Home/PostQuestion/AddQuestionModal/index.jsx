@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { useSetRhinoState } from 'react-rhino';
 
 import './style.scss';
 import Options from './Options';
@@ -9,7 +10,6 @@ import TextArea from '../../../../common/TextArea';
 import TextInput from '../../../../common/TextInput';
 import useApiError from '../../../../../hooks/useApiError';
 import { createQuestion } from '../../../../../api/question';
-import { useSetRhinoState } from '../../../../../global/state';
 
 const AddQuestionModal = ({ initialContent, isOpen, onClose }) => {
   const setApiError = useApiError();

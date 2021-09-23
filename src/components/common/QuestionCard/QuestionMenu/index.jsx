@@ -1,12 +1,12 @@
 import { useState } from 'react';
 import { useHistory } from 'react-router-dom';
+import { useRhinoValue, useSetRhinoState } from 'react-rhino';
 
 import Menu from '../../Menu';
 import { MenuItem } from '../../Menu/MenuList';
 import ConfirmDialog from '../../ConfirmDialog';
 import useApiError from '../../../../hooks/useApiError';
 import { deleteQuestion } from '../../../../api/question';
-import { useRhinoValue, useSetRhinoState } from '../../../../global/state';
 
 const QuestionMenu = ({ username, id, onDelete }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);

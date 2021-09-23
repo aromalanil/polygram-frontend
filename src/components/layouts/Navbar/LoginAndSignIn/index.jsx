@@ -1,6 +1,7 @@
 import './style.scss';
+import { useSetRhinoState } from 'react-rhino';
+
 import Button from '../../../common/Button';
-import { useSetRhinoState } from '../../../../global/state';
 
 const LoginAndSignIn = () => {
   const setLoginModalVisibility = useSetRhinoState('isLoginModalVisible');

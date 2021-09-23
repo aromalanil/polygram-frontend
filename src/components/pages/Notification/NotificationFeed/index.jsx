@@ -1,11 +1,11 @@
 import { Waypoint } from 'react-waypoint';
+import { useRhinoState, useRhinoValue } from 'react-rhino';
 import { useCallback, useEffect, useMemo, useState, Fragment } from 'react';
 
 import './style.scss';
 import Loader from '../../../common/Loader';
 import NotificationCard from './NotificationCard';
 import useApiError from '../../../../hooks/useApiError';
-import { useRhinoState, useRhinoValue } from '../../../../global/state';
 import { getNotificationCount, getNotifications } from '../../../../api/notification';
 
 const NotificationFeed = () => {

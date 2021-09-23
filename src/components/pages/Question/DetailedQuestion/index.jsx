@@ -1,10 +1,10 @@
+import { useRhinoValue } from 'react-rhino';
 import { useHistory } from 'react-router-dom';
 import { useCallback, useEffect, useState } from 'react';
 
 import Loader from '../../../common/Loader';
 import useApiError from '../../../../hooks/useApiError';
 import QuestionCard from '../../../common/QuestionCard';
-import { useRhinoValue } from '../../../../global/state';
 import { getSingleQuestion } from '../../../../api/question';
 
 const DetailedQuestion = ({ id, refetchDataRef }) => {

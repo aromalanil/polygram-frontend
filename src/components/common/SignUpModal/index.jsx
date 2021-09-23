@@ -1,4 +1,5 @@
 import { useMemo, useState } from 'react';
+import { useRhinoState, useSetRhinoState } from 'react-rhino';
 
 import './style.scss';
 import Modal from '../Modal';
@@ -9,7 +10,6 @@ import GoogleOAuth from '../GoogleOAuth';
 import useApiError from '../../../hooks/useApiError';
 import { makeObjectFromArray } from '../../../utils/common';
 import { registerUser, verifyUser } from '../../../api/user';
-import { useRhinoState, useSetRhinoState } from '../../../global/state';
 import { emailRegex, passwordRegex, usernameRegex } from '../../../utils/regex';
 
 const signUpInputFields = [

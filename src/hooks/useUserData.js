@@ -1,7 +1,7 @@
 import { useCallback, useEffect } from 'react';
+import { useRhinoValue, useSetRhinoState } from 'react-rhino';
 
 import { getUserData } from '../api/user';
-import { useRhinoValue, useSetRhinoState } from '../global/state';
 
 const useUserData = () => {
   const setUserData = useSetRhinoState('userData');
