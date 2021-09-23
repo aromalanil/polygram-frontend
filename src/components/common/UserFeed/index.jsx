@@ -1,5 +1,6 @@
-import { useCallback, useEffect, useState, Fragment, useMemo } from 'react';
 import { Waypoint } from 'react-waypoint';
+import { useRhinoValue } from 'react-rhino';
+import { useCallback, useEffect, useState, Fragment, useMemo } from 'react';
 
 import './style.scss';
 import NewPost from './NewPost';
@@ -7,7 +8,6 @@ import Loader from '../Loader';
 import QuestionCard from '../QuestionCard';
 import { getQuestions } from '../../../api/question';
 import useApiError from '../../../hooks/useApiError';
-import { useRhinoValue } from '../../../global/state';
 
 const UserFeed = ({ topic, search, following, user_id }) => {
   const setApiError = useApiError();

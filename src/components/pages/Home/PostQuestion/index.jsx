@@ -1,11 +1,11 @@
 import { useState } from 'react';
 import { FiPlus } from 'react-icons/fi';
+import { useRhinoValue } from 'react-rhino';
 
 import './style.scss';
 import Avatar from '../../../common/Avatar';
 import Button from '../../../common/Button';
 import AddQuestionModal from './AddQuestionModal';
-import { useRhinoValue } from '../../../../global/state';
 import FloatingActionButton from '../../../common/FloatingActionButton';
 import useProtectedFunction from '../../../../hooks/useProtectedFunction';
 import placeholderProfilePicture from '../../../../assets/images/placeholder_profile_picture.png';

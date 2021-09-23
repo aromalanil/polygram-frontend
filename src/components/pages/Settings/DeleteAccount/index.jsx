@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { MdDelete } from 'react-icons/md';
+import { useRhinoState, useSetRhinoState } from 'react-rhino';
 
 import './style.scss';
 import Modal from '../../../common/Modal';
@@ -8,7 +9,6 @@ import TextInput from '../../../common/TextInput';
 import { deleteAccount } from '../../../../api/user';
 import useApiError from '../../../../hooks/useApiError';
 import { passwordRegex } from '../../../../utils/regex';
-import { useRhinoState, useSetRhinoState } from '../../../../global/state';
 
 const DeleteAccount = () => {
   const setApiError = useApiError();

@@ -1,6 +1,7 @@
 import { BiShareAlt } from 'react-icons/bi';
+import { useSetRhinoState } from 'react-rhino';
+
 import IconButton from '../../IconButton';
-import { useSetRhinoState } from '../../../../global/state';
 
 const ShareButton = ({ text, url }) => {
   const setSnackBarData = useSetRhinoState('snackBarData');

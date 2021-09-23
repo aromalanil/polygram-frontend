@@ -1,5 +1,6 @@
 import Cropper from 'react-easy-crop';
 import Slider from '@material-ui/core/Slider';
+import { useSetRhinoState } from 'react-rhino';
 import { useCallback, useEffect, useState } from 'react';
 
 import './style.scss';
@@ -9,7 +10,6 @@ import Button from '../Button';
 import { readFile } from '../../../utils/common';
 import useApiError from '../../../hooks/useApiError';
 import { updateProfilePicture } from '../../../api/user';
-import { useSetRhinoState } from '../../../global/state';
 import { getCroppedImg, calculateImageSize, downscaleImage } from '../../../utils/image';
 
 const UploadProfilePicture = ({ profilePicture, isOpen, onClose }) => {

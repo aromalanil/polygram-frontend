@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react';
+import { useRhinoValue } from 'react-rhino';
 
 import './style.scss';
 import TopicRow from './TopicRow';
 import Loader from '../../../common/Loader';
 import { getTrendingTopics } from '../../../../api/topic';
 import useApiError from '../../../../hooks/useApiError';
-import { useRhinoValue } from '../../../../global/state';
 
 const TopicsCard = () => {
   const setApiError = useApiError();

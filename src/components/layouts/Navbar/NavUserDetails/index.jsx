@@ -1,11 +1,11 @@
 import './style.scss';
 import { useState } from 'react';
+import { useRhinoValue } from 'react-rhino';
 import { BiDotsVerticalRounded } from 'react-icons/bi';
 
 import Logout from './Logout';
 import Avatar from '../../../common/Avatar';
 import { getFullName } from '../../../../utils/common';
-import { useRhinoValue } from '../../../../global/state';
 import { getShortString } from '../../../../utils/string';
 import placeholderProfilePicture from '../../../../assets/images/placeholder_profile_picture.png';
 

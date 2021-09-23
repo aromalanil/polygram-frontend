@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useSetRhinoState } from 'react-rhino';
 
 import './style.scss';
 import Modal from '../../../Modal';
@@ -7,7 +8,6 @@ import TextArea from '../../../TextArea';
 import { markVote } from '../../../../../api/opinion';
 import useApiError from '../../../../../hooks/useApiError';
 import { useFetchContext } from '../../fetchQuestionContext';
-import { useSetRhinoState } from '../../../../../global/state';
 
 const OpinionModal = ({ option, questionId, isOpen, onClose }) => {
   const setApiError = useApiError();

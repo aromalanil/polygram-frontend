@@ -1,7 +1,7 @@
 import './style.scss';
+import { useRhinoState } from 'react-rhino';
 import { useCallback, useEffect } from 'react';
 import { BiCheckCircle, BiError, BiErrorCircle, BiX } from 'react-icons/bi';
-import { useRhinoState } from '../../../global/state';
 
 const getIconByType = (type) => {
   switch (type) {

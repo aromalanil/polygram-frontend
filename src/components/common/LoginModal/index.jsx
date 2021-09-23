@@ -1,4 +1,5 @@
 import { useMemo, useState } from 'react';
+import { useRhinoState, useSetRhinoState } from 'react-rhino';
 
 import './style.scss';
 import Modal from '../Modal';
@@ -8,7 +9,6 @@ import GoogleOAuth from '../GoogleOAuth';
 import { loginUser } from '../../../api/user';
 import useApiError from '../../../hooks/useApiError';
 import { passwordRegex, usernameRegex } from '../../../utils/regex';
-import { useRhinoState, useSetRhinoState } from '../../../global/state';
 
 const LoginModal = () => {
   const setApiError = useApiError();

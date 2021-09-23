@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useRhinoState, useSetRhinoState } from 'react-rhino';
 
 import './style.scss';
 import Modal from '../../../../common/Modal';
@@ -8,7 +9,6 @@ import TextInput from '../../../../common/TextInput';
 import { editDetails } from '../../../../../api/user';
 import useApiError from '../../../../../hooks/useApiError';
 import ChangePassword from '../../../../common/ChangePassword';
-import { useRhinoState, useSetRhinoState } from '../../../../../global/state';
 import { filterObject, makeObjectFromArray } from '../../../../../utils/common';
 
 const editDetailsFields = ['last_name', 'first_name', 'bio'];

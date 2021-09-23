@@ -1,13 +1,13 @@
 import dayjs from 'dayjs';
 import { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
+import { useSetRhinoState } from 'react-rhino';
 import relativeTime from 'dayjs/plugin/relativeTime';
 
 import './style.scss';
 import Avatar from '../../../../common/Avatar';
 import NotificationOptions from './NotificationOption';
 import { getFullName } from '../../../../../utils/common';
-import { useSetRhinoState } from '../../../../../global/state';
 import { updateMarkAsRead } from '../../../../../api/notification';
 import shieldIcon from '../../../../../assets/images/shield-icon.png';
 

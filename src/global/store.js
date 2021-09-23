@@ -1,7 +1,6 @@
-import createRhinoState from 'react-rhino';
 import { getInitialTheme } from '../utils/theme';
 
-const { RhinoProvider, useRhinoState, useRhinoValue, useSetRhinoState } = createRhinoState({
+const store = {
   userData: null,
   notificationCount: 0,
   isUserLoggedIn: false,
@@ -11,6 +10,6 @@ const { RhinoProvider, useRhinoState, useRhinoValue, useSetRhinoState } = create
   isSignUpModalVisible: false,
   isForgetPasswordModalVisible: false,
   snackBarData: { type: 'error', message: null },
-});
+};
 
-export { RhinoProvider, useRhinoState, useRhinoValue, useSetRhinoState };
+export default store;

@@ -1,9 +1,9 @@
 import { useState } from 'react';
+import { useSetRhinoState } from 'react-rhino';
 
 import './style.scss';
 import Button from '../../../common/Button';
 import useApiError from '../../../../hooks/useApiError';
-import { useSetRhinoState } from '../../../../global/state';
 import { markAllNotificationsAsRead } from '../../../../api/notification';
 
 const MarkAllAsRead = (props) => {

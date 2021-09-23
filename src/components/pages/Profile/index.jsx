@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { useRhinoValue } from 'react-rhino';
 import { FiArrowLeft } from 'react-icons/fi';
 import { useHistory, useParams } from 'react-router-dom';
 
@@ -7,7 +8,6 @@ import Loader from '../../common/Loader';
 import UserFeed from '../../common/UserFeed';
 import { getUserData } from '../../../api/user';
 import IconButton from '../../common/IconButton';
-import { useRhinoValue } from '../../../global/state';
 
 const Profile = () => {
   const history = useHistory();

@@ -1,9 +1,9 @@
 import { useMemo } from 'react';
+import { useRhinoValue } from 'react-rhino';
 import { BiCog, BiHome, BiSearchAlt2, BiUser } from 'react-icons/bi';
 
 import './style.scss';
 import BottomNavItem from './BottomNavItem';
-import { useRhinoValue } from '../../../global/state';
 import useMediaQuery from '../../../hooks/useMediaQuery';
 import NotificationIcon from '../../common/NotificationIcon';
 
