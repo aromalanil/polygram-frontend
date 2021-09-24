@@ -8,7 +8,7 @@
 <a href="https://github.com/aromalanil/polygram-frontend/stargazers"><img alt="GitHub stars" src="https://img.shields.io/github/stars/aromalanil/polygram-frontend"></a>&nbsp;&nbsp;
 <a href="https://github.com/aromalanil/polygram-frontend"><img alt="GitHub stars" src="https://img.shields.io/github/repo-size/aromalanil/polygram-frontend"></a>&nbsp;&nbsp;
 <a href="https://github.com/aromalanil/polygram-frontend/network"><img alt="GitHub forks" src="https://img.shields.io/github/forks/aromalanil/polygram-frontend"></a><br/>
-<a href="https://app.netlify.com/sites/polygram/deploys"><img alt="Netlify Build" src="https://api.netlify.com/api/v1/badges/281d5586-42a8-4ddf-8daf-50279fcd9148/deploy-status"></a>
+<a href="https://app.netlify.com/sites/polygram/deploys"><img alt="Netlify Build" src="https://api.netlify.com/api/v1/badges/f27790f0-71f5-4754-97a3-c62112d67271/deploy-status"></a>
 
 <img width="500" src="https://user-images.githubusercontent.com/49222186/134717245-702d61a7-7b5d-4e6e-9289-e76ef2fe5b8f.png" /><br/>
 
