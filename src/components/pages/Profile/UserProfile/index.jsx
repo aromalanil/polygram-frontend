@@ -36,7 +36,7 @@ const UserProfile = ({ userDetails, isCurrentUser }) => {
         <div className="user-profile-card-top">
           <img
             className="cover-img"
-            src="https://source.unsplash.com/800x600/?nature"
+            src="https://picsum.photos/seed/nature/800/600"
             alt="User Cover"
           />
         </div>
