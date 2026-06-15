@@ -42,7 +42,13 @@ const OtpModal = ({ email, isOpen, onClose, resendOtp, onSubmit, onSuccess }) =>
           </p>
         </div>
         <div className="otp-modal-middle">
-          <OtpInput shouldAutoFocus numInputs={6} value={otp} onChange={(value) => setOtp(value)} />
+          <OtpInput
+            shouldAutoFocus
+            numInputs={6}
+            value={otp}
+            onChange={(value) => setOtp(value)}
+            renderInput={(props) => <input {...props} />}
+          />
         </div>
         <div className="otp-modal-bottom">
           <ResendButton time={30} variant="secondary" onClick={resendOtp}>
