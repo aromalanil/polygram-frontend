@@ -4,7 +4,7 @@ import { useCallback, useEffect, useState, Fragment, useMemo } from 'react';
 
 import './style.scss';
 import NewPost from './NewPost';
-import Loader from '../Loader';
+import { QuestionCardSkeleton } from '../Skeleton';
 import QuestionCard from '../QuestionCard';
 import { getQuestions } from '../../../api/question';
 import useApiError from '../../../hooks/useApiError';
@@ -96,6 +96,31 @@ const UserFeed = ({ topic, search, following, user_id }) => {
     };
   }, [fetchNewQuestions]);
 
+  const renderFooter = () => {
+    if (hasMore) {
+      if (questions.length === 0) {
+        return (
+          <>
+            <QuestionCardSkeleton />
+            <QuestionCardSkeleton />
+            <QuestionCardSkeleton />
+          </>
+        );
+      }
+      return <QuestionCardSkeleton />;
+    }
+    return (
+      <div className="no-questions">
+        <div className="separator" />
+        <span>
+          {questions.length === 0
+            ? 'No questions to show right now'
+            : 'No more questions available'}
+        </span>
+      </div>
+    );
+  };
+
   return (
     <>
       <NewPost isVisible={showNewPostAlert} onHide={() => setShowNewPostAlert(false)} />
@@ -106,18 +131,7 @@ const UserFeed = ({ topic, search, following, user_id }) => {
             {questions.length - 1 === index && <Waypoint onEnter={() => fetchOldQuestions()} />}
           </Fragment>
         ))}
-        {hasMore ? (
-          <Loader />
-        ) : (
-          <div className="no-questions">
-            <div className="separator" />
-            <span>
-              {questions.length === 0
-                ? 'No questions to show right now'
-                : 'No more questions available'}
-            </span>
-          </div>
-        )}
+        {renderFooter()}
       </>
     </>
   );

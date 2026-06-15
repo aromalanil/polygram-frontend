@@ -2,7 +2,7 @@ import { Waypoint } from 'react-waypoint';
 import { Fragment, useCallback, useEffect, useMemo, useState } from 'react';
 
 import './style.scss';
-import Loader from '../Loader';
+import { TopicCardSkeleton } from '../Skeleton';
 import TopicCard from '../TopicCard';
 import { getTopics } from '../../../api/topic';
 import useApiError from '../../../hooks/useApiError';
@@ -58,6 +58,29 @@ const TopicFeed = ({ search }) => {
     setHasMore(true);
   }, [search]);
 
+  const renderFooter = () => {
+    if (hasMore) {
+      if (topics.length === 0) {
+        return (
+          <>
+            <TopicCardSkeleton />
+            <TopicCardSkeleton />
+            <TopicCardSkeleton />
+          </>
+        );
+      }
+      return <TopicCardSkeleton />;
+    }
+    return (
+      <div className="no-topics">
+        <div className="separator" />
+        <span>
+          {topics.length === 0 ? 'No topics to show right now' : 'No more topics available'}
+        </span>
+      </div>
+    );
+  };
+
   return (
     <>
       {topics.map((topic, index) => (
@@ -66,16 +89,7 @@ const TopicFeed = ({ search }) => {
           {topics.length - 1 === index && <Waypoint onEnter={() => fetchOldTopics()} />}
         </Fragment>
       ))}
-      {hasMore ? (
-        <Loader />
-      ) : (
-        <div className="no-topics">
-          <div className="separator" />
-          <span>
-            {topics.length === 0 ? 'No topics to show right now' : 'No more topics available'}
-          </span>
-        </div>
-      )}
+      {renderFooter()}
     </>
   );
 };

@@ -23,6 +23,8 @@ body {
   --success-color: #4caf50;
   --transition: 100ms ease-in;
   --shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  --skeleton-bg: #e2e8f0;
+  --skeleton-shimmer: #cbd5e1;
 }
 
 .dark {
@@ -36,6 +38,8 @@ body {
   --success-color: #4caf50;
   --transition: 100ms ease-in;
   --shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  --skeleton-bg: #2d3748;
+  --skeleton-shimmer: #4a5568;
 }
 
 body {

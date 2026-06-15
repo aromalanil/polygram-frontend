@@ -3,7 +3,7 @@ import { useRhinoValue } from 'react-rhino';
 
 import './style.scss';
 import TopicRow from './TopicRow';
-import Loader from '../../../common/Loader';
+import { TopicRowSkeleton } from '../../../common/Skeleton';
 import { getTrendingTopics } from '../../../../api/topic';
 import useApiError from '../../../../hooks/useApiError';
 
@@ -29,15 +29,23 @@ const TopicsCard = () => {
   return (
     <div className="topics-card">
       <h3>Trending Topics</h3>
-      {topics.map((topic) => (
-        <TopicRow
-          key={topic._id}
-          topicName={topic.name}
-          questionCount={topic.question_count}
-          isFollowing={topic.followed_by_user}
-        />
-      ))}
-      {isLoading && <Loader />}
+      {isLoading ? (
+        <>
+          <TopicRowSkeleton />
+          <TopicRowSkeleton />
+          <TopicRowSkeleton />
+          <TopicRowSkeleton />
+        </>
+      ) : (
+        topics.map((topic) => (
+          <TopicRow
+            key={topic._id}
+            topicName={topic.name}
+            questionCount={topic.question_count}
+            isFollowing={topic.followed_by_user}
+          />
+        ))
+      )}
     </div>
   );
 };

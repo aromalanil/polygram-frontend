@@ -3,7 +3,7 @@ import { useCallback, useEffect, useState } from 'react';
 import { useHistory, useParams } from 'react-router-dom';
 
 import './style.scss';
-import Loader from '../../common/Loader';
+import { TopicCardSkeleton } from '../../common/Skeleton';
 import UserFeed from '../../common/UserFeed';
 import TopicCard from '../../common/TopicCard';
 import IconButton from '../../common/IconButton';
@@ -44,7 +44,7 @@ const Topic = () => {
         </IconButton>
         <h2>Topic {name}</h2>
       </div>
-      {topicData ? <TopicCard topicData={topicData} /> : <Loader />}
+      {topicData ? <TopicCard topicData={topicData} /> : <TopicCardSkeleton />}
       <UserFeed topic={name} />
     </div>
   );

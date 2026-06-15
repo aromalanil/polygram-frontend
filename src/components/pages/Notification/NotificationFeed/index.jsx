@@ -3,7 +3,7 @@ import { useRhinoState, useRhinoValue } from 'react-rhino';
 import { useCallback, useEffect, useMemo, useState, Fragment } from 'react';
 
 import './style.scss';
-import Loader from '../../../common/Loader';
+import { NotificationCardSkeleton } from '../../../common/Skeleton';
 import NotificationCard from './NotificationCard';
 import useApiError from '../../../../hooks/useApiError';
 import { getNotificationCount, getNotifications } from '../../../../api/notification';
@@ -80,6 +80,29 @@ const NotificationFeed = () => {
     updateNotificationCount();
   }, []); // eslint-disable-line
 
+  const renderFooter = () => {
+    if (hasMore) {
+      if (notifications.length === 0) {
+        return (
+          <>
+            <NotificationCardSkeleton />
+            <NotificationCardSkeleton />
+            <NotificationCardSkeleton />
+          </>
+        );
+      }
+      return <NotificationCardSkeleton />;
+    }
+    return (
+      <div className="no-notifications">
+        <div className="separator" />
+        <span>
+          {notifications.length === 0 ? 'No notifications' : 'No more notifications left'}
+        </span>
+      </div>
+    );
+  };
+
   return isUserLoggedIn ? (
     <div className="notification-feed">
       {notifications.map((notification, index) => (
@@ -93,16 +116,7 @@ const NotificationFeed = () => {
           )}
         </Fragment>
       ))}
-      {hasMore ? (
-        <Loader />
-      ) : (
-        <div className="no-notifications">
-          <div className="separator" />
-          <span>
-            {notifications.length === 0 ? 'No notifications' : 'No more notifications left'}
-          </span>
-        </div>
-      )}
+      {renderFooter()}
     </div>
   ) : null;
 };

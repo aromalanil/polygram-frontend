@@ -3,7 +3,7 @@ import { useRhinoValue } from 'react-rhino';
 import { Fragment, useCallback, useEffect, useMemo, useState } from 'react';
 
 import './style.scss';
-import Loader from '../../../common/Loader';
+import { OpinionCardSkeleton } from '../../../common/Skeleton';
 import { getOpinions } from '../../../../api/opinion';
 import OpinionCard from '../../../common/OpinionCard';
 import useApiError from '../../../../hooks/useApiError';
@@ -75,6 +75,26 @@ const Opinions = ({ question_id }) => {
     };
   }, [fetchNewQuestions]);
 
+  const renderFooter = () => {
+    if (hasMore) {
+      if (opinions.length === 0) {
+        return (
+          <>
+            <OpinionCardSkeleton />
+            <OpinionCardSkeleton />
+          </>
+        );
+      }
+      return <OpinionCardSkeleton />;
+    }
+    return (
+      <div className="no-opinions">
+        <div className="separator" />
+        <span>{opinions.length === 0 ? 'No opinions' : 'No more opinions left'}</span>
+      </div>
+    );
+  };
+
   return (
     <div className="opinions">
       {opinions.map((opinion, index) => (
@@ -83,14 +103,7 @@ const Opinions = ({ question_id }) => {
           {opinions.length - 1 === index && <Waypoint onEnter={() => fetchOldOpinions()} />}
         </Fragment>
       ))}
-      {hasMore ? (
-        <Loader />
-      ) : (
-        <div className="no-opinions">
-          <div className="separator" />
-          <span>{opinions.length === 0 ? 'No opinions' : 'No more opinions left'}</span>
-        </div>
-      )}
+      {renderFooter()}
     </div>
   );
 };

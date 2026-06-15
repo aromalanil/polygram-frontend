@@ -4,7 +4,7 @@ import { FiArrowLeft } from 'react-icons/fi';
 import { useHistory, useParams } from 'react-router-dom';
 
 import UserProfile from './UserProfile';
-import Loader from '../../common/Loader';
+import { UserProfileSkeleton, QuestionCardSkeleton } from '../../common/Skeleton';
 import UserFeed from '../../common/UserFeed';
 import { getUserData } from '../../../api/user';
 import IconButton from '../../common/IconButton';
@@ -48,7 +48,17 @@ const Profile = () => {
           <UserFeed user_id={profileDetails._id} />
         </>
       ) : (
-        <Loader />
+        <>
+          <div className="page-back">
+            <IconButton className="back-btn" onClick={() => history.goBack()}>
+              <FiArrowLeft />
+            </IconButton>
+            <h2>Profile</h2>
+          </div>
+          <UserProfileSkeleton />
+          <QuestionCardSkeleton />
+          <QuestionCardSkeleton />
+        </>
       )}
     </>
   );

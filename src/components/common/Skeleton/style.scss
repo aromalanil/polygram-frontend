@@ -1,0 +1,233 @@
+@keyframes shimmer-loader {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.skeleton-shimmer-block {
+  background: linear-gradient(
+    90deg,
+    var(--skeleton-bg) 25%,
+    var(--skeleton-shimmer) 50%,
+    var(--skeleton-bg) 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer-loader 1.5s infinite linear;
+}
+
+.skeleton-card {
+  pointer-events: none;
+  user-select: none;
+  border: none;
+  
+  .avatar {
+    flex-shrink: 0;
+  }
+}
+
+// Question Card Skeleton Container Styling
+.question-card.skeleton-card {
+  display: flex;
+  padding: 2.5rem 3rem;
+  border-radius: 1.3rem;
+  flex-direction: column;
+  box-shadow: var(--shadow);
+  background-color: var(--secondary-bg-color);
+
+  .question-card-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+
+    .author-details {
+      display: flex;
+      align-items: center;
+
+      div {
+        margin-left: 1rem;
+      }
+    }
+  }
+
+  .question-card-middle {
+    margin-bottom: 3.5rem;
+  }
+
+  .question-card-bottom {
+    display: flex;
+    justify-content: space-between;
+
+    .question-card-bottom-right {
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  @media screen and (max-width: 690px) {
+    padding: 2rem;
+  }
+}
+
+// Sibling Spacing with General Sibling Combinator (supports Waypoint node interruption)
+.question-card ~ .question-card,
+.question-card ~ .question-card.skeleton-card,
+.question-card.skeleton-card ~ .question-card.skeleton-card {
+  margin-top: 2rem;
+  @media screen and (max-width: 690px) {
+    margin-top: 1.5rem;
+  }
+}
+
+// Opinion Card Skeleton Container Styling
+.opinion-card.skeleton-card {
+  display: flex;
+  margin-top: 2rem;
+  padding: 2.5rem 3rem;
+  border-radius: 1.3rem;
+  flex-direction: column;
+  box-shadow: var(--shadow);
+  background-color: var(--secondary-bg-color);
+
+  .opinion-card-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+
+    .author-details {
+      display: flex;
+      align-items: center;
+
+      div {
+        margin-left: 1rem;
+      }
+    }
+  }
+
+  .opinion-card-bottom {
+    display: flex;
+  }
+
+  @media screen and (max-width: 690px) {
+    margin-top: 1.5rem;
+    padding: 2rem 2rem;
+  }
+}
+
+// Topic Card Skeleton Container Styling
+.topic-card.skeleton-card {
+  display: flex;
+  padding: 2rem;
+  padding-left: 3rem;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 1.3rem;
+  box-shadow: var(--shadow);
+  background-color: var(--secondary-bg-color);
+}
+
+// Sibling Spacing for Topic Cards
+.topic-card ~ .topic-card,
+.topic-card ~ .topic-card.skeleton-card,
+.topic-card.skeleton-card ~ .topic-card.skeleton-card {
+  margin-top: 1.8rem;
+  @media screen and (max-width: 690px) {
+    margin-top: 1rem;
+  }
+}
+
+// Topic Row Skeleton Container Styling
+.topic-row.skeleton-card {
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.topic-row.skeleton-card ~ .topic-row.skeleton-card {
+  margin-top: 1rem;
+}
+
+// User Profile Card Skeleton Container Styling
+.user-profile-card.skeleton-card {
+  width: 100%;
+  border-radius: 1.3rem;
+  margin-bottom: 2rem;
+  background-color: var(--secondary-bg-color);
+
+  .user-profile-card-top {
+    width: 100%;
+    height: 20rem;
+    @media screen and (max-width: 690px) {
+      max-height: 20vh;
+    }
+  }
+
+  .user-profile-card-middle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 2rem;
+
+    .profile-image {
+      position: relative;
+
+      .profile-picture {
+        position: relative;
+        top: -5rem;
+        width: 12rem;
+        height: 12rem;
+        border-radius: 50%;
+        border: 0.6rem solid var(--secondary-bg-color);
+        @media screen and (max-width: 690px) {
+          width: 8rem;
+          height: 8rem;
+        }
+      }
+    }
+  }
+
+  .user-profile-card-bottom {
+    margin-top: -4rem;
+    padding: 2rem;
+    padding-bottom: 3rem;
+    padding-top: 0;
+  }
+}
+
+// Notification Card Skeleton Container Styling
+.notification-card.skeleton-card {
+  display: flex;
+  padding: 2rem 3rem;
+  border-radius: 1.3rem;
+  box-shadow: var(--shadow);
+  background-color: var(--secondary-bg-color);
+  justify-content: space-between;
+  align-items: center;
+
+  .notification-card-body {
+    display: flex;
+    align-items: center;
+    flex: 1;
+
+    .content {
+      margin-left: 1rem;
+      flex: 1;
+    }
+  }
+
+  @media screen and (max-width: 690px) {
+    padding: 1.5rem 2rem;
+  }
+}
+
+// Sibling Spacing for Notification Cards
+.notification-card ~ .notification-card,
+.notification-card ~ .notification-card.skeleton-card,
+.notification-card.skeleton-card ~ .notification-card.skeleton-card {
+  margin-top: 1.5rem;
+}

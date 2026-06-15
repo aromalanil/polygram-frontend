@@ -1,7 +1,7 @@
 import React, { Suspense } from 'react';
 import { Route, Switch } from 'react-router-dom';
 
-import Loader from './common/Loader';
+import { PageSkeletonLoader } from './common/Skeleton';
 
 const Home = React.lazy(() => import('./pages/Home'));
 const Topic = React.lazy(() => import('./pages/Topic'));
@@ -13,7 +13,7 @@ const Settings = React.lazy(() => import('./pages/Settings'));
 const Notification = React.lazy(() => import('./pages/Notification'));
 
 const Routes = () => (
-  <Suspense fallback={<Loader />}>
+  <Suspense fallback={<PageSkeletonLoader />}>
     <Switch>
       <Route exact path="/">
         <Home />

@@ -2,7 +2,7 @@ import { useRhinoValue } from 'react-rhino';
 import { useHistory } from 'react-router-dom';
 import { useCallback, useEffect, useState } from 'react';
 
-import Loader from '../../../common/Loader';
+import { QuestionCardSkeleton } from '../../../common/Skeleton';
 import useApiError from '../../../../hooks/useApiError';
 import QuestionCard from '../../../common/QuestionCard';
 import { getSingleQuestion } from '../../../../api/question';
@@ -39,7 +39,7 @@ const DetailedQuestion = ({ id, refetchDataRef }) => {
       refetchData={fetchQuestion}
     />
   ) : (
-    <Loader />
+    <QuestionCardSkeleton isDetailed />
   );
 };
 
