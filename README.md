@@ -67,6 +67,20 @@ npm run build
 
 This will generate a production ready build in `build` folder.
 
+### Linting
+
+Run ESLint to check syntax, style, and formatting across all JavaScript and JSX source files:
+
+```bash
+npm run lint
+```
+
+To automatically resolve fixable styling or formatting problems:
+
+```bash
+npm run lint:fix
+```
+
 ## Environment Variables
 
 | Variable                     | Description                                      |
