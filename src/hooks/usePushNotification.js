@@ -23,7 +23,7 @@ const subscribeUser = async () => {
     // Subscribing the user for push notification
     subscription = await serviceWorker.pushManager.subscribe({
       userVisibleOnly: true,
-      applicationServerKey: urlBase64ToUint8Array(process.env.REACT_APP_PUBLIC_VAPID_KEY),
+      applicationServerKey: urlBase64ToUint8Array(import.meta.env.REACT_APP_PUBLIC_VAPID_KEY),
     });
   } catch (err) {
     console.log('Error getting subscription for notification'); // eslint-disable-line no-console

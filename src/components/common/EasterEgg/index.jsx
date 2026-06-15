@@ -6,7 +6,7 @@ function consoleWithoutSource(...args) {
 }
 
 const EasterEgg = () => {
-  if (process.env.NODE_ENV === 'production') {
+  if (import.meta.env.PROD) {
     consoleWithoutSource(
       '%cThey are here',
       `background-color: #151A26; 

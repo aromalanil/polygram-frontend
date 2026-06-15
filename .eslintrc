@@ -1,5 +1,17 @@
 {
-  "extends": ["react-app", "react-app/jest", "airbnb", "airbnb/hooks", "prettier"],
+  "env": {
+    "browser": true,
+    "es2020": true,
+    "node": true
+  },
+  "parserOptions": {
+    "ecmaVersion": 2020,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "extends": ["airbnb", "airbnb/hooks", "prettier"],
   "plugins": ["prettier"],
   "ignorePatterns": ["node_modules"],
   "rules": {

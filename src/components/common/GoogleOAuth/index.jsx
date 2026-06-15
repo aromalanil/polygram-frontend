@@ -7,7 +7,7 @@ import { googleOAuth } from '../../../api/user';
 import useApiError from '../../../hooks/useApiError';
 import googleLogo from '../../../assets/images/google_logo.svg';
 
-const googleClientId = process.env.REACT_APP_GOOGLE_CLIENT_ID;
+const googleClientId = import.meta.env.REACT_APP_GOOGLE_CLIENT_ID;
 
 const GoogleOAuth = ({ text, onSuccess, oAuthType }) => {
   const setApiError = useApiError();
