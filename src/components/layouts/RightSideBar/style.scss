@@ -9,5 +9,15 @@
     font-size: 1.3rem;
     line-height: 2rem;
     color: var(--secondary-text-color);
+
+    a {
+      color: inherit;
+      font-weight: 500;
+      transition: color var(--transition);
+
+      &:hover {
+        color: var(--primary-color);
+      }
+    }
   }
 }

@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 import './style.scss';
 import TopicsCard from './TopicsCard';
 import SearchBar from '../../common/SearchBar';
@@ -11,8 +13,7 @@ const RightSideBar = () => {
       <SearchBar autoFocus={false} tab="Questions" />
       <TopicsCard />
       <div className="footer">
-        &#169; {new Date().getFullYear()} Polygram &bull; Final year Project, College Of Engineering
-        Cherthala
+        &#169; {new Date().getFullYear()} Polygram &bull; A project by <Link to="/u/aromalanil">@aromalanil</Link>
       </div>
     </div>
   ) : null;
