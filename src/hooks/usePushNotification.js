@@ -16,27 +16,30 @@ function urlBase64ToUint8Array(base64String) {
 }
 
 const subscribeUser = async () => {
-  let subscription;
+  const vapidKey = import.meta.env.REACT_APP_PUBLIC_VAPID_KEY;
+  if (!vapidKey) {
+    console.error('VAPID public key is missing'); // eslint-disable-line no-console
+    return;
+  }
+
   try {
     const serviceWorker = await navigator.serviceWorker.ready;
 
     // Subscribing the user for push notification
-    subscription = await serviceWorker.pushManager.subscribe({
+    const subscription = await serviceWorker.pushManager.subscribe({
       userVisibleOnly: true,
-      applicationServerKey: urlBase64ToUint8Array(import.meta.env.REACT_APP_PUBLIC_VAPID_KEY),
+      applicationServerKey: urlBase64ToUint8Array(vapidKey),
     });
-  } catch (err) {
-    console.log('Error getting subscription for notification'); // eslint-disable-line no-console
-  }
 
-  try {
-    const subscribed = await subscribeForPushNotification(JSON.stringify(subscription));
+    if (subscription) {
+      const subscribed = await subscribeForPushNotification(JSON.stringify(subscription));
 
-    if (subscribed) {
-      localStorage.setItem('isUserSubscribed', true);
+      if (subscribed) {
+        localStorage.setItem('isUserSubscribed', 'true');
+      }
     }
   } catch (err) {
-    console.log('Error subscribing to push notifications'); // eslint-disable-line no-console
+    console.error('Error subscribing to push notifications:', err); // eslint-disable-line no-console
   }
 };
 
@@ -44,20 +47,31 @@ const usePushNotification = () => {
   const isUserLoggedIn = useRhinoValue('isUserLoggedIn');
 
   useEffect(() => {
-    // Asking permission from user to show push notification
-    if ('Notification' in window) {
-      Notification.requestPermission();
-    }
-  }, []);
-
-  useEffect(() => {
-    if (isUserLoggedIn) {
-      const isUserSubscribed = JSON.parse(localStorage.getItem('isUserSubscribed'));
-
-      if (!isUserSubscribed) {
-        subscribeUser();
+    const initPush = async () => {
+      if (!('Notification' in window) || !('serviceWorker' in navigator)) {
+        return;
       }
-    }
+
+      if (Notification.permission === 'denied') {
+        return;
+      }
+
+      if (isUserLoggedIn) {
+        const isUserSubscribed = localStorage.getItem('isUserSubscribed') === 'true';
+
+        if (!isUserSubscribed) {
+          if (Notification.permission !== 'granted') {
+            const permission = await Notification.requestPermission();
+            if (permission !== 'granted') {
+              return;
+            }
+          }
+          await subscribeUser();
+        }
+      }
+    };
+
+    initPush();
   }, [isUserLoggedIn]);
 };
 
