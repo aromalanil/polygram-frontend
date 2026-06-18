@@ -1,94 +1,89 @@
 <div align="center">
-<img width="70" src="https://user-images.githubusercontent.com/49222186/134722810-b295aca2-2544-4cd1-b388-17b5320d8fea.png" alt="logo"/>
-<h3>Polygram</h2/>
-<p><b>Social media exclusive for creating & viewing polls</b></p>
+  <img width="70" src="https://user-images.githubusercontent.com/49222186/134722810-b295aca2-2544-4cd1-b388-17b5320d8fea.png" alt="logo"/>
+  <h3>Polygram</h3>
+  <p><b>A modern social platform exclusively for creating, viewing, and discussing polls.</b></p>
 
-<a href="https://github.com/aromalanil/polygram-frontend/issues"><img alt="GitHub issues" src="https://img.shields.io/github/issues/aromalanil/polygram-frontend"></a>&nbsp;&nbsp;
-<a href="https://github.com/aromalanil/polygram-frontend/blob/master/LICENSE"><img alt="GitHub license" src="https://img.shields.io/github/license/aromalanil/polygram-frontend"></a>&nbsp;&nbsp;
-<a href="https://github.com/aromalanil/polygram-frontend/stargazers"><img alt="GitHub stars" src="https://img.shields.io/github/stars/aromalanil/polygram-frontend"></a>&nbsp;&nbsp;
-<a href="https://github.com/aromalanil/polygram-frontend"><img alt="GitHub stars" src="https://img.shields.io/github/repo-size/aromalanil/polygram-frontend"></a>&nbsp;&nbsp;
-<a href="https://github.com/aromalanil/polygram-frontend/network"><img alt="GitHub forks" src="https://img.shields.io/github/forks/aromalanil/polygram-frontend"></a><br/>
-<a href="https://app.netlify.com/sites/polygram/deploys"><img alt="Netlify Build" src="https://api.netlify.com/api/v1/badges/f27790f0-71f5-4754-97a3-c62112d67271/deploy-status"></a>
+  <a href="https://github.com/aromalanil/polygram-frontend/issues"><img alt="GitHub issues" src="https://img.shields.io/github/issues/aromalanil/polygram-frontend"></a>&nbsp;&nbsp;
+  <a href="https://github.com/aromalanil/polygram-frontend/blob/master/LICENSE"><img alt="GitHub license" src="https://img.shields.io/github/license/aromalanil/polygram-frontend"></a>&nbsp;&nbsp;
+  <a href="https://github.com/aromalanil/polygram-frontend/stargazers"><img alt="GitHub stars" src="https://img.shields.io/github/stars/aromalanil/polygram-frontend"></a>&nbsp;&nbsp;
+  <a href="https://app.netlify.com/sites/polygram/deploys"><img alt="Netlify Build" src="https://api.netlify.com/api/v1/badges/f27790f0-71f5-4754-97a3-c62112d67271/deploy-status"></a>
 
-<img width="500" src="https://user-images.githubusercontent.com/49222186/134717245-702d61a7-7b5d-4e6e-9289-e76ef2fe5b8f.png" /><br/>
-
-<p>A simple, convenient & efficient way to seek, share & ask opinions, views & questions with society for better decision making<p/><br/>
+  <br />
+  <img width="600" src="https://user-images.githubusercontent.com/49222186/134717245-702d61a7-7b5d-4e6e-9289-e76ef2fe5b8f.png" alt="Polygram Screenshot" />
 </div>
 
-## Features
+<br />
 
-- 🔥 **PWA** : Install as a [PWA](https://developers.google.com/web/progressive-web-apps) on your device.
-- 🌓 **Theme Support** : Supports Dark & Light Mode
-- 🔐 **Authentication** : Uses JWT & OAuth for authentication
-- 🔔 **Push Notification** : Receive push notifications for events in your account
+**Polygram** provides a clean, responsive, and intuitive way to seek, share, and ask opinions. The platform focuses on delivering a seamless user experience for community-driven decision making.
 
-## Built With
+---
 
-- [React](https://reactjs.org)
-- [React Rhino](https://www.npmjs.com/package/react-rhino) (State Managment)
-- [Sass](https://sass-lang.com/) (Styling)
+## 🚀 Key Features
 
-## Setup
+- **Progressive Web App (PWA)**: Installable on desktop and mobile devices with caching strategies powered by Workbox for offline resilience.
+- **Custom UI & Theming**: Built with fully custom components from scratch using Sass (with minimal reliance on third-party UI libraries) to ensure optimal performance. Includes full native dark and light mode support.
+- **Optimistic UI Updates**: Interactions (like voting) are reflected instantly on the client side before the server responds, ensuring a snappy, lag-free experience.
+- **Real-time Push Notifications**: Leverages Service Workers to deliver native push notifications for account events.
+- **Secure Authentication**: Implements JWT and Google OAuth flows for seamless onboarding.
 
-### Requirements
+## 🛠 Tech Stack & Architecture
 
-- [Node.js](https://nodejs.org/)
+- **Framework**: [React.js](https://reactjs.org/) (bootstrapped with Vite for fast HMR and optimized builds)
+- **State Management**: [React Rhino](https://github.com/aromalanil/react-rhino) — A lightweight, simple state management library designed exclusively for React.
+- **Styling**: Vanilla SCSS/Sass with custom-designed components.
+- **Routing**: React Router
+- **Tooling**: ESLint, Prettier, and GitHub Actions for CI.
+
+> **Note on UI Architecture**: To maintain complete architectural control over the design system and minimize bundle size, almost all components are custom-built. Material UI (MUI) is included strictly for a single slider component, keeping the rest of the application exceptionally lightweight.
+
+## 💻 Getting Started
+
+### Prerequisites
+
+- [Node.js](https://nodejs.org/) (v14 or higher recommended)
 - [Git](https://git-scm.com/)
 
-### Installation
+### Local Installation
 
-Clone the repo locally then install all the dependencies using [NPM](https://npmjs.org/)
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/aromalanil/polygram-frontend.git
+   cd polygram-frontend
+   ```
 
-```bash
-git clone https://github.com/aromalanil/polygram-frontend.git
-cd polygram-frontend
-npm install
-```
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
 
-### Local Development
+3. Create a `.env` file in the project root and add the required environment variables (see below).
 
-1. Create a `.env` file in the project root and add all the envrionment variables mentioned [here](#environment-variables)
-2. Execute the following command.
+4. Start the development server:
+   ```bash
+   npm start
+   ```
+   The app will be running at [http://localhost:3000](http://localhost:3000) (or the port specified by Vite).
 
-```bash
-npm start
-```
+## ⚙️ Available Scripts
 
-This will create a local development server at [http://localhost:3000](http://localhost:3000)
+| Command | Description |
+|---|---|
+| `npm start` | Starts the Vite development server with Hot Module Replacement. |
+| `npm run build` | Compiles and minifies the application for production into the `dist` or `build` directory. |
+| `npm run preview` | Locally previews the production build. |
+| `npm run lint` | Runs ESLint across all source files. |
+| `npm run lint:fix` | Automatically fixes stylistic and formatting errors via ESLint. |
 
-### Generate Production Build
+## 🔑 Environment Variables
 
-1. Create a `.env` file in the project root and add all the envrionment variables mentioned [here](#environment-variables)
-2. Execute the following command.
+To run the project locally, create a `.env` file with the following variables:
 
-```bash
-npm run build
-```
+| Variable | Description |
+|---|---|
+| `REACT_APP_API_ORIGIN` | Base URL of the Polygram REST API (e.g., `http://localhost:5000`) |
+| `REACT_APP_GOOGLE_CLIENT_ID` | Client ID received from Google Cloud Console for OAuth |
+| `REACT_APP_PUBLIC_VAPID_KEY` | Public VAPID key from the backend for web push notifications |
 
-This will generate a production ready build in `build` folder.
+## 📜 License
 
-### Linting
-
-Run ESLint to check syntax, style, and formatting across all JavaScript and JSX source files:
-
-```bash
-npm run lint
-```
-
-To automatically resolve fixable styling or formatting problems:
-
-```bash
-npm run lint:fix
-```
-
-## Environment Variables
-
-| Variable                     | Description                                      |
-| ---------------------------- | ------------------------------------------------ |
-| `REACT_APP_API_ORIGIN`       | Base URL of the REST api                         |
-| `REACT_APP_GOOGLE_CLIENT_ID` | Client ID received from google for OAuth         |
-| `REACT_APP_PUBLIC_VAPID_KEY` | Public vapid key of server for push notification |
-
-## License
-
-This project is licensed under [GNU GPL v3.0](https://www.gnu.org/licenses/gpl-3.0.en.html) - see the [`LICENSE`](https://github.com/aromalanil/polygram-frontend/blob/main/LICENSE) file for details.
+This project is licensed under the [GNU GPL v3.0](https://www.gnu.org/licenses/gpl-3.0.en.html) - see the [LICENSE](LICENSE) file for details.
