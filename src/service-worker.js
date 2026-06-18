@@ -86,7 +86,7 @@ self.addEventListener('push', (event) => {
 });
 
 self.addEventListener('notificationclick', (event) => {
-  const url = 'https://polygram.netlify.app';
+  const url = self.location.origin;
   event.notification.close(); // Android needs explicit close.
   event.waitUntil(
     self.clients.matchAll({ type: 'window' }).then((windowClients) => {
