@@ -1,5 +1,5 @@
-import { useCallback, useState } from 'react';
-import { VscLoading, VscTriangleDown, VscTriangleUp } from 'react-icons/vsc';
+import { useCallback } from 'react';
+import { VscTriangleDown, VscTriangleUp } from 'react-icons/vsc';
 
 import './style.scss';
 import useApiError from '../../../../hooks/useApiError';
@@ -12,29 +12,49 @@ const UpvoteDownVoteButton = ({ opinion_id, isVoted, type, count, setCount, setI
   if (!['upvote', 'downvote'].includes(type)) throw new Error('Invalid type');
 
   const setApiError = useApiError();
-  const [isLoading, setIsLoading] = useState(false);
   const protectFunction = useProtectedFunction();
   const refetchQuestionData = useRefetchData();
 
   const handleVote = useCallback(async () => {
-    if (!isVoted) {
-      setIsLoading(true);
-      try {
-        const { upvote_count, downvote_count } = await addVote({ type, opinion_id });
+    const currentlyVoted = isVoted[type];
+    const oppositeType = type === 'upvote' ? 'downvote' : 'upvote';
 
-        setCount({ upvote: upvote_count, downvote: downvote_count });
+    const rollbackIsVoted = isVoted;
+    const rollbackCount = count;
 
-        const newIsVoted = {
-          upvote: type === 'upvote',
-          downvote: type === 'downvote',
+    // 1. Optimistic updates
+    setIsVoted((prevIsVoted) => {
+      if (currentlyVoted) {
+        return {
+          ...prevIsVoted,
+          [type]: false,
         };
-        setIsVoted(newIsVoted);
-        if (refetchQuestionData?.current) refetchQuestionData.current();
-      } catch (err) {
-        setApiError(err);
       }
-    } else {
-      try {
+      return {
+        [type]: true,
+        [oppositeType]: false,
+      };
+    });
+
+    setCount((prevCount) => {
+      if (currentlyVoted) {
+        return {
+          ...prevCount,
+          [type]: Math.max(0, prevCount[type] - 1),
+        };
+      }
+      return {
+        ...prevCount,
+        [type]: prevCount[type] + 1,
+        [oppositeType]: rollbackIsVoted[oppositeType]
+          ? Math.max(0, prevCount[oppositeType] - 1)
+          : prevCount[oppositeType],
+      };
+    });
+
+    // 2. Perform API request
+    try {
+      if (currentlyVoted) {
         const { upvote_count, downvote_count } = await removeVote({ type, opinion_id });
 
         setCount((prevCount) => ({
@@ -47,33 +67,44 @@ const UpvoteDownVoteButton = ({ opinion_id, isVoted, type, count, setCount, setI
           newIsVoted[type] = false;
           return newIsVoted;
         });
+
+        // Refetching the question to get updated opinion percentage
         if (refetchQuestionData?.current) refetchQuestionData.current();
-      } catch (err) {
-        setApiError(err);
+      } else {
+        const { upvote_count, downvote_count } = await addVote({ type, opinion_id });
+
+        setCount({ upvote: upvote_count, downvote: downvote_count });
+
+        const newIsVoted = {
+          upvote: type === 'upvote',
+          downvote: type === 'downvote',
+        };
+        setIsVoted(newIsVoted);
+
+        // Refetching the question to get updated opinion percentage
+        if (refetchQuestionData?.current) refetchQuestionData.current();
       }
+    } catch (err) {
+      // Roll back to previous state on error
+      setCount(rollbackCount);
+      setIsVoted(rollbackIsVoted);
+      setApiError(err);
     }
-    setIsLoading(false);
-  }, [isVoted, opinion_id, setApiError, setCount, setIsVoted, type, refetchQuestionData]);
+  }, [isVoted, count, opinion_id, setApiError, setCount, setIsVoted, type, refetchQuestionData]);
 
   return (
     <div className="vote-status">
       <div
-        className={`vote-button ${type} ${isVoted ? 'voted' : ''} ${isLoading ? 'is-loading' : ''}`}
+        className={`vote-button ${type} ${isVoted[type] ? 'voted' : ''}`}
         role="button"
         aria-label={`${type} button`}
         tabIndex={0}
         onClick={protectFunction(handleVote)}
       >
-        {isLoading ? (
-          <VscLoading />
-        ) : (
-          <>
-            {type === 'upvote' && <VscTriangleUp />}
-            {type === 'downvote' && <VscTriangleDown />}
-          </>
-        )}
+        {type === 'upvote' && <VscTriangleUp />}
+        {type === 'downvote' && <VscTriangleDown />}
       </div>
-      <div className="vote-count">{count}</div>
+      <div className="vote-count">{count[type]}</div>
     </div>
   );
 };

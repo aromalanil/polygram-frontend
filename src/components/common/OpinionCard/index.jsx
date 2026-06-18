@@ -58,17 +58,17 @@ const OpinionCard = ({ opinionData, onDelete }) => {
             type="upvote"
             opinion_id={_id}
             setCount={setCount}
-            count={count.upvote}
+            count={count}
             setIsVoted={setIsVoted}
-            isVoted={isVoted.upvote}
+            isVoted={isVoted}
           />
           <UpvoteDownVoteButton
             type="downvote"
             opinion_id={_id}
             setCount={setCount}
-            count={count.downvote}
+            count={count}
             setIsVoted={setIsVoted}
-            isVoted={isVoted.downvote}
+            isVoted={isVoted}
           />
         </div>
         <div className="opinion-card-content">
