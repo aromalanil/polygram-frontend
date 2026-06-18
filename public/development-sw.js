@@ -16,7 +16,7 @@ self.addEventListener('push', (event) => {
 });
 
 self.addEventListener('notificationclick', (event) => {
-  const url = 'http://localhost:3000';
+  const url = self.location.origin;
   event.notification.close(); // Android needs explicit close.
   event.waitUntil(
     self.clients.matchAll({ type: 'window' }).then((windowClients) => {
