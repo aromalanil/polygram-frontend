@@ -14,10 +14,12 @@ const useNotificationCount = () => {
     }
   }, [setNotificationCount, notificationCount]);
 
-  // Fetching initial count
+  // Trigger a notification fetch when user logs in
   useEffect(() => {
-    updateNotificationCount();
-  }, []); // eslint-disable-line
+    if (isUserLoggedIn) {
+      updateNotificationCount();
+    }
+  }, [isUserLoggedIn]); // eslint-disable-line
 
   // Re-fetching count every minute
   useEffect(() => {
