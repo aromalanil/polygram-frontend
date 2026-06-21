@@ -1,13 +1,12 @@
-import { RhinoProvider } from 'react-rhino';
+import { RhinoProvider } from '#store';
 import { BrowserRouter as Router } from 'react-router-dom';
 
 import Routes from './Routes';
-import store from '../global/store';
 import Layout from './layouts/Layout';
 
 const App = () => (
   <>
-    <RhinoProvider store={store}>
+    <RhinoProvider>
       <Router>
         <Layout>
           <Routes />

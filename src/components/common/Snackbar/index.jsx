@@ -1,5 +1,5 @@
 import './style.scss';
-import { useRhinoState } from 'react-rhino';
+import { useRhinoState } from '#store';
 import { useCallback, useEffect } from 'react';
 import { BiCheckCircle, BiError, BiErrorCircle, BiX } from 'react-icons/bi';
 

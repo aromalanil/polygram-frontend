@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { FiPlus } from 'react-icons/fi';
-import { useRhinoValue } from 'react-rhino';
+import { useRhinoValue } from '#store';
 
 import './style.scss';
 import Avatar from '../../../common/Avatar';

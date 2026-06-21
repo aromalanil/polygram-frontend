@@ -2,6 +2,9 @@
   "name": "polygram-frontend",
   "version": "1.2.1",
   "private": true,
+  "imports": {
+    "#store": "./src/global/store.js"
+  },
   "scripts": {
     "start": "vite",
     "build": "vite build",
@@ -32,7 +35,7 @@
     "react-google-login": "^5.2.2",
     "react-icons": "^4.2.0",
     "react-otp-input": "^3.1.1",
-    "react-rhino": "^2.1.2",
+    "react-rhino": "^3.0.0",
     "react-router-dom": "^5.3.4",
     "react-select": "^5.8.0",
     "react-waypoint": "^10.3.0",

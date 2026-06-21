@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { MdDelete } from 'react-icons/md';
-import { useRhinoState, useSetRhinoState } from 'react-rhino';
+import { useRhinoState, useSetRhinoState } from '#store';
 
 import './style.scss';
 import Modal from '../../../common/Modal';

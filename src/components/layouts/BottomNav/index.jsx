@@ -1,5 +1,5 @@
 import { useMemo } from 'react';
-import { useRhinoValue } from 'react-rhino';
+import { useRhinoValue } from '#store';
 import { BiCog, BiHome, BiSearchAlt2, BiUser } from 'react-icons/bi';
 
 import './style.scss';

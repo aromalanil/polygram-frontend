@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useSetRhinoState } from 'react-rhino';
+import { useSetRhinoState } from '#store';
 import { useGoogleLogin } from 'react-google-login';
 
 import './style.scss';

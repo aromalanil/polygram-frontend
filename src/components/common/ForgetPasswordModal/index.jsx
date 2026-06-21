@@ -1,5 +1,5 @@
 import { useMemo, useState } from 'react';
-import { useRhinoState, useSetRhinoState } from 'react-rhino';
+import { useRhinoState, useSetRhinoState } from '#store';
 
 import './style.scss';
 import Modal from '../Modal';

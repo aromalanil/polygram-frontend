@@ -1,7 +1,7 @@
 import dayjs from 'dayjs';
 import { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
-import { useSetRhinoState } from 'react-rhino';
+import { useSetRhinoState } from '#store';
 import relativeTime from 'dayjs/plugin/relativeTime';
 
 import './style.scss';

@@ -1,5 +1,5 @@
 import { useCallback, useEffect } from 'react';
-import { useRhinoValue, useSetRhinoState } from 'react-rhino';
+import { useRhinoValue, useSetRhinoState } from '#store';
 
 import { getUserData } from '../api/user';
 

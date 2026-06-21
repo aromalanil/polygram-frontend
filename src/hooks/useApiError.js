@@ -1,5 +1,5 @@
 import { useCallback } from 'react';
-import { useSetRhinoState } from 'react-rhino';
+import { useSetRhinoState } from '#store';
 
 const getErrorMessageFromStatusCode = (statusCode) => {
   switch (statusCode) {

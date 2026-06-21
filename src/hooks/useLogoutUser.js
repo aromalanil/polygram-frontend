@@ -1,5 +1,5 @@
 import { useCallback } from 'react';
-import { useSetRhinoState } from 'react-rhino';
+import { useSetRhinoState } from '#store';
 
 import useApiError from './useApiError';
 import { logoutUser } from '../api/user';

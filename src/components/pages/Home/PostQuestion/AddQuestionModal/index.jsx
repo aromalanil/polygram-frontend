@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useSetRhinoState } from 'react-rhino';
+import { useSetRhinoState } from '#store';
 
 import './style.scss';
 import Options from './Options';

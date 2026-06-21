@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useRhinoValue } from 'react-rhino';
+import { useRhinoValue } from '#store';
 
 import './style.scss';
 import TopicRow from './TopicRow';

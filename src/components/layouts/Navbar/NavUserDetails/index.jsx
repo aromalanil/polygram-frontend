@@ -1,6 +1,6 @@
 import './style.scss';
 import { useState } from 'react';
-import { useRhinoValue } from 'react-rhino';
+import { useRhinoValue } from '#store';
 import { BiDotsVerticalRounded } from 'react-icons/bi';
 
 import Logout from './Logout';

@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { useRhinoValue } from 'react-rhino';
+import { useRhinoValue } from '#store';
 import { subscribeForPushNotification } from '../api/notification';
 
 function urlBase64ToUint8Array(base64String) {

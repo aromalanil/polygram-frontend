@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useRhinoValue } from 'react-rhino';
+import { useRhinoValue } from '#store';
 import { FiArrowLeft } from 'react-icons/fi';
 import { useHistory, useParams } from 'react-router-dom';
 

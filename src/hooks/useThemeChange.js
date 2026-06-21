@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { useRhinoValue } from 'react-rhino';
+import { useRhinoValue } from '#store';
 
 const useThemeChange = () => {
   const theme = useRhinoValue('theme');

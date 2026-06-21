@@ -1,3 +1,4 @@
+import { createRhinoStore } from 'react-rhino';
 import { getInitialTheme } from '../utils/theme';
 
 const store = {
@@ -12,4 +13,5 @@ const store = {
   snackBarData: { type: 'error', message: null },
 };
 
-export default store;
+export const { RhinoProvider, useRhinoState, useRhinoValue, useSetRhinoState } =
+  createRhinoStore(store);

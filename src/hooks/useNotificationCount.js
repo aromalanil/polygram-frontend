@@ -1,5 +1,5 @@
 import { useCallback, useEffect } from 'react';
-import { useRhinoState, useRhinoValue } from 'react-rhino';
+import { useRhinoState, useRhinoValue } from '#store';
 import { getNotificationCount } from '../api/notification';
 
 const useNotificationCount = () => {

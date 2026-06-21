@@ -1,4 +1,4 @@
-import { useRhinoValue } from 'react-rhino';
+import { useRhinoValue } from '#store';
 
 import darkLogo from '../../../assets/images/logo_dark.svg';
 import lightLogo from '../../../assets/images/logo_light.svg';

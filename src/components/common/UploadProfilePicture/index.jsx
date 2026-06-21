@@ -1,6 +1,6 @@
 import Cropper from 'react-easy-crop';
 import Slider from '@material-ui/core/Slider';
-import { useSetRhinoState } from 'react-rhino';
+import { useSetRhinoState } from '#store';
 import { useCallback, useEffect, useState } from 'react';
 
 import './style.scss';

@@ -1,6 +1,6 @@
 import { memo } from 'react';
 import { BiBell } from 'react-icons/bi';
-import { useRhinoValue } from 'react-rhino';
+import { useRhinoValue } from '#store';
 
 import './style.scss';
 

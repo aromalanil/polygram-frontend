@@ -1,5 +1,5 @@
 import { BiShareAlt } from 'react-icons/bi';
-import { useSetRhinoState } from 'react-rhino';
+import { useSetRhinoState } from '#store';
 
 import IconButton from '../../IconButton';
 

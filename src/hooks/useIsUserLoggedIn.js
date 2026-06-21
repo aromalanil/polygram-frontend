@@ -1,5 +1,5 @@
 import { useCallback, useEffect } from 'react';
-import { useSetRhinoState } from 'react-rhino';
+import { useSetRhinoState } from '#store';
 import { findIfUserIsLoggedIn } from '../api/user';
 
 const useIsUserLoggedIn = () => {

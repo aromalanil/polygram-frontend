@@ -1,5 +1,5 @@
 import { Waypoint } from 'react-waypoint';
-import { useRhinoState, useRhinoValue } from 'react-rhino';
+import { useRhinoState, useRhinoValue } from '#store';
 import { useCallback, useEffect, useMemo, useState, Fragment } from 'react';
 
 import './style.scss';

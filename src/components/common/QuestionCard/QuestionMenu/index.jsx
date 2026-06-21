@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useHistory } from 'react-router-dom';
-import { useRhinoValue, useSetRhinoState } from 'react-rhino';
+import { useRhinoValue, useSetRhinoState } from '#store';
 
 import Menu from '../../Menu';
 import { MenuItem } from '../../Menu/MenuList';

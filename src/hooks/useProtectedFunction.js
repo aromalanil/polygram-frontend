@@ -1,5 +1,5 @@
 import { useCallback } from 'react';
-import { useRhinoValue, useSetRhinoState } from 'react-rhino';
+import { useRhinoValue, useSetRhinoState } from '#store';
 
 /**
  *

@@ -1,4 +1,4 @@
-import { useRhinoState } from 'react-rhino';
+import { useRhinoState } from '#store';
 import { FaMoon, FaSun } from 'react-icons/fa';
 
 import './style.scss';

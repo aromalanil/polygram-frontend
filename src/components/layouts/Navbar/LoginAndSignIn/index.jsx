@@ -1,5 +1,5 @@
 import './style.scss';
-import { useSetRhinoState } from 'react-rhino';
+import { useSetRhinoState } from '#store';
 
 import Button from '../../../common/Button';
 
