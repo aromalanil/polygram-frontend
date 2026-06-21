@@ -10,15 +10,8 @@ import LogoutButton from './LogoutButton';
 import RichContent from '../../../common/RichContent';
 
 const UserProfile = ({ userDetails, isCurrentUser }) => {
-  const {
-    bio,
-    email,
-    username,
-    last_name,
-    first_name,
-    profile_picture,
-    followed_topics,
-  } = userDetails;
+  const { bio, email, username, last_name, first_name, profile_picture, followed_topics } =
+    userDetails;
 
   const [isEditProfileVisible, setEditProfileVisibility] = useState(false);
   const [uploadedProfilePicture, setUploadedProfilePicture] = useState(null);

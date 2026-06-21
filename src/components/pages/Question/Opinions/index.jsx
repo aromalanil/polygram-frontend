@@ -1,6 +1,6 @@
 import { Waypoint } from 'react-waypoint';
-import { useRhinoValue } from '#store';
 import { Fragment, useCallback, useEffect, useMemo, useState } from 'react';
+import { useRhinoValue } from '#store';
 
 import './style.scss';
 import { OpinionCardSkeleton } from '../../../common/Skeleton';

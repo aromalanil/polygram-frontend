@@ -1,7 +1,7 @@
 import Cropper from 'react-easy-crop';
-import Slider from '../Slider';
-import { useSetRhinoState } from '#store';
 import { useCallback, useEffect, useState } from 'react';
+import { useSetRhinoState } from '#store';
+import Slider from '../Slider';
 
 import './style.scss';
 import Modal from '../Modal';

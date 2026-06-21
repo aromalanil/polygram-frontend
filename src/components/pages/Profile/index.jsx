@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
-import { useRhinoValue } from '#store';
 import { FiArrowLeft } from 'react-icons/fi';
 import { useHistory, useParams } from 'react-router-dom';
+import { useRhinoValue } from '#store';
 
 import UserProfile from './UserProfile';
 import { UserProfileSkeleton, QuestionCardSkeleton } from '../../common/Skeleton';

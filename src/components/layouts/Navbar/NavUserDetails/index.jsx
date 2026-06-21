@@ -1,7 +1,7 @@
 import './style.scss';
 import { useState } from 'react';
-import { useRhinoValue } from '#store';
 import { BiDotsVerticalRounded } from 'react-icons/bi';
+import { useRhinoValue } from '#store';
 
 import Logout from './Logout';
 import Avatar from '../../../common/Avatar';

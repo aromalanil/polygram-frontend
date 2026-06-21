@@ -29,5 +29,15 @@
     "jsx-a11y/click-events-have-key-events": "off",
     "no-plusplus": ["error", { "allowForLoopAfterthoughts": true }],
     "no-unused-vars": ["error", { "ignoreRestSiblings": true, "argsIgnorePattern": "next" }]
+  },
+  "settings": {
+    "import/resolver": {
+      "alias": {
+        "map": [
+          ["#store", "./src/global/store.js"]
+        ],
+        "extensions": [".js", ".jsx", ".json"]
+      }
+    }
   }
 }

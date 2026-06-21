@@ -19,13 +19,14 @@ const useProtectedFunction = () => {
    * @returns Modified function which will only triggers when called by logged in user
    */
   const protectFunction = useCallback(
-    (functionToProtect) => (...args) => {
-      if (isUserLoggedIn) {
-        functionToProtect(...args);
-      } else {
-        setLoginModalVisible(true);
-      }
-    },
+    (functionToProtect) =>
+      (...args) => {
+        if (isUserLoggedIn) {
+          functionToProtect(...args);
+        } else {
+          setLoginModalVisible(true);
+        }
+      },
     [isUserLoggedIn, setLoginModalVisible]
   );
 

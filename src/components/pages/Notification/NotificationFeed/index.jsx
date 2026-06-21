@@ -1,6 +1,6 @@
 import { Waypoint } from 'react-waypoint';
-import { useRhinoState, useRhinoValue } from '#store';
 import { useCallback, useEffect, useMemo, useState, Fragment } from 'react';
+import { useRhinoState, useRhinoValue } from '#store';
 
 import './style.scss';
 import { NotificationCardSkeleton } from '../../../common/Skeleton';
@@ -15,9 +15,10 @@ const NotificationFeed = () => {
   const isUserLoggedIn = useRhinoValue('isUserLoggedIn');
   const [notificationCount, setNotificationCount] = useRhinoState('notificationCount');
 
-  const finalNotification = useMemo(() => notifications[notifications.length - 1]?._id, [
-    notifications,
-  ]);
+  const finalNotification = useMemo(
+    () => notifications[notifications.length - 1]?._id,
+    [notifications]
+  );
 
   const fetchInitialNotifications = useCallback(async () => {
     try {

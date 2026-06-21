@@ -1,5 +1,5 @@
-import { RhinoProvider } from '#store';
 import { BrowserRouter as Router } from 'react-router-dom';
+import { RhinoProvider } from '#store';
 
 import Routes from './Routes';
 import Layout from './layouts/Layout';

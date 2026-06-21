@@ -1,6 +1,6 @@
 import { useMemo } from 'react';
-import { useRhinoValue } from '#store';
 import { BiCog, BiHome, BiSearchAlt2, BiUser } from 'react-icons/bi';
+import { useRhinoValue } from '#store';
 
 import './style.scss';
 import NavItem from './NavItem.js';

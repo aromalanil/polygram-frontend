@@ -1,5 +1,5 @@
-import { useRhinoState } from '#store';
 import { FaMoon, FaSun } from 'react-icons/fa';
+import { useRhinoState } from '#store';
 
 import './style.scss';
 import IconButton from '../../../common/IconButton';
