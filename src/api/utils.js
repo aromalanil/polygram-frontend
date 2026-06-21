@@ -1,8 +1,19 @@
 import api from './config';
 
-export const getLinkPreview = async (url) => {
-  const response = await api.get('/utils/link-preview', {
-    params: { url },
-  });
-  return response?.data?.data;
+const linkPreviewCache = new Map();
+
+export const getLinkPreview = (url) => {
+  if (linkPreviewCache.has(url)) {
+    return linkPreviewCache.get(url);
+  }
+
+  const promise = api
+    .get('/utils/link-preview', {
+      params: { url },
+    })
+    .then((response) => response?.data?.data);
+
+  linkPreviewCache.set(url, promise);
+
+  return promise;
 };
