@@ -1,13 +1,9 @@
 import { useState } from 'react';
 import { useSetRhinoState } from '#store';
-import { useGoogleLogin } from 'react-google-login';
+import { GoogleLogin } from '@react-oauth/google';
 
-import './style.scss';
 import { googleOAuth } from '../../../api/user';
 import useApiError from '../../../hooks/useApiError';
-import googleLogo from '../../../assets/images/google_logo.svg';
-
-const googleClientId = import.meta.env.REACT_APP_GOOGLE_CLIENT_ID;
 
 const GoogleOAuth = ({ text, onSuccess, oAuthType }) => {
   const setApiError = useApiError();
@@ -15,8 +11,9 @@ const GoogleOAuth = ({ text, onSuccess, oAuthType }) => {
   const setSnackBarData = useSetRhinoState('snackBarData');
   const setIsUserLoggedIn = useSetRhinoState('isUserLoggedIn');
 
-  const onLoginSuccess = async (res) => {
-    const { tokenId: token } = res;
+  const onLoginSuccess = async (credentialResponse) => {
+    const token = credentialResponse.credential;
+    setIsLoading(true);
     try {
       await googleOAuth({ token, type: oAuthType });
     } catch (err) {
@@ -36,31 +33,21 @@ const GoogleOAuth = ({ text, onSuccess, oAuthType }) => {
     setApiError('Google authentication failed');
   };
 
-  const { signIn } = useGoogleLogin({
-    onSuccess: onLoginSuccess,
-    onFailure: onLoginFailure,
-    clientId: googleClientId,
-  });
-
-  const handleClick = (e) => {
-    setIsLoading(true);
-    signIn(e);
-  };
+  // Calculate the standard text for the GoogleLogin button
+  const buttonText = text?.toLowerCase().includes('signup') || text?.toLowerCase().includes('register') 
+    ? 'signup_with' 
+    : 'signin_with';
 
   return (
-    <>
-      <div
-        role="button"
-        tabIndex={0}
-        onClick={handleClick}
-        className={`google-oauth-btn ${isLoading ? 'loading' : ''}`}
-      >
-        <div className="logo-wrapper">
-          <img src={googleLogo} alt="Google Logo" className="google-logo" />
-        </div>
-        <span>{text}</span>
-      </div>
-    </>
+    <div className={`google-oauth-container ${isLoading ? 'loading' : ''}`} style={{ display: 'flex', justifyContent: 'center', width: '100%' }}>
+      <GoogleLogin
+        onSuccess={onLoginSuccess}
+        onError={onLoginFailure}
+        text={buttonText}
+        size="large"
+        theme="outline"
+      />
+    </div>
   );
 };
 
