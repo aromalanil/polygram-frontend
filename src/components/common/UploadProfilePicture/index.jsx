@@ -1,5 +1,5 @@
 import Cropper from 'react-easy-crop';
-import Slider from '@material-ui/core/Slider';
+import Slider from '../Slider';
 import { useSetRhinoState } from '#store';
 import { useCallback, useEffect, useState } from 'react';
 
@@ -105,9 +105,9 @@ const UploadProfilePicture = ({ profilePicture, isOpen, onClose }) => {
               value={zoom}
               min={1}
               max={3}
-              step={0.1}
-              aria-labelledby="Zoom"
-              onChange={(e, _zoom) => setZoom(_zoom)}
+              step={0.01}
+              ariaLabel="Zoom"
+              onChange={(e) => setZoom(Number(e.target.value))}
             />
           </div>
           <Button onClick={handleUploadImage} isLoading={isButtonLoading}>

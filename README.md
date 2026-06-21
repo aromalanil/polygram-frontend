@@ -34,7 +34,7 @@
 - **Routing**: React Router
 - **Tooling**: ESLint, Prettier, and GitHub Actions for CI.
 
-> **Note on UI Architecture**: To maintain complete architectural control over the design system and minimize bundle size, almost all components are custom-built. Material UI (MUI) is included strictly for a single slider component, keeping the rest of the application exceptionally lightweight.
+> **Note on UI Architecture**: To maintain complete architectural control over the design system and minimize bundle size, all components are custom-built with zero reliance on third-party UI frameworks.
 
 ## 💻 Getting Started
 
