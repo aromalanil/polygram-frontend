@@ -13,6 +13,7 @@ const Avatar = ({ src, alt, username, className, onClick }) => {
       role="button" // eslint-disable-line
       className={`avatar ${className ?? ''}`}
       onClick={onClick ?? localOnClick}
+      referrerPolicy="no-referrer"
     />
   );
 };

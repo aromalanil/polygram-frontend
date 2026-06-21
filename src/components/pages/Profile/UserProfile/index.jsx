@@ -42,6 +42,7 @@ const UserProfile = ({ userDetails, isCurrentUser }) => {
               src={profile_picture}
               alt={`${first_name} profile_picture`}
               className="profile-picture"
+              referrerPolicy="no-referrer"
             />
             {isCurrentUser && (
               <FileUploadButton

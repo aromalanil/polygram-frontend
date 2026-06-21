@@ -1,16 +1,16 @@
 import { StrictMode } from 'react';
-import ReactDOM from 'react-dom';
+import { createRoot } from 'react-dom/client';
 
 import './global/style.scss';
 import App from './components/App';
 import swConfig from './sw.config';
 import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 
-ReactDOM.render(
+const root = createRoot(document.getElementById('root'));
+root.render(
   <StrictMode>
     <App />
-  </StrictMode>,
-  document.getElementById('root')
+  </StrictMode>
 );
 
 serviceWorkerRegistration.register(swConfig);
